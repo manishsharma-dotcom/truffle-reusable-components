@@ -1,0 +1,103 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Training",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"221c5a5c-3c9a-4244-bf0e-fb9c0980e6e5\",\"columns\":[{\"UUID\":\"b9fa8d1e-bf22-4fd4-a025-02befec65bc4\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvPageInfo",
+              "id" : "f0f332f5-dd5f-40d2-9b5a-6ef2feb2ad7e",
+              "type" : "component"
+            } ],
+            "id" : "b9fa8d1e-bf22-4fd4-a025-02befec65bc4",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "221c5a5c-3c9a-4244-bf0e-fb9c0980e6e5",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"6394fc3a-23b5-45d7-831b-b8f1157999e6\",\"columns\":[{\"UUID\":\"6506ac3c-2b1d-429f-a676-02fe500c39ee\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvArticleList",
+              "id" : "8eee6a3c-db61-4c2b-a283-55ec81fe48a0",
+              "type" : "component"
+            } ],
+            "id" : "6506ac3c-2b1d-429f-a676-02fe500c39ee",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "6394fc3a-23b5-45d7-831b-b8f1157999e6",
+          "type" : "component"
+        } ],
+        "id" : "318313ef-8ed5-4532-af12-af45d7ac99fb",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Training",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "d8d1879c-0464-48e3-b3c7-47e7d90a59f2",
+          "type" : "component"
+        } ],
+        "id" : "3633bb14-7b61-4af1-a690-3132e55cef3d",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "71e5f8cf-c3de-4c78-badf-d51d5f8a74f8",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "custom-training"
+  },
+  "urlName" : "training"
+}

@@ -1,0 +1,103 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Troubleshootings",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"130f1fa2-72c0-4fd5-9d9c-55a6d16e7a59\",\"columns\":[{\"UUID\":\"ecda23c2-1e0e-4454-bcb1-359b93552927\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvPageInfo",
+              "id" : "217d251d-1201-4aae-8ee7-55dc72515022",
+              "type" : "component"
+            } ],
+            "id" : "ecda23c2-1e0e-4454-bcb1-359b93552927",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "130f1fa2-72c0-4fd5-9d9c-55a6d16e7a59",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"355ddaf4-ac97-4827-a9a3-168bb3f5ff0c\",\"columns\":[{\"UUID\":\"c3b4dd00-fb09-4f83-8778-616e8173b102\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvArticleList",
+              "id" : "32dc6f64-d87e-4c2f-9881-cff02ec0ee40",
+              "type" : "component"
+            } ],
+            "id" : "c3b4dd00-fb09-4f83-8778-616e8173b102",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "355ddaf4-ac97-4827-a9a3-168bb3f5ff0c",
+          "type" : "component"
+        } ],
+        "id" : "fec54f83-0e7b-4998-bd58-17d0eb5fa522",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Troubleshootings",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "ea7f5453-fba5-4e72-8ab5-8d820b777272",
+          "type" : "component"
+        } ],
+        "id" : "95d7f357-6395-4903-8274-f57f9f5c3049",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "eb5904e7-c759-41f2-8014-2cd7872aa6fc",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "custom-troubleshootings"
+  },
+  "urlName" : "troubleshootings"
+}

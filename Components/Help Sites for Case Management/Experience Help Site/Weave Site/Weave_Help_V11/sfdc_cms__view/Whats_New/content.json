@@ -1,0 +1,103 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Whats New",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"9b0e633d-c02e-4df3-86f2-930da07d56fb\",\"columns\":[{\"UUID\":\"f0dbc3c4-1bde-490a-a22c-532f1bbf47d2\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvPageInfo",
+              "id" : "9eb85b2a-c822-4dce-b26f-f373b8dc8239",
+              "type" : "component"
+            } ],
+            "id" : "f0dbc3c4-1bde-490a-a22c-532f1bbf47d2",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "9b0e633d-c02e-4df3-86f2-930da07d56fb",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"32e6d2aa-7aac-43d0-91bd-cbf178b2777c\",\"columns\":[{\"UUID\":\"633addbb-d427-426d-a850-e599fa1f80dd\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvWhatsNewPage",
+              "id" : "161a128e-eb75-4612-a3dd-1c1e7ebd2b91",
+              "type" : "component"
+            } ],
+            "id" : "633addbb-d427-426d-a850-e599fa1f80dd",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "32e6d2aa-7aac-43d0-91bd-cbf178b2777c",
+          "type" : "component"
+        } ],
+        "id" : "86573476-cb40-4e00-963d-4f746a7d23cd",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "<meta name=\"title\" content=\"What's New\">",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Whats New",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "9c0a7136-2031-4e20-8790-edbc25144ec6",
+          "type" : "component"
+        } ],
+        "id" : "b90fac36-7446-47f9-9e2d-e2daca885020",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "0b3e3673-0f6f-46e1-b35d-0f863a40871a",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "custom-whats-new"
+  },
+  "urlName" : "whats-new"
+}
