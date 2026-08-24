@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "SubmitARequest",
+  "contentBody" : {
+    "activeViewId" : "SubmitARequest",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-submitarequest",
+    "urlPrefix" : "submitarequest"
+  },
+  "urlName" : "submitarequest"
+}

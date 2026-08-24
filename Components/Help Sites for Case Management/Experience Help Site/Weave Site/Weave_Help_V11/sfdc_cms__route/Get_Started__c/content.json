@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Get Started",
+  "contentBody" : {
+    "activeViewId" : "Get_Started",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-get-started",
+    "urlPrefix" : "Get-Started"
+  },
+  "urlName" : "get-started"
+}

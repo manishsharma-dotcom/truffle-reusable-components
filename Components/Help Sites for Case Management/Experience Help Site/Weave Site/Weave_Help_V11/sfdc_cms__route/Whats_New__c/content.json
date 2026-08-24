@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Whats New",
+  "contentBody" : {
+    "activeViewId" : "Whats_New",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-whats-new",
+    "urlPrefix" : "whats-new"
+  },
+  "urlName" : "whats-new"
+}

@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Marketing",
+  "contentBody" : {
+    "activeViewId" : "Marketing",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-marketing",
+    "urlPrefix" : "Marketing"
+  },
+  "urlName" : "marketing"
+}

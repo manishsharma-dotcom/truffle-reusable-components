@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Patients-Customers",
+  "contentBody" : {
+    "activeViewId" : "Patients_Customers",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-patients-customers",
+    "urlPrefix" : "Patients-Customers"
+  },
+  "urlName" : "patients-customers"
+}

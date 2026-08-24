@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Emergency Contact",
+  "contentBody" : {
+    "activeViewId" : "Emergency_Contact",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-emergency-contact",
+    "urlPrefix" : "Emergency-Contact"
+  },
+  "urlName" : "emergency-contact"
+}

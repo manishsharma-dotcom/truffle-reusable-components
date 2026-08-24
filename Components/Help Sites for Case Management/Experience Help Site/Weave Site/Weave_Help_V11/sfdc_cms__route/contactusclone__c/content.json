@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "contactUs-Clone",
+  "contentBody" : {
+    "activeViewId" : "contactUs_Clone",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-contactus-clone",
+    "urlPrefix" : "contactus-clone"
+  },
+  "urlName" : "contactus-clone"
+}

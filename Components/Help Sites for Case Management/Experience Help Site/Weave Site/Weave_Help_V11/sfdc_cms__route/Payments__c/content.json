@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Payments",
+  "contentBody" : {
+    "activeViewId" : "Payments",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-payments",
+    "urlPrefix" : "Payments"
+  },
+  "urlName" : "payments"
+}

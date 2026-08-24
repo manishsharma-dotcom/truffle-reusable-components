@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Fax",
+  "contentBody" : {
+    "activeViewId" : "Fax",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-fax",
+    "urlPrefix" : "Fax"
+  },
+  "urlName" : "fax"
+}

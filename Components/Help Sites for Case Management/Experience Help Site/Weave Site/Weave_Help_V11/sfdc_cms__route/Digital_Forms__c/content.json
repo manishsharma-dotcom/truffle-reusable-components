@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Digital Forms",
+  "contentBody" : {
+    "activeViewId" : "Digital_Forms",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-digital-forms",
+    "urlPrefix" : "Digital-Forms"
+  },
+  "urlName" : "digital-forms"
+}

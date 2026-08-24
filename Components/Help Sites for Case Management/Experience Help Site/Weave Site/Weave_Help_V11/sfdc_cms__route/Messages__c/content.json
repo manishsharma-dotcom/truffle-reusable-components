@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Messages",
+  "contentBody" : {
+    "activeViewId" : "Messages",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-messages",
+    "urlPrefix" : "Messages"
+  },
+  "urlName" : "messages"
+}

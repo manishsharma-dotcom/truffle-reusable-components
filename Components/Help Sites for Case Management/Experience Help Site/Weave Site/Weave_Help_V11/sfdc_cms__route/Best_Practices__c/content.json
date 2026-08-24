@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Best Practices",
+  "contentBody" : {
+    "activeViewId" : "Best_Practices",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-bestpractices",
+    "urlPrefix" : "Best-Practices"
+  },
+  "urlName" : "best-practices"
+}

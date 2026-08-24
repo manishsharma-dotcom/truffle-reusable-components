@@ -1,0 +1,6 @@
+{
+  "apiName" : "Team_Chat__c",
+  "type" : "sfdc_cms__route",
+  "parentId" : "sfdc_cms__route/Categories__c",
+  "path" : "routes"
+}

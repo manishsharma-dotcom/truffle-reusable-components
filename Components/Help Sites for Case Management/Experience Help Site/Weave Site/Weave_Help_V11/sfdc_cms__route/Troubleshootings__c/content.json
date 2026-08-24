@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Troubleshootings",
+  "contentBody" : {
+    "activeViewId" : "Troubleshootings",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-troubleshootings",
+    "urlPrefix" : "Troubleshootings"
+  },
+  "urlName" : "troubleshootings"
+}

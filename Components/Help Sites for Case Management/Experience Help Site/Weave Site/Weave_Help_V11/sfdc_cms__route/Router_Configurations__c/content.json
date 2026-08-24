@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Router Configurations",
+  "contentBody" : {
+    "activeViewId" : "Router_Configurations",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-router-configurations",
+    "urlPrefix" : "Router-Configurations"
+  },
+  "urlName" : "router-configurations"
+}

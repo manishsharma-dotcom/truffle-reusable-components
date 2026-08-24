@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Weave + TrueLark",
+  "contentBody" : {
+    "activeViewId" : "Weave_TrueLark_1",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-weave-true-lark",
+    "urlPrefix" : "WeaveTrueLark"
+  },
+  "urlName" : "weave-truelark-1"
+}

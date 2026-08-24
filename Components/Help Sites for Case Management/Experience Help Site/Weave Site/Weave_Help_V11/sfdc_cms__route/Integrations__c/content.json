@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Integrations",
+  "contentBody" : {
+    "activeViewId" : "Integrations",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-integrations1",
+    "urlPrefix" : "Integrations"
+  },
+  "urlName" : "integrations"
+}

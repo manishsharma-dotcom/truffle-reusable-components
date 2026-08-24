@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Phone",
+  "contentBody" : {
+    "activeViewId" : "Phone",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-phone",
+    "urlPrefix" : "Phone"
+  },
+  "urlName" : "phone"
+}

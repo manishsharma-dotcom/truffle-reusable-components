@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Categories",
+  "contentBody" : {
+    "activeViewId" : "Categories",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-categories",
+    "urlPrefix" : "categories"
+  },
+  "urlName" : "categories"
+}

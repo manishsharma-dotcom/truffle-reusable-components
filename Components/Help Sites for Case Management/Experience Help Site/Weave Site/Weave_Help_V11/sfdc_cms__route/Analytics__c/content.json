@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Analytics",
+  "contentBody" : {
+    "activeViewId" : "Analytics",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-analytics",
+    "urlPrefix" : "Analytics"
+  },
+  "urlName" : "analytics"
+}

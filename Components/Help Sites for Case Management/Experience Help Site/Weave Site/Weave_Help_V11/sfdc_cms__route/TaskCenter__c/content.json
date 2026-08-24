@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Task Center",
+  "contentBody" : {
+    "activeViewId" : "Task_Center_1",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-task-center-1",
+    "urlPrefix" : "TaskCenter"
+  },
+  "urlName" : "task-center-1"
+}
