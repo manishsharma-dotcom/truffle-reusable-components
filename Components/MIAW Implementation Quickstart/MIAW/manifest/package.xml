@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Demo_Org_ESD</members>
+		<name>EmbeddedServiceConfig</name>
+	</types>
+	<types>
+		<members>DemoOrg_Message_Routing</members>
+		<name>Flow</name>
+	</types>
+	
+	<types>
+		<members>Message_Channel</members>
+		<name>MessagingChannel</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Queue</name>
+	</types>
+	<types>
+		<members>MessagingSession.Source__c</members>
+		<members>MessagingSession.PreChat_Data__c</members>
+	<name>customfield</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>QueueRoutingConfig</name>
+	</types>
+	<types>
+		<members>sfdc_livemessage</members>
+		<name>ServiceChannel</name>
+	</types>
+	<version>63.0</version>
+
+	
+</Package>
