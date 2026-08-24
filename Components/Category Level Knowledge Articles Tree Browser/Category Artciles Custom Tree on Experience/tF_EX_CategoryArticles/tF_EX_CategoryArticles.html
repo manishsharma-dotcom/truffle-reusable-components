@@ -1,0 +1,98 @@
+<template>
+    <div class="articles-container">
+
+        <!-- Heading -->
+        <div class="articles-heading">
+            <h2 class="articles-title">Help Articles</h2>
+            <p class="articles-disclaimer">
+                The images included in these resources are intended for illustration purposes only and may not be exact representations of the product. If you do not have access to a specific task or function described within the topics of these resources, please contact the person in your office who is a System Administrator for Tebra.
+            </p>
+        </div>
+
+        <div class="articles-divider"></div>
+
+        <!-- Loading -->
+        <template if:true={isLoading}>
+            <div class="articles-loading">
+                <lightning-spinner alternative-text="Loading articles" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+
+            <!-- No category selected -->
+            <template if:false={hasCategory}>
+                <p class="articles-empty">Select a category to view articles.</p>
+            </template>
+
+            <!-- Articles -->
+            <template if:true={hasCategory}>
+
+                <h3 class="articles-category-title">{selectedCategoryLabel}</h3>
+
+                <!-- Empty state -->
+                <template if:true={isEmpty}>
+                    <p class="articles-empty">No published articles in this category.</p>
+                </template>
+
+                <!-- Article cards -->
+                <template if:false={isEmpty}>
+                    <div class="articles-list">
+                        <template for:each={pageArticles} for:item="article">
+                            <div key={article.Id} class="article-card">
+
+                                <!-- Date only — no Published badge -->
+                                <div class="article-card-header">
+                                    <span class="article-date">{article.formattedDate}</span>
+                                </div>
+
+                                <!-- Title as hyperlink -->
+                                <a href={article.articleUrl}
+                                   class="article-title-link"
+                                   onclick={handleArticleClick}
+                                   data-url={article.articleUrl}>
+                                    {article.Title}
+                                </a>
+
+                                <!-- Summary -->
+                                <p class="article-summary">{article.Summary}</p>
+
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Pagination -->
+                    <template if:true={showPagination}>
+                        <div class="pagination-row">
+                            <span class="pagination-info">{paginationInfo}</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn"
+                                        disabled={isPrevDisabled}
+                                        onclick={handlePrevPage}
+                                        aria-label="Previous page">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                                        <path d="M15 18l-6-6 6-6" stroke="currentColor"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <button class="page-btn"
+                                        disabled={isNextDisabled}
+                                        onclick={handleNextPage}
+                                        aria-label="Next page">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                                        <path d="M9 18l6-6-6-6" stroke="currentColor"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+
+                </template>
+
+            </template>
+
+        </template>
+
+    </div>
+</template>

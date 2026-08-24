@@ -1,0 +1,42 @@
+<template>
+    <div class="tree-container">
+
+        <!-- Loading state -->
+        <template if:true={isLoading}>
+            <div class="tree-loading">
+                <lightning-spinner alternative-text="Loading categories" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Category tree — single flat list, arbitrary depth -->
+        <template if:false={isLoading}>
+            <div class="tree-header">CATEGORIES</div>
+
+            <ul class="tree-root" role="tree">
+                <template for:each={flatList} for:item="node">
+                    <li key={node.name} class="tree-item" role="treeitem">
+                        <div class={node.rowClass}
+                             data-name={node.name}
+                             data-has-children={node.hasChildren}
+                             onclick={handleRowClick}>
+
+                            <!-- Chevron (hidden spacer when no children) -->
+                            <span class={node.chevronClass} aria-hidden="true">
+                                <svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor">
+                                    <path d="M4 2l4 4-4 4"
+                                          stroke="currentColor" stroke-width="1.5"
+                                          fill="none"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+
+                            <span class="node-label">{node.label}</span>
+
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+    </div>
+</template>

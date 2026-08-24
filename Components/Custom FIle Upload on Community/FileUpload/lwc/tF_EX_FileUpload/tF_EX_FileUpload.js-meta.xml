@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!--
+                uploadedFileIds is an OUTPUT variable.
+                In Flow Builder, map this to your existing Text Collection variable
+                (the one you loop through to create ContentDocumentLink records).
+                role="outputOnly" means the flow reads this value when the user
+                clicks Next — the LWC sets it, the flow consumes it.
+            -->
+            <property
+                name="uploadedFileIds"
+                type="String[]"
+                label="Uploaded File IDs" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

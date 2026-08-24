@@ -1,0 +1,224 @@
+/* ══════════════════════════════════════════════════════════════
+   caseFileUpload.css  –  SLDS-faithful file upload component
+   ══════════════════════════════════════════════════════════════ */
+
+.fu-root {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+}
+
+/* ── Section label ───────────────────────────────────────────── */
+.fu-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3e3e3c;
+    margin: 0 0 0.4rem;
+    letter-spacing: 0.01em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DROP ZONE
+   ══════════════════════════════════════════════════════════════ */
+.fu-dropzone {
+    border: 2px dashed #dddbda;
+    border-radius: 0.25rem;
+    padding: 1.75rem 1rem;
+    background: #fafaf9;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative; /* so hidden input can sit inside */
+}
+
+.fu-dropzone--active {
+    border-color: #0070d2;
+    background: #e8f4ff;
+}
+
+.fu-dz-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    pointer-events: none; /* clicks fall through to the zone itself */
+}
+
+/* Re-enable pointer events on the button inside */
+.fu-dz-inner .fu-choose-btn {
+    pointer-events: all;
+}
+
+.fu-dz-icon {
+    color: #706e6b;
+    opacity: 0.65;
+}
+
+.fu-dz-text {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #706e6b;
+}
+
+/* Choose Files button – SLDS neutral style */
+.fu-choose-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 2rem;
+    padding: 0 1rem;
+    background: #003A43;
+    border: 1px solid #003A43;
+    border-radius: 0.25rem;
+    font-size: 0.8125rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.1s, border-color 0.1s, color 0.1s;
+    margin-top: 0.15rem;
+}
+
+.fu-choose-btn:hover {
+    background: #ffffff;
+    border-color: #003A43;
+    color: #003A43;
+}
+
+.fu-choose-btn:active {
+    background: #f3f2f2;
+    color: #003A43;
+}
+
+/* Hidden native file input – covers drop zone for drop events */
+.fu-hidden-input {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FILE LIST
+   ══════════════════════════════════════════════════════════════ */
+.fu-file-list {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.fu-file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    background: #ffffff;
+    border-bottom: 1px solid #f3f2f2;
+    transition: background 0.1s;
+}
+
+.fu-file-item:last-child {
+    border-bottom: none;
+}
+
+.fu-file-item:hover {
+    background: #f3f2f2;
+}
+
+.fu-file-type-icon {
+    flex-shrink: 0;
+}
+
+/* File name – takes all remaining space, truncates if too long */
+.fu-file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+}
+
+/* File size – small muted text on the right before delete */
+.fu-file-size {
+    font-size: 0.75rem;
+    color: #706e6b;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Spinner placeholder while uploading */
+.fu-spinner-wrap {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Per-file delete button */
+.fu-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #706e6b;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    flex-shrink: 0;
+    transition: background 0.1s, color 0.1s;
+}
+
+.fu-delete-btn:hover {
+    background: #fce4e4;
+    color: #c23934;
+}
+
+/* ── Help text tooltip ───────────────────────────────────────── */
+.fu-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+}
+
+/* Remove the margin-bottom from the label since the header now owns it */
+.fu-section-header .fu-section-label {
+    margin: 0;
+}
+
+.fu-help-icon {
+    color: #706e6b;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.fu-help-tooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    background: #3e3e3c;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.2rem;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+    pointer-events: none;
+}
+
+/* Small triangle pointing up */
+.fu-help-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    border-width: 0 5px 5px 5px;
+    border-style: solid;
+    border-color: transparent transparent #3e3e3c transparent;
+}
+
+.fu-help-icon:hover + .fu-help-tooltip,
+.fu-section-header:hover .fu-help-tooltip {
+    display: block;
+}

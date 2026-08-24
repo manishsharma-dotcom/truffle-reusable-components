@@ -1,0 +1,99 @@
+<template>
+    <div class="fu-root">
+
+        <!-- ── Section label ─────────────────────────── -->
+        <div class="fu-section-header">
+    <p class="fu-section-label">Attachments</p>
+    <lightning-icon
+        icon-name="utility:info"
+        size="xx-small"
+        class="fu-help-icon"
+        title="Upload any file type up to 2 MB per file">
+    </lightning-icon>
+    <div class="fu-help-tooltip">
+        Uploads must be smaller than 2MB
+    </div>
+</div>
+
+        <!-- ── Drop zone ─────────────────────────────── -->
+        <div
+            class={dropzoneClass}
+            ondragover={handleDragOver}
+            ondragleave={handleDragLeave}
+            ondrop={handleDrop}>
+
+            <div class="fu-dz-inner">
+                <lightning-icon
+                    icon-name="utility:upload"
+                    size="small"
+                    class="fu-dz-icon">
+                </lightning-icon>
+                <p class="fu-dz-text">Drop files here or</p>
+                <button
+                    type="button"
+                    class="fu-choose-btn"
+                    onclick={handleChooseClick}>
+                    Choose Files
+                </button>
+            </div>
+
+            <!-- Hidden native file input -->
+            <input
+                type="file"
+                multiple
+                class="fu-hidden-input"
+                onchange={handleFileChange} />
+        </div>
+
+        <!-- ── File list ──────────────────────────────── -->
+        <template if:true={hasFiles}>
+            <ul class="fu-file-list">
+                <template for:each={files} for:item="file">
+                    <li key={file.tempId} class="fu-file-item">
+
+                        <!-- File type icon -->
+                        <lightning-icon
+                            icon-name="doctype:attachment"
+                            size="x-small"
+                            class="fu-file-type-icon">
+                        </lightning-icon>
+
+                        <!-- File name -->
+                        <span class="fu-file-name" title={file.name}>{file.name}</span>
+
+                        <!-- File size -->
+                        <span class="fu-file-size">{file.size}</span>
+
+                        <!-- Uploading spinner -->
+                        <template if:true={file.isUploading}>
+                            <div class="fu-spinner-wrap">
+                                <lightning-spinner
+                                    size="x-small"
+                                    alternative-text="Uploading">
+                                </lightning-spinner>
+                            </div>
+                        </template>
+
+                        <!-- Delete button (only when upload complete) -->
+                        <template if:false={file.isUploading}>
+                            <button
+                                type="button"
+                                class="fu-delete-btn"
+                                data-id={file.contentDocumentId}
+                                data-name={file.name}
+                                onclick={handleDeleteFile}
+                                title="Remove file">
+                                <lightning-icon
+                                    icon-name="utility:close"
+                                    size="xx-small">
+                                </lightning-icon>
+                            </button>
+                        </template>
+
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+    </div>
+</template>

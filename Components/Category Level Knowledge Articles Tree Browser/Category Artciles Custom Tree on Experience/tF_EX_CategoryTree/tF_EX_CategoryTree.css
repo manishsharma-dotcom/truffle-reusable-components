@@ -1,0 +1,135 @@
+/* ============================================================
+   tF_EX_CategoryTree — left sidebar category tree
+   Tebra colour palette  #004952 teal  #FF8D6E orange
+   ============================================================ */
+
+:host {
+    --ct-teal      : #004952;
+    --ct-teal-dark : #003038;
+    --ct-teal-light: #EBF1F3;
+    --ct-selected  : #d4e8eb;
+    --ct-muted     : #778185;
+    --ct-border    : #d8dfe0;
+    --ct-indent    : 1rem;
+    --ct-font      : 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    display        : block;
+    height         : 100%;
+    font-family    : var(--ct-font);
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+.tree-container {
+    background   : #fff;
+    border-right : 1px solid var(--ct-border);
+    height       : 100%;
+    overflow-y   : auto;
+    padding      : 0;
+}
+
+/* ── Loading ───────────────────────────────────────────────── */
+.tree-loading {
+    display        : flex;
+    justify-content: center;
+    padding        : 2rem 0;
+}
+
+/* ── Section header ────────────────────────────────────────── */
+.tree-header {
+    font-size     : .6875rem;
+    font-weight   : 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color         : var(--ct-muted);
+    padding       : 1.25rem 1rem .5rem 1rem;
+}
+
+/* ── Tree list ─────────────────────────────────────────────── */
+.tree-root {
+    list-style: none;
+    margin    : 0;
+    padding   : 0;
+}
+
+.tree-item {
+    margin : 0;
+    padding: 0;
+}
+
+/* ── Node row ──────────────────────────────────────────────── */
+.node-row {
+    display    : flex;
+    align-items: center;
+    gap        : .3rem;
+    padding    : .42rem .75rem .42rem .5rem;
+    cursor     : pointer;
+    border-radius: 4px;
+    transition : background 120ms, color 120ms;
+    color      : var(--ct-teal);
+    font-size  : .875rem;
+    font-weight: 400;
+    user-select: none;
+    margin     : 1px 2px;
+}
+
+.node-row:hover { background: var(--ct-teal-light); }
+
+.node-row--selected {
+    background  : var(--ct-selected);
+    font-weight : 600;
+    color       : var(--ct-teal-dark);
+    border-left : 3px solid var(--ct-teal);
+    padding-left: calc(.5rem - 3px);
+}
+
+/* ── Indent levels (applied via class on node-row) ─────────── */
+/* Each level adds var(--ct-indent) of left padding */
+.indent-1  { padding-left: calc(.5rem  + var(--ct-indent) * 1); }
+.indent-2  { padding-left: calc(.5rem  + var(--ct-indent) * 2); }
+.indent-3  { padding-left: calc(.5rem  + var(--ct-indent) * 3); }
+.indent-4  { padding-left: calc(.5rem  + var(--ct-indent) * 4); }
+
+/* Selected row adjusts indent by 3px for the border */
+.node-row--selected.indent-1  { padding-left: calc(.5rem  + var(--ct-indent) * 1 - 3px); }
+.node-row--selected.indent-2  { padding-left: calc(.5rem  + var(--ct-indent) * 2 - 3px); }
+.node-row--selected.indent-3  { padding-left: calc(.5rem  + var(--ct-indent) * 3 - 3px); }
+.node-row--selected.indent-4  { padding-left: calc(.5rem  + var(--ct-indent) * 4 - 3px); }
+
+/* ── Chevron ───────────────────────────────────────────────── */
+.chevron {
+    display    : inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    color      : var(--ct-muted);
+    transition : transform 160ms ease;
+    transform  : rotate(0deg);
+    width      : 14px;
+}
+
+.chevron--open   { transform: rotate(90deg); }
+.chevron--hidden { visibility: hidden; }   /* no children — keep spacing */
+
+/* ── Label ─────────────────────────────────────────────────── */
+.node-label {
+    flex         : 1;
+    min-width    : 0;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+/* ── Article count ─────────────────────────────────────────── */
+.node-count {
+    font-size  : .75rem;
+    color      : var(--ct-muted);
+    margin-left: auto;
+    flex-shrink: 0;
+    min-width  : 1.5rem;
+    text-align : right;
+}
+
+.node-row--selected .node-count { color: var(--ct-teal); }
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+.tree-container::-webkit-scrollbar       { width: 4px; }
+.tree-container::-webkit-scrollbar-track { background: transparent; }
+.tree-container::-webkit-scrollbar-thumb { background: var(--ct-border); border-radius: 2px; }

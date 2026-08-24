@@ -1,0 +1,44 @@
+.slds-notify_toast {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 99999;
+}
+
+
+.slds-notify__close path {
+    fill: white;
+}
+
+.successtoast{
+    background: green;
+    color: white;
+}
+
+.warningcontainer{
+    background: #f57d00f5;
+    color: white;
+
+}
+
+.errortoast{
+    background: #a30000f5;
+    color: white;
+}
+
+.slds-icon_container path {
+    fill: white;
+}
+.slds-notify__close svg{
+    fill: white;
+
+}
+.slds-icon{
+    fill: white !important;
+
+}
+
+.slds-icon path{
+    fill: white !important;
+
+}

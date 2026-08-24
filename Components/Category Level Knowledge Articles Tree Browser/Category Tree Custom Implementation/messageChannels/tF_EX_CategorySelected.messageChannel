@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Send Selected Category</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>Selected Category Name</description>
+        <fieldName>categoryName</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Selected Group Name</description>
+        <fieldName>groupName</fieldName>
+    </lightningMessageFields>
+    <masterLabel>Selected Category</masterLabel>
+</LightningMessageChannel>

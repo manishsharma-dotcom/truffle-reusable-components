@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>TF_EX_DataCategoryController</members>
+        <members>TF_EX_DataCategoryControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Data_Category_Mapping__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>tF_EX_CategoryArticles</members>
+        <members>tF_EX_CategoryTree</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>tF_EX_CategorySelected</members>
+        <name>LightningMessageChannel</name>
+    </types>
+    <version>65.0</version>
+</Package>
