@@ -1,0 +1,436 @@
+<template>
+    <div class="case-listview-root" onclick={handleRootClick}>
+
+        <!-- ═══════════════════════════════════════════════════════ LOADING OVERLAY -->
+        <template if:true={isLoading}>
+            <div class="loading-overlay">
+                <lightning-spinner alternative-text="Loading cases" size="medium" variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- ═══════════════════════════════════════════════════════ PAGE HEADER -->
+        <div class="slds-page-header slds-page-header_list-view lv-header">
+
+            <!-- ── Title Row ── -->
+            <div class="slds-page-header__row">
+
+                <!-- Title + subtitle -->
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media slds-media_center">
+                        <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_none">
+                            <lightning-icon icon-name="standard:case" alternative-text="Cases" size="medium"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-text-body_small slds-page-header__name-meta-title">Cases</span>
+                                        <span class="slds-page-header__title slds-truncate" title={listViewTitle}>
+                                            {listViewTitle}
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <p class="slds-page-header__name-meta">{paginationMeta}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+
+                        
+                        <!-- New button (always visible) -->
+                        <div class="slds-page-header__control">
+                            <button
+                                class="slds-button slds-button_neutral"
+                                title="New Case"
+                                onclick={handleNew}>
+                                New
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- /Title Row -->
+
+            <!-- ── Filter Row ── -->
+            <div class="slds-page-header__row lv-filter-row">
+                <div class="lv-toolbar-left">
+
+                <!-- ── List View Toggle (Admin only) ── -->
+            <template if:true={showListViewToggle}>
+                <div class="lv-toggle-group">
+                    <button
+                    class={isMyCasesBtnClass}
+                    data-type="MY_CASES"
+                    onclick={handleListViewChange}
+                    title="My Cases">
+                    My Cases
+                    </button>
+                    <button
+                    class={isMyAccountCasesBtnClass}
+                    data-type="MY_ACCOUNT_CASES"
+                    onclick={handleListViewChange}
+                    title="My Account Cases">
+                    My Account Cases
+                    </button>
+                    </div>
+            </template>
+
+                <!-- ── Account Multi-Select Filter ── -->
+                <template if:true={showAccountFilter}>
+                <div class="lv-filter-wrapper" onclick={stopPropagation}>
+
+                    <!-- Trigger Button -->
+                    <button
+                        class={filterBtnClass}
+                        onclick={toggleAccountDropdown}
+                        title="Filter by Account">
+                        <lightning-icon
+                            icon-name="utility:filterList"
+                            size="xx-small"
+                            class="slds-m-right_xx-small lv-filter-icon">
+                        </lightning-icon>
+                        <span class="lv-filter-label">{accountFilterLabel}</span>
+                        <lightning-icon
+                            icon-name={dropdownChevronIcon}
+                            size="xx-small"
+                            class="slds-m-left_xx-small custom-chevron">
+                        </lightning-icon>
+                    </button>
+
+                    
+                    <!-- Dropdown Panel -->
+                    <template if:true={isDropdownOpen}>
+                        <div class="lv-dropdown slds-dropdown slds-dropdown_left" role="listbox">
+
+                            <!-- Dropdown Search -->
+                            <div class="lv-dropdown-search">
+                                <input
+                                type="text"
+                                class="slds-input"
+                                placeholder="Search accounts..."
+                                value={accountSearchTerm}
+                                oninput={handleAccountSearch} />
+                            </div>
+
+                            <!-- Account List -->
+                            <ul class="slds-listbox slds-listbox_vertical lv-dropdown-list" role="group">
+                                <template if:true={hasFilteredAccounts}>
+                                    <template for:each={filteredAccounts} for:item="acc">
+                                        <li key={acc.accountId} class="slds-listbox__item" role="presentation">
+                                            <span class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small">
+                                                <span class="slds-media__figure slds-listbox__option-icon">
+                                                    <div class="slds-form-element">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-checkbox">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name={acc.accountId}
+                                                                    id={acc.checkboxId}
+                                                                    value={acc.accountId}
+                                                                    checked={acc.isSelected}
+                                                                    onchange={handleAccountSelect} />
+                                                                <label
+                                                                    class="slds-checkbox__label"
+                                                                    for={acc.checkboxId}>
+                                                                    <span class="slds-checkbox_faux"></span>
+                                                                    <span class="slds-form-element__label slds-assistive-text">
+                                                                        {acc.accountName}
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                                <span class="slds-media__body">
+                                                    <span class="slds-truncate" title={acc.accountName}>
+                                                        {acc.accountName}
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </li>
+                                    </template>
+                                </template>
+
+                                <template if:false={hasFilteredAccounts}>
+                                    <li class="slds-listbox__item lv-no-results">
+                                        No accounts found
+                                    </li>
+                                </template>
+                            </ul>
+
+                        </div>
+                    </template>
+                </div><!-- /Account Filter -->
+                </template>
+
+            <!-- ── Status Filter ── -->
+            <div class="lv-filter-wrapper" onclick={stopPropagation}>
+                <button
+                    class={statusFilterBtnClass}
+                    onclick={handleStatusFilterToggle}
+                    title="Filter by Status">
+                    <lightning-icon
+                        icon-name="utility:filterList"
+                        size="xx-small"
+                        class="slds-m-right_xx-small lv-filter-icon">
+                    </lightning-icon>
+                    <span class="lv-filter-label">{statusFilterLabel}</span>
+                    <lightning-icon
+                        icon-name={statusDropdownChevronIcon}
+                        size="xx-small"
+                        class="slds-m-left_xx-small custom-chevron">
+                    </lightning-icon>
+                </button>
+
+                <template if:true={isStatusDropdownOpen}>
+                    <div class="lv-dropdown slds-dropdown slds-dropdown_left" role="listbox">
+                        <ul class="slds-listbox slds-listbox_vertical" role="group">
+                            <li class="slds-listbox__item lv-status-option" role="presentation">
+                                <span
+                                    class={statusOptionAllClass}
+                                    role="option"
+                                    data-value="ALL"
+                                    onclick={handleStatusFilterSelect}>
+                                    <template if:true={isStatusAll}>
+                                        <lightning-icon icon-name="utility:check" size="xx-small" class="lv-status-check"></lightning-icon>
+                                    </template>
+                                    <span class="slds-truncate">All Cases</span>
+                                </span>
+                            </li>
+                            <li class="slds-listbox__item lv-status-option" role="presentation">
+                                <span
+                                    class={statusOptionOpenClass}
+                                    role="option"
+                                    data-value="OPEN"
+                                    onclick={handleStatusFilterSelect}>
+                                    <template if:true={isStatusOpen}>
+                                        <lightning-icon icon-name="utility:check" size="xx-small" class="lv-status-check"></lightning-icon>
+                                    </template>
+                                    <span class="slds-truncate">Open Cases</span>
+                                </span>
+                            </li>
+                            <li class="slds-listbox__item lv-status-option" role="presentation">
+                                <span
+                                    class={statusOptionClosedClass}
+                                    role="option"
+                                    data-value="CLOSED"
+                                    onclick={handleStatusFilterSelect}>
+                                    <template if:true={isStatusClosed}>
+                                        <lightning-icon icon-name="utility:check" size="xx-small" class="lv-status-check"></lightning-icon>
+                                    </template>
+                                    <span class="slds-truncate">Closed Cases</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+            </div><!-- /Status Filter -->
+
+        </div><!-- /lv-toolbar-left -->
+
+                <!-- ── Case Keyword Search ── -->
+                <div class="lv-case-search">
+                        <input
+                        type="search"
+                        class="slds-input lv-search-input"
+                        placeholder="Search cases..."
+                        value={searchTerm}
+                        oninput={handleSearchChange} />
+                </div>
+
+            </div><!-- /Filter Row -->
+        </div><!-- /Page Header -->
+
+        <!-- ═══════════════════════════════════════════════════════ SELECTION BANNER -->
+        <template if:true={hasSelectedRows}>
+            <div class="lv-selection-banner">
+                <lightning-icon icon-name="utility:check" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                <strong>{selectedCount}</strong>&nbsp;item(s) selected
+                <button class="slds-button slds-button_icon lv-clear-selection" onclick={handleClearSelection} title="Clear selection">
+                    <lightning-icon icon-name="utility:close" size="xx-small"></lightning-icon>
+                </button>
+            </div>
+        </template>
+
+        <!-- ═══════════════════════════════════════════════════════ TABLE CARD -->
+        <div class="lv-table-card">
+            <div class="lv-table-scroll">
+                <table
+                    class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout"
+                    role="grid"
+                    aria-label={listViewTitle}>
+
+                    <!-- ── Table Header ── -->
+                    <thead>
+                        <tr class="slds-line-height_reset">
+
+                            <!-- Select-all checkbox -->
+                            <!-- Row number column -->
+                            <th scope="col" class="lv-col-rownum" aria-label="Row Number"></th>         
+                            
+                            <!-- Dynamic column headers -->
+                            
+                            <template for:each={columns} for:item="col">
+                                
+                                <th
+                                    key={col.key}
+                                    scope="col"
+                                    class={col.thClass}
+                                    aria-label={col.label}
+                                    data-field={col.field}
+                                    onclick={handleSort}>
+                                    <a class="slds-th__action slds-text-link_reset" role="button" tabindex="0">
+                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                            <span class="slds-truncate" title={col.label}>{col.label}</span>
+                                            <template if:true={col.isSorted}>
+                                                <lightning-icon
+                                                    icon-name={col.sortIconName}
+                                                    size="xx-small"
+                                                    class="slds-is-sortable__icon slds-m-left_xx-small">
+                                                </lightning-icon>
+                                            </template>
+                                        </div>
+                                    </a>
+                                </th>
+                            </template>
+
+                        </tr>
+                    </thead>
+
+                    <!-- ── Table Body ── -->
+                    <tbody>
+
+                        <!-- Data rows -->
+                        <template if:true={hasCases}>
+                            <template for:each={cases} for:item="c">
+                                <tr key={c.Id} class={c.rowClass}>
+
+                                    <!-- Row checkbox -->
+                                    <td class="lv-col-rownum" role="gridcell">
+                                        <span class="lv-row-num">{c.rowNumber}</span>
+                                    </td>  
+                                    
+                                    <!-- Case Number -->
+                                    <td data-label="Case Number" role="gridcell">
+                                        <div class="slds-cell-wrap">
+                                            <a
+                                                class="slds-truncate slds-th__action lv-case-link"
+                                                href="javascript:void(0);"
+                                                onclick={handleCaseClick}
+                                                data-id={c.Id}
+                                                title={c.CaseNumber}>
+                                                {c.CaseNumber}
+                                            </a>
+                                        </div>
+                                    </td>
+
+                                    <!-- Subject -->
+                                    <td data-label="Subject" role="gridcell">
+                                        <div class="slds-truncate" title={c.Subject}>{c.Subject}</div>
+                                    </td>
+
+                                    <!-- Contact Name -->
+                                    <td data-label="Contact Name" role="gridcell">
+                                        <div class="slds-truncate" title={c.ContactName}>{c.ContactName}</div>
+                                    </td>
+
+                                    <!--Account Name -->
+                                    <td data-label="Account Name" role="gridcell">
+                                        <div class="slds-truncate" title={c.AccountName}>{c.AccountName}</div>
+                                    </td>
+
+                                    <!-- Status -->
+                                    <td data-label="Status" role="gridcell">
+                                        <span class={c.statusBadgeClass} title={c.Status}>{c.Status}</span>
+                                    </td>
+
+                                    <!-- Record Type -->
+                                    <td data-label="Case Type" role="gridcell">
+                                        <span class={c.caseTypeBadgeClass} title={c.CaseType}>{c.CaseType}</span>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+
+                        <!-- Empty state -->
+                        <template if:true={emptyCases}>
+                            <tr>
+                                <td colspan="6" class="lv-empty-cell">
+                                    <div class="lv-empty-state">
+                                        <div class="lv-empty-icon">
+                                            <lightning-icon icon-name="standard:case" size="large"></lightning-icon>
+                                        </div>
+                                        <h3 class="slds-text-heading_small slds-m-top_small">No cases found</h3>
+                                        <p class="slds-text-body_regular slds-text-color_weak slds-m-top_x-small">
+                                            Try adjusting your search or account filter.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+
+                    </tbody>
+                </table>
+            </div><!-- /table-scroll -->
+
+            <!-- ── Pagination Footer ── -->
+            <div class="lv-pagination">
+                <div class="lv-pagination-count slds-text-body_small slds-text-color_weak">
+                    {paginationLabel}
+                </div>
+                <div class="lv-pagination-controls">
+                    <!-- Page-size hint -->
+                    <span class="lv-page-indicator slds-text-body_small slds-text-color_weak slds-m-right_small">
+                        Page {pageNumber} of {totalPages}
+                    </span>
+                    <button
+                        class="slds-button slds-button_icon slds-button_icon-border-filled"
+                        onclick={handlePrevPage}
+                        disabled={isPrevDisabled}
+                        title="Previous page">
+                        <lightning-icon icon-name="utility:chevronleft" size="x-small" alternative-text="Previous"></lightning-icon>
+                    </button>
+                    <button
+                        class="slds-button slds-button_icon slds-button_icon-border-filled slds-m-left_xx-small"
+                        onclick={handleNextPage}
+                        disabled={isNextDisabled}
+                        title="Next page">
+                        <lightning-icon icon-name="utility:chevronright" size="x-small" alternative-text="Next"></lightning-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- /table card -->
+
+        <!-- ═══════════════════════════════════════════════════════ FLOW MODAL -->
+        <template if:true={showFlow}>
+            <div class="lv-modal-backdrop">
+                <div class="lv-modal" onclick={stopPropagation}>
+
+                    <!-- Modal Header -->
+                    <div class="lv-modal-header">
+                        <h2 class="lv-modal-title">New Case</h2>
+                        <button
+                            class="lv-modal-close"
+                            onclick={handleFlowCancel}
+                            title="Close">
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        </button>
+                    </div>
+
+                    <!-- Modal Body: Case Create -->
+                    <div class="lv-modal-body lv-modal-body--flush">
+                        <c-t-f_-e-x_-case-community-create
+                        oncasecreated={handleCaseCreated}
+                        onmodalclosed={handleModalClosed}>
+                        </c-t-f_-e-x_-case-community-create>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div><!-- /root -->
+</template>

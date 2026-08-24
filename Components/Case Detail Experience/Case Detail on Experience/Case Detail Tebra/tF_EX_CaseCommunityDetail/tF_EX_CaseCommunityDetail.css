@@ -1,0 +1,479 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   TF_EX_CaseCommunityDetail.css
+   Tebra-branded styling for the Case Detail component on Experience Cloud.
+   CSS class prefix: cd- (case detail)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Root container ──────────────────────────────────────────────────────── */
+.cd-root {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    background: #ffffff;
+    border: 1.5px solid #003A43;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: visible;
+}
+
+.cd-header-title-plain {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #003A43;
+    margin: 0;
+}
+
+/* ── Loading overlay ─────────────────────────────────────────────────────── */
+.cd-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 100;
+    min-height: 200px;
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════ */
+
+.cd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: #ffffff;
+    border-radius: 0.5rem 0.5rem 0 0;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.cd-header-meta {
+    font-size: 0.75rem;
+    color: #706e6b;
+    margin-bottom: 0.15rem;
+}
+
+.cd-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.cd-header-icon {
+    flex-shrink: 0;
+}
+
+.cd-case-number {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #003A43;
+}
+
+.cd-header-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   READ-ONLY FIELDS
+   ═══════════════════════════════════════════ */
+
+.cd-fields {
+    padding: 0 1.25rem;
+    background: #ffffff;
+}
+
+.cd-field-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #f3f2f2;
+}
+
+.cd-field-row:last-child {
+    border-bottom: none;
+}
+
+.cd-field-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #706e6b;
+    min-width: 140px;
+    flex-shrink: 0;
+    padding-top: 0.05rem; /* optical alignment with value text */
+}
+
+.cd-field-value {
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+/* Long text fields (Description) preserve line breaks */
+.cd-field-value--wrap {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   STATUS BADGES
+   ═══════════════════════════════════════════ */
+
+.cd-badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.cd-status-new        { background: #e8f0fe; color: #1a56db; }
+.cd-status-working    { background: #fff3cd; color: #856404; }
+.cd-status-on-hold    { background: #f3f2f2; color: #555; }
+.cd-status-escalated  { background: #fce4e4; color: #8e0000; }
+.cd-status-closed     { background: #d4f4e2; color: #003A43; }
+.cd-status-pending    { background: #fff3cd; color: #856404; }
+.cd-status-resolved   { background: #d4f4e2; color: #003A43; }
+.cd-status-default    { background: #f3f2f2; color: #3e3e3c; }
+
+/* ═══════════════════════════════════════════
+   COLLABORATORS SECTION
+   ═══════════════════════════════════════════ */
+
+.cd-section {
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1.5px solid #003A43;
+    background: #ffffff;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.cd-section-heading {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #003A43;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+/* Existing team member pills */
+.cd-collab-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+}
+
+.cd-collab-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.35rem 0.2rem 0.5rem;
+    background: #e8f4ff;
+    border: 1px solid #a8d4f5;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    color: #014486;
+    max-width: 240px;
+}
+
+.cd-collab-icon {
+    --sds-c-icon-color-foreground-default: #014486;
+    flex-shrink: 0;
+}
+
+.cd-collab-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.cd-collab-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-shrink: 0;
+    color: #706e6b;
+    transition: color 0.1s;
+    --sds-c-icon-color-foreground-default: #706e6b;
+}
+
+.cd-collab-remove:hover {
+    color: #c23934;
+    --sds-c-icon-color-foreground-default: #c23934;
+}
+
+/* Subtle separator before the add-picker */
+.cd-collab-add {
+    padding-top: 0.5rem;
+    border-top: 1px dashed #dddbda;
+    margin-top: 0.25rem;
+    position: relative;
+    z-index: 600;
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════ */
+
+.cd-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+    border: 1px solid;
+    line-height: 1;
+}
+
+/* Brand (teal) — used for Reopen and secondary actions */
+.cd-btn--brand {
+    background: #006e7f;
+    border-color: #006e7f;
+    color: #ffffff;
+}
+.cd-btn--brand:hover:not(:disabled) {
+    background: #ffffff;
+    border-color: #003A43;
+    color: #003A43;
+}
+
+/* Neutral — Cancel buttons */
+.cd-btn--neutral {
+    background: #ffffff;
+    border-color: #dddbda;
+    color: #3e3e3c;
+}
+.cd-btn--neutral:hover:not(:disabled) {
+    background: #f3f2f2;
+    border-color: #c9c7c5;
+}
+
+/* Danger (red) — Close Case action */
+.cd-btn--danger {
+    background: #ba0517;
+    border-color: #ba0517;
+    color: #ffffff;
+}
+.cd-btn--danger:hover:not(:disabled) {
+    background: #ffffff;
+    border-color: #8e0000;
+    color: #8e0000;
+}
+
+.cd-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════
+   MODALS
+   ═══════════════════════════════════════════ */
+
+.cd-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.cd-modal {
+    background: #ffffff;
+    border-radius: 0.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cd-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid #dddbda;
+    flex-shrink: 0;
+}
+
+.cd-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #080707;
+    margin: 0;
+}
+
+.cd-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #706e6b;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    transition: background 0.1s;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cd-modal-close:hover {
+    background: #f3f2f2;
+    color: #3e3e3c;
+}
+
+.cd-modal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+}
+
+.cd-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.85rem 1.25rem;
+    border-top: 1px solid #dddbda;
+    flex-shrink: 0;
+}
+
+/* ── Modal form elements ─────────────────────────────────────────────────── */
+
+.cd-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cd-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3e3e3c;
+    line-height: 1.5;
+}
+
+.cd-label--req::before {
+    content: '* ';
+    color: #ba0517;
+}
+
+.cd-select-wrap {
+    position: relative;
+}
+
+.cd-select {
+    width: 100%;
+    height: 2rem;
+    padding: 0 2rem 0 0.75rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23706e6b' d='M6 8L0 0h12z'/%3E%3C/svg%3E") no-repeat right 0.6rem center;
+    background-size: 10px;
+    appearance: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.cd-select:focus {
+    border-color: #0070d2;
+    box-shadow: 0 0 0 1px #0070d2;
+}
+.cd-select--error {
+    border-color: #ba0517;
+    box-shadow: 0 0 0 1px #ba0517;
+}
+
+.cd-textarea {
+    width: 100%;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    background: #ffffff;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    resize: vertical;
+    min-height: 5.5rem;
+    line-height: 1.5;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.cd-textarea:focus {
+    border-color: #0070d2;
+    box-shadow: 0 0 0 1px #0070d2;
+}
+.cd-input--error {
+    border-color: #ba0517;
+    box-shadow: 0 0 0 1px #ba0517;
+}
+
+.cd-field-error {
+    font-size: 0.75rem;
+    color: #ba0517;
+    margin: 0;
+}
+
+.cd-field-hint {
+    font-size: 0.75rem;
+    color: #706e6b;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+    .cd-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cd-field-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .cd-field-label {
+        min-width: unset;
+    }
+
+    .cd-modal {
+        max-width: 100%;
+    }
+}

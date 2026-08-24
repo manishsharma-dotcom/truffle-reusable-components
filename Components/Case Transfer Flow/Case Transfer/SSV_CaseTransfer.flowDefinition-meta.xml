@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>6</activeVersionNumber>
+    <description>SSV Case Transfer - Used to transfer Case based on skills when Enhanced Omni is Enabled</description>
+    <masterLabel>SSV_Case Transfer</masterLabel>
+</FlowDefinition>

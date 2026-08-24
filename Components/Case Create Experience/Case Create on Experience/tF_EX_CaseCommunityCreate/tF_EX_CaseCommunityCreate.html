@@ -1,0 +1,873 @@
+<template>
+    <div class="cc-root">
+
+        <!-- ════════════════════ LOADING ════════════════════ -->
+        <template if:true={isLoading}>
+            <div class="cc-loading">
+                <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- ════════════════════ STEP 1 — Record Type ════════════════════ -->
+        <template if:true={isStep1}>
+            <div class="cc-body">
+                <div class="cc-section-label">
+                    <abbr title="required" class="cc-req-star">*</abbr> Choose Team :
+                </div>
+                <div class="cc-radio-group" role="radiogroup">
+                    <template for:each={recordTypeOptions} for:item="rt">
+                        <div key={rt.value} class="cc-radio-row">
+                            <input
+                                type="radio"
+                                id={rt.inputId}
+                                name="caseRecordType"
+                                value={rt.value}
+                                class="cc-radio"
+                                onchange={handleRecordTypeChange} />
+                            <label for={rt.inputId} class="cc-radio-label">{rt.label}</label>
+                        </div>
+                    </template>
+                </div>
+                <template if:true={showRecordTypeError}>
+                    <p class="cc-field-error cc-mt-xs">Please select a Record Type to continue.</p>
+                </template>
+            </div>
+            <div class="cc-footer">
+                <button class="cc-btn cc-btn--brand" onclick={handleNext}>Next</button>
+            </div>
+        </template>
+
+        <!-- ════════════════════ STEP 2 — Case Details ════════════════════ -->
+        <template if:true={isStep2}>
+            <div class="cc-body">
+
+                <!-- ── Account (full width, hidden if single account) ── -->
+                <template if:false={isSingleAccount}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-account">Account</label>
+                                <div class="cc-select-wrap">
+                                    <select
+                                        id="cc-account"
+                                        class={accountSelectClass}
+                                        onchange={handleAccountChange}>
+                                        <option value="">--None--</option>
+                                        <template for:each={accountOptions} for:item="opt">
+                                            <option key={opt.value} value={opt.value} selected={opt.isSelected}>{opt.label}</option>
+                                        </template>
+                                    </select>
+                                </div>
+                                <template if:true={showAccountError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- ── Category (full width) ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <div class="cc-field">
+                            <label class="cc-label cc-label--req" for="cc-category">Category</label>
+                            <div class="cc-select-wrap">
+                                <select
+                                    id="cc-category"
+                                    class={categorySelectClass}
+                                    disabled={isCategoryDisabled}
+                                    onchange={handleCategoryChange}>
+                                    <option value="">--None--</option>
+                                    <template for:each={categoryOptions} for:item="opt">
+                                        <option key={opt.value} value={opt.value} selected={opt.isSelected}>{opt.label}</option>
+                                    </template>
+                                </select>
+                            </div>
+                            <template if:true={showCategoryError}>
+                                <p class="cc-field-error">Complete this field.</p>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Issue (full width, always visible, disabled until category selected) ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <div class="cc-field">
+                            <label class="cc-label cc-label--req" for="cc-issue">Issue</label>
+                            <div class="cc-select-wrap">
+                                <select
+                                    id="cc-issue"
+                                    class={issueSelectClass}
+                                    disabled={isIssueDisabled}
+                                    onchange={handleIssueChange}>
+                                    <option value="">--None--</option>
+                                    <template for:each={issueOptions} for:item="opt">
+                                        <option key={opt.value} value={opt.value} selected={opt.isSelected}>{opt.label}</option>
+                                    </template>
+                                </select>
+                            </div>
+                            <template if:true={showIssueError}>
+                                <p class="cc-field-error">Complete this field.</p>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Issue Detail (full width, always visible, disabled until issue selected) ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <div class="cc-field">
+                            <label class="cc-label cc-label--req" for="cc-issue-detail">Issue Detail</label>
+                            <div class="cc-select-wrap">
+                                <select
+                                    id="cc-issue-detail"
+                                    class={issueDetailSelectClass}
+                                    disabled={isIssueDetailDisabled}
+                                    onchange={handleIssueDetailChange}>
+                                    <option value="">--None--</option>
+                                    <template for:each={issueDetailOptions} for:item="opt">
+                                        <option key={opt.value} value={opt.value} selected={opt.isSelected}>{opt.label}</option>
+                                    </template>
+                                </select>
+                            </div>
+                            <template if:true={showIssueDetailError}>
+                                <p class="cc-field-error">Complete this field.</p>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section for Missing ERAs fields -->
+                <template if:true={missingERASelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req">Payer Name</label>
+                                <input
+                                    type="text"
+                                    class={payerNameClass}
+                                    value={payerName}
+                                    onchange={handlePayerNameChange}
+                                />
+                                <template if:true={showPayerNameError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req">Payer Id</label>
+                                <input
+                                    type="text"
+                                    class={payerIdClass}
+                                    value={payerId}
+                                    onchange={handlePayerIdChange}
+                                />
+                                <template if:true={showPayerIdError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req">NPI</label>
+                                <input
+                                    type="text"
+                                    class={npiClass}
+                                    value={npi}
+                                    onchange={handleNpiChange}
+                                />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req">TIN</label>
+                                <input
+                                    type="text"
+                                    class={tinClass}
+                                    value={tin}
+                                    onchange={handleTinChange}
+                                />
+                                <template if:true={showTinError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <template for:each={eraSections} for:item="era" for:index="index">
+                        <div key={era.id} class="slds-box slds-m-bottom_medium">
+                            <h3 class="slds-text-heading_small slds-m-bottom_medium">
+                                ERA {era.displayNumber}
+                            </h3>
+                            <div class="cc-row">
+                                <div class="cc-col-half">
+                                    <div class="cc-field">
+                                        <label class="cc-label cc-label--req">Choose Check Date</label>
+                                        <input
+                                            type="date"
+                                            class="cc-input cc-eraFields"
+                                            data-index={index}
+                                            data-field="checkDate"
+                                            value={era.checkDate}
+                                            onchange={handleFieldChange}
+                                            required
+                                        />
+                                        <template if:true={era.showEraCheckDateError}>
+                                            <p key={era.displayNumber} class="cc-field-error">Complete this field.</p>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="cc-col-half">
+                                    <div class="cc-field">
+                                        <label class="cc-label cc-label--req">Check Number</label>
+                                        <input
+                                            type="text"
+                                            class="cc-input cc-eraFields"
+                                            data-index={index}
+                                            data-field="checkNumber"
+                                            value={era.checkNumber}
+                                            onchange={handleFieldChange}
+                                        />
+                                        <template if:true={era.showEraCheckNumberError}>
+                                            <p key={era.displayNumber} class="cc-field-error">Complete this field.</p>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cc-row">
+                                <div class="cc-col-full">
+                                    <div class="cc-field">
+                                        <label class="cc-label cc-label--req">Check Amount</label>
+                                        <input
+                                            type="text"
+                                            class="cc-input cc-eraFields"
+                                            data-index={index}
+                                            data-field="checkAmount"
+                                            value={era.checkAmount}
+                                            onchange={handleFieldChange}
+                                        />
+                                        <template if:true={era.showEraCheckAmountError}>
+                                            <p key={era.displayNumber} class="cc-field-error">Complete this field.</p>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            <template if:true={era.showRemove}>
+                                <div class="slds-m-top_medium">
+                                    <lightning-button
+                                        label="Remove"
+                                        variant="destructive-text"
+                                        data-index={index}
+                                        onclick={removeERA}>
+                                    </lightning-button>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    <lightning-button
+                        label="Add More ERA"
+                        variant="brand"
+                        onclick={addERA}
+                        disabled={disableAddButton} class="slds-m-bottom_small btn-style">
+                    </lightning-button>
+                </template>
+
+                <!-- Section for Error Troubleshooting fields -->
+                <template if:true={errorTroubleshootingSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <p class="cc-warning-msg">{warningMessage}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for New connection fields -->
+                <template if:true={newConnectionSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-admin">Are you admin?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-admin" class={adminClass}
+                                        value={admin} onchange={handleAdminChange}>
+                                        <option value="">--None--</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showAdminError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-key-reason">Key Reason</label>
+                                <input type="text" id="cc-key-reason" class={keyReasonClass}
+                                    value={keyReason} onchange={handleKeyReasonChange} />
+                                <template if:true={showKeyReasonError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for FHIR fields -->
+                <template if:true={fHIRSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-labe cc-label--req" for="cc-fhir-admin">Are you admin?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-fhir-admin" class={adminClass}
+                                        value={admin} onchange={handleAdminChange}>
+                                        <option value="">--None--</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showAdminError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Activation fields -->
+                <template if:true={activationSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-ehr-name">EHR Name</label>
+                                <input type="text" id="cc-ehr-name" class={ehrNameClass}
+                                    value={ehrName} onchange={handleEhrNameChange} />
+                                <template if:true={showEhrNameError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Appointment Reminders fields -->
+                <template if:true={appReminderSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-app-date">Choose Date for Impacted Appointment Reminder</label>
+                                <input type="date" id="cc-app-date" class={appDateClass}
+                                    value={appDate} onchange={handleAppDateChange} />
+                                <template if:true={showAppDateError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-patient-name">Patient Name</label>
+                                <input type="text" id="cc-patient-name" class={patientNameClass}
+                                    value={patientName} onchange={handlePatientNameChange} />
+                                    
+                                <template if:true={showPatientNameError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>    
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Payer Connection fields -->
+                <template if:true={payerConnectionSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-payer-name">Payer Name</label>
+                                <input type="text" id="cc-payer-name" class={payerNameClass}
+                                    value={payerName} onchange={handlePayerNameChange} />
+                                <template if:true={showPayerNameError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-payer-id">Payer Id</label>
+                                <input type="text" id="cc-payer-id" class={payerIdClass}
+                                    value={payerId} onchange={handlePayerIdChange} />
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Existing Enrollment fields -->
+                <template if:true={existingEnrollmentSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-exist-payer-name">Payer Name</label>
+                                <input type="text" id="cc-exist-payer-name" class={payerNameClass}
+                                    value={payerName} onchange={handlePayerNameChange} />
+                                <template if:true={showPayerNameError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-exist-payer-id">Payer Id</label>
+                                <input type="text" id="cc-exist-payer-id" class={payerIdClass}
+                                    value={payerId} onchange={handlePayerIdChange} />
+                                <template if:true={showPayerIdError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-exist-npi">NPI</label>
+                                <input type="text" id="cc-exist-npi" class={npiClass}
+                                    value={npi} onchange={handleNpiChange} />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Lab Connection fields -->
+                <template if:true={labConnectionSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-lab-acc">Lab Account Number</label>
+                                <input type="text" id="cc-lab-acc" class={labAccountNumberClass}
+                                    value={labAccountNumber} onchange={handleLabAccountNumberChange} />
+                                <template if:true={showLabAccountNumberError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for EPCS fields -->
+                <template if:true={epcsSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-epcs-npi">Prescriber NPI</label>
+                                <input type="text" id="cc-epcs-npi" class={npiClass}
+                                    value={npi} onchange={handleNpiChange} />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for ERX fields -->
+                <template if:true={erxSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-erx-npi">Prescriber NPI</label>
+                                <input type="text" id="cc-erx-npi" class={npiClass}
+                                    value={npi} onchange={handleNpiChange} />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                
+                <!-- Section for Update Provider Details Section -->
+                <template if:true={updateProviderDetailsSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-feature-request">Select Feature</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-feature-request" class={selectFeatureClass}
+                                        value={selectFeature} onchange={handleSelectFeatureChange}>
+                                        <option value="">--None--</option>
+                                        <option value="eRx">eRx</option>
+                                        <option value="EPCS">EPCS</option>
+                                        <option value="Labs">Labs</option>
+                                    </select>
+                                </div>
+                                <template if:true={showSelectFeatureError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-previousProvidername">Previous Name</label>
+                                <input type="text" id="cc-previousProvidername" class="cc-input"
+                                    value={previousProviderName} onchange={handlePreviousProviderNameChange} />
+                            </div>
+                        </div>
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-providername">New Name</label>
+                                <input type="text" id="cc-providername" class="cc-input"
+                                    value={providerName} onchange={handleProviderNameChange} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-previousProvideraddress">Previous Address</label>
+                                <input type="text" id="cc-previousProvideraddress" class="cc-input"
+                                    value={previousProviderAddress} onchange={handlePreviousProviderAddressChange} />
+                            </div>
+                        </div>
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-provideraddress">New Address</label>
+                                <input type="text" id="cc-provideraddress" class="cc-input"
+                                    value={providerAddress} onchange={handleProviderAddressChange} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-previousProviderphonenumber">Previous Phone Number</label>
+                                <input type="text" id="cc-previousProviderphonenumber" class="cc-input"
+                                    value={previousProviderPhoneNumber} onchange={handlePreviousProviderPhoneNumberChange} />
+                            </div>
+                        </div>
+                        <div class="cc-col-half">
+                            <div class="cc-field">
+                                <label class="cc-label" for="cc-providerphonenumber">New Phone Number</label>
+                                <input type="text" id="cc-providerphonenumber" class="cc-input"
+                                    value={providerPhoneNumber} onchange={handleProviderPhoneNumberChange} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-provideNpi">NPI</label>
+                                <input type="text" id="cc-provideNpi" class={npiClass}
+                                    value={npi} onchange={handleNpiChange} />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for add refills fields -->
+                <template if:true={addRefillSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-refill-npi">Prescriber NPI</label>
+                                <input type="text" id="cc-refill-npi" class={npiClass}
+                                    value={npi} onchange={handleNpiChange} />
+                                <template if:true={showNpiError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                
+                <!-- Section for Template Creation fields -->
+                <template if:true={tempCreationSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <p class="cc-warning-msg">{tempCreationWarningMessage}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Template Trobleshooting fields -->
+                <template if:true={tempTroubleshootingSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <p class="cc-warning-msg">{tempTroubleshootingWarningMessage}</p>
+                        </div>
+                    </div>
+                </template>
+                
+                <!-- Section for University Troubleshooting fields -->
+                <template if:true={uniTroubleshootingSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <p class="cc-warning-msg">{uniTroubleshootingWarningMessage}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for Template Training fields-->
+                <template if:true={tempTrainingSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-temp-training">Have you completed provider Medical in Tebra University?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-temp-training" class={tempTrainingClass}
+                                        value={completedProviderMedical} onchange={handleTempTrainingChange}>
+                                        <option value="">---None---</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showCompletedProviderMedicalError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <template if:true={completedProviderMedicalSelected}>
+                        <div class="cc-row">
+                            <div class="cc-col-full">
+                                <div class="cc-field">
+                                    <label class="cc-label cc-label--req" for="cc-temp-editor">Have you completed template editor training in Tebra University?</label>
+                                    <div class="cc-select-wrap">
+                                        <select id="cc-temp-editor" class={templateEditorClass}
+                                            value={completedTemplateEditor} onchange={handleTemplateEditorChange}>
+                                            <option value="">---None---</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                    <template if:true={showCompletedTemplateEditorError}>
+                                        <p class="cc-field-error">Complete this field.</p>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+                <!-- Section for Custom Paid Training fields -->
+                <template if:true={customPaidSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-custom-paid">Have you completed Training in Tebra University?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-custom-paid" class={completedTrainingClass}
+                                        value={completedTraining} onchange={handleCompletedTrainingChange}>
+                                        <option value="">---None---</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showCompletedTrainingError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Section for ERA Payment Posting fields -->
+                <template if:true={paymentPostingSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-biller-training">Have you completed Biller Training in Tebra University?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-biller-training" class={billerTrainingClass}
+                                        value={completedBillerTraining} onchange={handleBillerTrainingChange}>
+                                        <option value="">---None---</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showCompletedBillerTrainingError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <template if:true={billerTrainingSelected}>
+                        <div class="cc-row">
+                            <div class="cc-col-full">
+                                <div class="cc-field">
+                                    <label class="cc-label cc-label--req" for="cc-era-ids">Provide 3 ERA Ids &amp; Check Numbers</label>
+                                    <input type="text" id="cc-era-ids" class={eraIdsClass}
+                                        value={eraIds} onchange={handleEraIdsChange} />
+                                    <template if:true={showEraIdsError}>
+                                        <p class="cc-field-error">Complete this field.</p>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+                <!-- Section for Advance Payment Posting fields -->
+                <template if:true={advancePaymentSelected}>
+                    <div class="cc-row">
+                        <div class="cc-col-full">
+                            <div class="cc-field">
+                                <label class="cc-label cc-label--req" for="cc-adv-biller-training">Have you completed Biller Training in Tebra University?</label>
+                                <div class="cc-select-wrap">
+                                    <select id="cc-adv-biller-training" class={completedAdvanceBillerTrainingClass}
+                                        value={completedAdvanceBillerTraining} onchange={handleBillerTrainingChange}>
+                                        <option value="">---None---</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <template if:true={showCompletedAdvanceBillerTrainingError}>
+                                    <p class="cc-field-error">Complete this field.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <template if:true={advanceBillerTrainingSelected}>
+                        <div class="cc-row">
+                            <div class="cc-col-full">
+                                <div class="cc-field">
+                                    <label class="cc-label cc-label--req" for="cc-adv-400">Have you completed Biller Training 4-200 Live?</label>
+                                    <div class="cc-select-wrap">
+                                        <select id="cc-adv-400" class={billerTraining400Class}
+                                            value={completedAdvanceBillerTraining400} onchange={handleBillerTraining400Change}>
+                                            <option value="">---None---</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                    <template if:true={showCompletedAdvanceBillerTraining400Error}>
+                                        <p class="cc-field-error">Complete this field.</p>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <template if:true={advanceBillerTraining400Selected}>
+                            <div class="cc-row">
+                                <div class="cc-col-full">
+                                    <div class="cc-field">
+                                        <label class="cc-label cc-label--req" for="cc-adv-era-ids">Provide 3 ERA Ids &amp; Check Numbers</label>
+                                        <input type="text" id="cc-adv-era-ids" class={eraIdsClass}
+                                            value={eraIds} onchange={handleEraIdsChange} />
+                                        <template if:true={showEraIdsError}>
+                                            <p class="cc-field-error">Complete this field.</p>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </template>
+
+                <!-- ── Row: Email + Phone (read-only) ── -->
+                <div class="cc-row">
+                    <div class="cc-col-half">
+                        <div class="cc-field">
+                            <label class="cc-label" for="cc-email">User Email</label>
+                            <div class="cc-readonly" id="cc-email">{currentUserEmail}</div>
+                        </div>
+                    </div>
+                    <div class="cc-col-half">
+                        <div class="cc-field">
+                            <label class="cc-label" for="cc-phone">Contact Phone</label>
+                            <div class="cc-readonly" id="cc-phone">{currentUserContactPhone}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Row: Subject ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <div class="cc-field">
+                            <label class="cc-label cc-label--req" for="cc-subject">Subject</label>
+                            <input
+                                type="text"
+                                id="cc-subject"
+                                class={subjectClass}
+                                value={subject}
+                                oninput={handleSubjectChange} />
+                            <template if:true={showSubjectError}>
+                                <p class="cc-field-error">Complete this field.</p>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- ── Row: Description ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <div class="cc-field">
+                            <label class="cc-label cc-label--req" for="cc-description">Description</label>
+                            <textarea
+                                id="cc-description"
+                                class={descriptionClass}
+                                value={description}
+                                oninput={handleDescriptionChange}
+                                rows="4"></textarea>
+                            <template if:true={showDescriptionError}>
+                                <p class="cc-field-error">Complete this field.</p>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- COLLAB_SUPPRESSED: Collaborator picker hidden.
+                     To re-enable, uncomment the block below.
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <c-t-f_-e-x_-case-collaborator
+                            account-id={effectiveAccountId}
+                            oncollaboratorchange={handleCollaboratorChange}>
+                        </c-t-f_-e-x_-case-collaborator>
+                    </div>
+                </div>
+                END COLLAB_SUPPRESSED -->
+
+                <!-- ── Row: File Upload ── -->
+                <div class="cc-row">
+                    <div class="cc-col-full">
+                        <c-t-f_-e-x_-file-upload onfilesupdated={handleFilesUpdated}></c-t-f_-e-x_-file-upload>
+                    </div>
+                </div>
+
+            </div><!-- /cc-body -->
+
+            <!-- Footer -->
+            <div class="cc-footer">
+                
+                <button
+                    class="cc-btn cc-btn--brand"
+                    onclick={handleSubmit}
+                    disabled={isSubmitDisabled}>
+                    <template if:true={isSubmitting}>Submitting…</template>
+                    <template if:false={isSubmitting}>Submit</template>
+                </button>
+            </div>
+        </template>
+
+    </div>
+</template>

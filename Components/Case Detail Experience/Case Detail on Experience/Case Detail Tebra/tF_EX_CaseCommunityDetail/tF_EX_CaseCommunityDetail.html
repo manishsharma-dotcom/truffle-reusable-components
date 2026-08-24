@@ -1,0 +1,250 @@
+<template>
+    <div class="cd-root">
+
+        <!-- ═══════════════════════════════════════════ LOADING OVERLAY -->
+        <template if:true={isLoading}>
+            <div class="cd-loading">
+                <lightning-spinner
+                    alternative-text="Loading case"
+                    size="medium"
+                    variant="brand">
+                </lightning-spinner>
+            </div>
+        </template>
+
+        <!-- ═══════════════════════════════════════════ MAIN CONTENT -->
+        <template if:true={caseRecord}>
+
+            <!-- ── Header ── -->
+            <!-- ── Header ── -->
+            <div class="cd-header">
+                <div class="cd-header-left">
+                    <h2 class="cd-header-title-plain"></h2>
+                </div>
+                <div class="cd-header-actions">
+                    <!-- Close Case: shown when case is open -->
+                    <template if:false={isClosed}>
+                        <button
+                            class="cd-btn cd-btn--danger"
+                            onclick={handleOpenCloseModal}
+                            title="Close this case">
+                            Close Case
+                        </button>
+                    </template>
+                    <!-- Reopen Case: closed AND within 5 business days -->
+                    <template if:true={showReopenButton}>
+                        <button
+                            class="cd-btn cd-btn--brand"
+                            onclick={handleOpenReopenModal}
+                            title="Reopen this case">
+                            Reopen Case
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- ── Read-Only Fields ── -->
+            <div class="cd-fields">
+
+                <!-- Case Number -->
+                <div class="cd-field-row">
+                    <div class="cd-field-label">Case Number</div>
+                    <div class="cd-field-value">{caseRecord.CaseNumber}</div>
+                </div>
+
+                <!-- Status -->                
+                <div class="cd-field-row">
+                    <div class="cd-field-label">Status</div>
+                    <div class="cd-field-value">{caseRecord.Status}</div>
+                </div>
+
+                <!-- Subject -->
+                <div class="cd-field-row">
+                    <div class="cd-field-label">Subject</div>
+                    <div class="cd-field-value">{caseRecord.Subject}</div>
+                </div>
+
+                <!-- Description (custom field) -->
+                <div class="cd-field-row">
+                    <div class="cd-field-label">Description</div>
+                    <div class="cd-field-value cd-field-value--wrap">
+                        {caseRecord.TF_EX_Description__c}
+                    </div>
+                </div>
+
+                <!-- Contact Phone -->
+                <div class="cd-field-row">
+                    <div class="cd-field-label">Contact Phone</div>
+                    <div class="cd-field-value">{caseRecord.ContactPhone}</div>
+                </div>
+
+                <!-- IsEscalated — only rendered when true -->
+                <template if:true={isEscalated}>
+                    <div class="cd-field-row">
+                        <div class="cd-field-label">Escalated</div>
+                        <div class="cd-field-value">Yes</div>
+                    </div>
+                </template>
+
+            </div><!-- /cd-fields -->
+
+            
+                    <!-- ── Collaborators Section ── -->
+                    <!-- COLLAB_SUPPRESSED: Collaborators section hidden.
+            Uncomment the block below to re-enable the collaborator UI on case detail.
+
+        <div class="cd-section">
+            <div class="cd-section-heading">Collaborators</div>
+
+            <template if:true={hasCollaborators}>
+                <div class="cd-collab-list">
+                    <template for:each={collaborators} for:item="collab">
+                        <span key={collab.caseTeamMemberId} class="cd-collab-pill">
+                            <span class="cd-collab-name" title={collab.userName}>
+                                {collab.userName}
+                            </span>
+                            <button
+                                type="button"
+                                class="cd-collab-remove"
+                                data-id={collab.caseTeamMemberId}
+                                onclick={handleRemoveCollaborator}
+                                title="Remove collaborator">
+                                <lightning-icon icon-name="utility:close" size="xx-small"></lightning-icon>
+                            </button>
+                        </span>
+                    </template>
+                </div>
+            </template>
+
+            <div class="cd-collab-add">
+                <template if:true={_pickerVisible}>
+                    <c-t-f_-e-x_-case-collaborator
+                        account-id={accountId}
+                        excluded-user-ids={existingCollaboratorUserIds}
+                        hide-pills
+                        oncollaboratorchange={handleCollaboratorChange}>
+                    </c-t-f_-e-x_-case-collaborator>
+                </template>
+            </div>
+        </div>
+
+        END COLLAB_SUPPRESSED -->
+
+        </template><!-- /if:true={caseRecord} -->
+
+        <!-- ═══════════════════════════════════════════ CLOSE CASE MODAL -->
+        <template if:true={showCloseModal}>
+            <div class="cd-modal-backdrop">
+                <div class="cd-modal" onclick={stopPropagation}>
+
+                    <div class="cd-modal-header">
+                        <h2 class="cd-modal-title">Close Case</h2>
+                        <button
+                            class="cd-modal-close"
+                            onclick={handleCancelClose}
+                            title="Cancel">
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        </button>
+                    </div>
+
+                    <div class="cd-modal-body">
+                        <div class="cd-field">
+                            <label class="cd-label cd-label--req" for="cd-closed-reason">
+                                Closed Reason
+                            </label>
+                            <div class="cd-select-wrap">
+                                <select
+                                    id="cd-closed-reason"
+                                    class={closeReasonSelectClass}
+                                    onchange={handleClosedReasonChange}>
+                                    <option value="">--None--</option>
+                                    <template for:each={closedReasonOptions} for:item="opt">
+                                        <option key={opt.value} value={opt.value}>
+                                            {opt.label}
+                                        </option>
+                                    </template>
+                                </select>
+                            </div>
+                            <template if:true={showClosedReasonError}>
+                                <p class="cd-field-error">
+                                    Please select a reason to close the case.
+                                </p>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="cd-modal-footer">
+                        <button class="cd-btn cd-btn--neutral" onclick={handleCancelClose}>
+                            Cancel
+                        </button>
+                        <button
+                            class="cd-btn cd-btn--danger"
+                            onclick={handleConfirmClose}
+                            disabled={isConfirmCloseDisabled}>
+                            <template if:true={isClosing}>Closing…</template>
+                            <template if:false={isClosing}>Close Case</template>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+        <!-- ═══════════════════════════════════════════ REOPEN CASE MODAL -->
+        <template if:true={showReopenModal}>
+            <div class="cd-modal-backdrop">
+                <div class="cd-modal" onclick={stopPropagation}>
+
+                    <div class="cd-modal-header">
+                        <h2 class="cd-modal-title">Reopen Case</h2>
+                        <button
+                            class="cd-modal-close"
+                            onclick={handleCancelReopen}
+                            title="Cancel">
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        </button>
+                    </div>
+
+                    <div class="cd-modal-body">
+                        <div class="cd-field">
+                            <label class="cd-label cd-label--req" for="cd-reopen-reason">
+                                Reason for Reopening
+                            </label>
+                            <textarea
+                                id="cd-reopen-reason"
+                                class={reopenReasonClass}
+                                value={reopenReason}
+                                oninput={handleReopenReasonChange}
+                                rows="4"
+                                placeholder="Please describe why this case needs to be reopened…">
+                            </textarea>
+                            <template if:true={showReopenReasonError}>
+                                <p class="cd-field-error">
+                                    Please provide a reason for reopening the case.
+                                </p>
+                            </template>
+                            <p class="cd-field-hint">
+                                Your reason will be posted as a comment on this case.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="cd-modal-footer">
+                        <button class="cd-btn cd-btn--neutral" onclick={handleCancelReopen}>
+                            Cancel
+                        </button>
+                        <button
+                            class="cd-btn cd-btn--brand"
+                            onclick={handleConfirmReopen}
+                            disabled={isConfirmReopenDisabled}>
+                            <template if:true={isReopening}>Reopening…</template>
+                            <template if:false={isReopening}>Reopen Case</template>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+    </div><!-- /cd-root -->
+</template>

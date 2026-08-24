@@ -1,0 +1,11 @@
+.holder {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding:10px;
+}
+
+.inputItem
+{
+    flex-grow: 1;
+}

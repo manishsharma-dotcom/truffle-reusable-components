@@ -1,0 +1,25 @@
+.filecontainer {
+    margin: 5px;
+    font-size: 14px;
+    display: inline-block;
+
+}
+
+.fieldhelptext{
+	font-size: 12px;
+    position: relative;
+    top: -12px;
+}
+
+.addccbutton{
+	    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.spinnerHolder{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}

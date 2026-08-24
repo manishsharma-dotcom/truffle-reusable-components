@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <template if:true={isLoaded}>
+            <div class="holder">
+                <lightning-input class="inputItem" type="email" multiple label="Collaborators" value={collaboratorsList} onchange={handleCollaboratorsChange}></lightning-input>
+                <template if:true={hasValidInput}>
+                    <lightning-button variant="brand-outline" label="Save" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+                </template>               
+            </div>
+        </template>    
+    </lightning-card>
+</template>

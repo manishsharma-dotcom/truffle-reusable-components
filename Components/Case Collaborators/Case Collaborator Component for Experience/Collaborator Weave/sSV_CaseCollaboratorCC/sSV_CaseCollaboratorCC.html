@@ -1,0 +1,66 @@
+<template>
+	<template lwc:if={CanAddCollab}>
+		<div class="fieldcontainer">
+			<div class="fieldlabel">
+				<span>Add Collaborators</span>
+			</div>
+			<div class="fieldinput">
+				<div>
+					<div style="width: 80%;display: inline-block;margin-right: 20px;vertical-align: text-top;">
+						<lightning-input required data-name="CollabInput"
+							place-holder="You can only add upto 5 collaborators" type="text" onblur={handleInputChange}
+							variant="label-hidden" value={CollabInput}></lightning-input>
+					</div>
+					<div class="submitcc" style=" display: inline-block;position: absolute;">
+						<template lwc:if={buttonclicked}>
+							<button class="slds-button slds-button_neutral">Add</button>
+							<template lwc:if={showSpinner}>
+								<span class="spinnerHolder">
+									<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+								</span>
+							</template>
+						</template>
+						<template lwc:else>
+							<button class="slds-button slds-button_neutral"  disabled={disabled} onclick={AddCc}>Add
+							</button>
+
+						</template>
+
+					</div>
+				</div>
+				<div class="fieldhelptext">Add email address. You can only add upto 5 collaborators</div>
+
+			</div>
+
+		</div>
+	</template>
+	<template lwc:else>
+		<p>Max limit reached. You can only add upto 5 collaborators
+			<template lwc:if={showSpinner}>
+				<div class="spinnerHolder">
+					<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+				</div>
+			</template>
+			
+		</p>
+	</template>
+
+	<template for:each={ExistingCollab} for:item="ECI">
+		<div key={ECI.index} class="filecontainer">
+
+			<span class="slds-pill slds-pill_link">
+				<a href="#" class="slds-pill__action" title="Full pill label verbiage mirrored here">
+					<span class="slds-pill__label">{ECI.email}</span>
+				</a>
+				<button class=" addccbutton slds-button slds-button_icon slds-button_icon slds-pill__remove"
+					onclick={DeleteCollab} data-id={ECI.index} title="Remove">
+					x
+					<span class="slds-assistive-text">Remove</span>
+				</button>
+			</span>
+
+
+
+		</div>
+	</template>
+</template>

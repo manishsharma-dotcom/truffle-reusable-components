@@ -1,0 +1,75 @@
+<template>
+	<div>
+
+
+		<div class="slds-grid slds-wrap" style=" justify-content: space-between; ">
+			<div class=" slds-col  slds-col slds-medium-size_4-of-12 slds-medium-size--1-of-1">
+
+				<lightning-select value={currentListView} options={listViewOptions} onchange={handleListViewChange}>
+				</lightning-select>
+
+			</div>
+			<div class=" slds-col  slds-col slds-medium-size_3-of-12 slds-medium-size--1-of-1">
+
+				<div onkeyup={handleKeyUpSearch}>
+					<lightning-input name="Search" autocomplete="off" placeholder="Search Case Number or Subject"
+						type="Search" oncommit={handleClear}>
+					</lightning-input>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="createcase">
+			<a class="slds-button slds-button_neutral" href={submitACaseURL}>Create Support Case</a>
+
+		</div>
+		<div class="datacontainer">
+			<template lwc:if={showSpinner}>
+				<div class="Spinner">
+					<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+				</div>
+			</template>
+
+			<template lwc:if={showData}>
+				<div class="data-wrapper">
+					<div class="data-container">
+						<p class="slds-m-bottom_small">Showing {visibleCases.length} of {totalCount} cases</p>
+						<lightning-datatable 
+						key-field="Id" 
+						data={visibleCases} 
+						columns={columns} 
+						onsort={handleSort}
+						sorted-by={sortedBy}
+						sorted-direction={sortedDirection} 
+						hide-checkbox-column="true">
+						</lightning-datatable>
+						<div class="bottoncontainer">
+
+							<template if:true={hasMore}>
+								<div class="slds-clearfix slds-m-top_medium">
+									<div class="slds-float_right">
+									<lightning-button
+										variant="brand-outline"
+										label="Show More"
+										onclick={handleShowMore}
+										disabled={disabledHasMore}>
+									</lightning-button>
+								</div>
+								</div>
+							</template>
+							
+						</div>
+					</div>
+				</div>
+			</template>
+
+			<template lwc:else>
+				<div class="msg">
+					<p>To get support from Weave, please <span>Create</span> a support case.</p>
+				</div>
+			</template>
+		</div>
+
+	</div>
+</template>

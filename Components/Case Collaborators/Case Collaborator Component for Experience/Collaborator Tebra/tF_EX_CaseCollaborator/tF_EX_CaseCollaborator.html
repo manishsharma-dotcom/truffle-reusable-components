@@ -1,0 +1,91 @@
+<template>
+    <div class="cb-root" onclick={stopPropagation}>
+
+        <template if:true={hasSelectedCollaborators}>
+            <div class="cb-pills">
+                <template for:each={selectedCollaborators} for:item="c">
+                    <span key={c.userId} class="cb-pill">
+                        <span class="cb-pill-label" title={c.label}>{c.label}</span>
+                        <button
+                            type="button"
+                            class="cb-pill-remove"
+                            data-id={c.userId}
+                            onclick={handleRemove}
+                            title="Remove">
+                            <lightning-icon icon-name="utility:close" size="xx-small"></lightning-icon>
+                        </button>
+                    </span>
+                </template>
+            </div>
+        </template>
+
+        <label class="cb-label" for="cb-search-input">Add Collaborators</label>
+
+        <!-- Search Input -->
+        <div class="cb-input-wrap">
+            <input
+                type="text"
+                id="cb-search-input"
+                class="cb-input"
+                placeholder="Search collaborators..."
+                value={searchTerm}
+                oninput={handleSearch}
+                onfocus={handleFocus}
+                onblur={handleBlur}
+                disabled={isDisabled} />
+            <lightning-icon
+                icon-name="utility:search"
+                size="xx-small"
+                class="cb-search-icon">
+            </lightning-icon>
+        </div>
+
+        <!-- Hint when no account selected -->
+        <template if:true={showAccountHint}>
+            <p class="cb-hint">Select an account first to load collaborators.</p>
+        </template>
+
+        <!-- Dropdown -->
+        <template if:true={isDropdownOpen}>
+            <div class="cb-dropdown" role="listbox">
+
+                <template if:true={isLoadingCollaborators}>
+                    <div class="cb-dropdown-loading">
+                        <lightning-spinner size="x-small" alternative-text="Loading"></lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:false={isLoadingCollaborators}>
+                    <template if:true={hasFilteredCollaborators}>
+                        <template for:each={filteredCollaborators} for:item="c">
+                            <div
+                                key={c.userId}
+                                class={c.itemClass}
+                                role="option"
+                                data-id={c.userId}
+                                onclick={handleSelect}>
+                                <span class="cb-check-wrap">
+                                    <template if:true={c.isSelected}>
+                                        <lightning-icon
+                                            icon-name="utility:check"
+                                            size="xx-small"
+                                            class="cb-check-icon">
+                                        </lightning-icon>
+                                    </template>
+                                </span>
+                                <span class="cb-item-label" title={c.label}>{c.label}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasFilteredCollaborators}>
+                        <div class="cb-empty">No collaborators found</div>
+                    </template>
+                </template>
+
+            </div>
+        </template>
+
+        
+
+    </div>
+</template>

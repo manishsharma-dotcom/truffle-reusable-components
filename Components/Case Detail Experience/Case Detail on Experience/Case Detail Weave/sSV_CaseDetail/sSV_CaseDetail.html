@@ -1,0 +1,99 @@
+<template>
+
+	<div>
+		<template lwc:if={ValidCase}>
+			<p style="font-size: 16px;font-weight: bold;border-bottom: 1px solid #ccc;display: flex;justify-content: space-between;"><span>Case Details</span>
+			
+			<c-s-s-v-_-protal-case-close-button record-id={recordId} ></c-s-s-v-_-protal-case-close-button></p>
+		</template>
+
+	</div>
+	<div class="detailcontainer">
+		<lightning-record-view-form object-api-name={objectApiName} record-id={recordId}>
+
+			<lightning-output-field field-name={CaseNumber}> </lightning-output-field>			
+			<template lwc:if={ValidCase}>
+				<div class="customlabel">
+				<label class="slds-form-element__label">Status</label>
+				<lightning-output-field class="slds-form-element slds-form-element_horizontal" field-name={ExternalStatusForm} variant="label-hidden"></lightning-output-field>
+				</div>		
+			</template>	
+
+			<template lwc:if={isNWW}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={Weave_User_Email}> </lightning-output-field>
+			</template>
+
+			<template lwc:if={isPC}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={FirstLastName}> </lightning-output-field>
+				<lightning-output-field field-name={OfficePhoneNumber}> </lightning-output-field>
+			</template>
+
+			<template lwc:if={isSR}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={Weave_User_Email}> </lightning-output-field>
+				<lightning-output-field field-name={FirstLastName}> </lightning-output-field>
+				<lightning-output-field field-name={OfficePhoneNumber}> </lightning-output-field>
+				<lightning-output-field field-name={OfficeName}> </lightning-output-field>
+			</template>
+
+			<template lwc:if={isESR}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={Weave_User_Email}> </lightning-output-field>
+				<lightning-output-field field-name={OfficePhoneNumber}> </lightning-output-field>
+				<lightning-output-field field-name={OfficeName}> </lightning-output-field>
+			</template>
+
+			<template lwc:if={isPCQSR}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={Weave_User_Email}> </lightning-output-field>
+				<lightning-output-field field-name={FirstLastName}> </lightning-output-field>
+
+				<lightning-output-field field-name={OfficePhoneNumber}> </lightning-output-field>
+				<lightning-output-field field-name={OfficeName}> </lightning-output-field>
+				<lightning-output-field field-name={Phone}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueName}> </lightning-output-field>
+				<lightning-output-field field-name={PhoneTreeActive}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueRoutingType}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueuePhoneAssignment}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueGreeting}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueFallbackOption}> </lightning-output-field>
+
+				<lightning-output-field field-name={CallQueueEscape}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueHoldMusic}> </lightning-output-field>
+				<lightning-output-field field-name={MaximumCallerHoldTime}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueueConsiderations}> </lightning-output-field>
+				<lightning-output-field field-name={CallQueuePositionFirstAnnouncement}> </lightning-output-field>
+			</template>
+			
+			<template lwc:if={isOwnershipTransfer}>
+				<lightning-output-field field-name={SuppliedEmail}> </lightning-output-field>				
+				<lightning-output-field field-name={Subject}> </lightning-output-field>
+				<lightning-output-field field-name={Description}> </lightning-output-field>				
+				<lightning-output-field field-name={CurrentSuperAdminEmail}> </lightning-output-field>
+				<lightning-output-field field-name={CurrentSuperAdminName}> </lightning-output-field>
+				<lightning-output-field field-name={CurrentBusinessOwnerName}> </lightning-output-field>
+				<lightning-output-field field-name={CurrentOfficeName}> </lightning-output-field>
+				<lightning-output-field field-name={CurrentOfficePhone}> </lightning-output-field>
+				<lightning-output-field field-name={EmailContactForNewOffice}> </lightning-output-field>
+			</template>
+
+		</lightning-record-view-form>
+	</div>
+	<template lwc:if={ErrorMessage}>
+		<p style="width:100%;text-align:center">
+			{ErrorMessage}
+		</p>
+	</template>
+</template>

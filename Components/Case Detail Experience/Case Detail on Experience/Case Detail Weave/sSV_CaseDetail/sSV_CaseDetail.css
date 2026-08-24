@@ -1,0 +1,14 @@
+.detailcontainer  .slds-form-element__control{
+	padding-left: 0 !important
+
+}
+
+.detailcontainer .slds-form-element__label{
+	font-size: 12px !important;
+}
+.detailcontainer lightning-output-field .slds-form-element__control{
+	border-bottom: 1px solid #ccc !important;
+}
+.customlabel{
+	padding: 0.25rem;
+}

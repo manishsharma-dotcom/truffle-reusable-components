@@ -1,0 +1,696 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   caseListView.css
+   Minimal custom CSS that complements SLDS to achieve pixel-accurate
+   Salesforce standard List View appearance on Experience Cloud.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Root container ─────────────────────────────────────────────────────── */
+.case-listview-root {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    background: #f3f2f2;
+    min-height: 400px;
+    position: relative;
+    border: 1.5px solid #003A43;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* ── Loading overlay ─────────────────────────────────────────────────────── */
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    border-radius: 0.25rem;
+}
+
+/* ── Page Header overrides ───────────────────────────────────────────────── */
+.lv-header {
+    background: #ffffff;
+    border-bottom: 1px solid #dddbda;
+    padding: 0.75rem 1rem 0;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+
+/* SLDS page header name meta sits below the title */
+.slds-page-header__name-meta-title {
+    display: block;
+    font-size: 0.75rem;
+    color: #706e6b;
+    line-height: 1.25;
+    margin-bottom: 0.1rem;
+}
+
+/* ── Filter Row ─────────────────────────────────────────────────────────── */
+.lv-filter-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* ── List View Toggle Group ─────────────────────────────────── */
+.lv-toggle-group {
+    display: inline-flex;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.lv-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 1.75rem;
+    padding: 0 0.85rem;
+    background: #ffffff;
+    border: none;
+    border-right: 1px solid #dddbda;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.1s, color 0.1s;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.lv-toggle-btn:last-child {
+    border-right: none;
+}
+
+.lv-toggle-btn:hover {
+    background: #006e7f;
+    color: #fff;
+}
+
+.lv-toggle-btn--active {
+    background: #006e7f;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Left side of toolbar: toggle + account filter grouped */
+.lv-toolbar-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ── Account Filter Widget ───────────────────────────────────────────────── */
+.lv-filter-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    max-width: 480px;
+}
+
+/* Trigger button – mimics Salesforce filter chip */
+.lv-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 1.75rem;
+    padding: 0 0.65rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    background: #ffffff;
+    color: #3e3e3c;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.1s, border-color 0.1s;
+    line-height: 1;
+}
+
+.lv-filter-btn:hover {
+    background: #006e7f;
+    border-color: #c9c7c5;
+    color:#fff;
+}
+
+.lv-filter-btn:hover .custom-chevron, .lv-filter-btn:hover .lv-filter-icon{
+    --sds-c-icon-color-foreground-default:#fff;
+}
+
+
+.lv-filter-btn--active {
+    background: #006e7f;
+    border-color: #0070d2;
+    color: #ffffff;
+}
+
+.lv-filter-icon {
+    flex-shrink: 0;
+}
+
+.lv-filter-icon:hover, .lv-filter-btn--active .custom-chevron, .lv-filter-btn--active .lv-filter-icon{
+    --sds-c-icon-color-foreground-default:#fff;
+}
+
+.lv-filter-label {
+    margin: 0 0.25rem;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dropdown panel */
+.lv-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 8000;
+    min-width: 280px;
+    max-width: 360px;
+    background: #ffffff;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+}
+
+.lv-dropdown-search {
+    padding: 0.5rem;
+    border-bottom: 1px solid #f3f2f2;
+}
+
+.lv-dropdown-list {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.lv-no-results {
+    padding: 0.75rem 1rem;
+    color: #706e6b;
+    font-style: italic;
+    font-size: 0.8125rem;
+}
+
+/* Pill row (selected accounts) */
+.lv-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.4rem;
+    max-width: 480px;
+}
+
+.lv-pill {
+    display: inline-flex;
+    align-items: center;
+    max-width: 200px;
+    background: #e8f4ff;
+    border: 1px solid #a8d4f5;
+    border-radius: 100px;
+    padding: 0 0.25rem 0 0.5rem;
+    font-size: 0.75rem;
+    color: #014486;
+    line-height: 1.5rem;
+    white-space: nowrap;
+}
+
+.lv-pill .slds-pill__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+
+/* ── Case Keyword Search ─────────────────────────────────────────────────── */
+.lv-case-search {
+    flex: 1;
+    min-width: 180px;
+    max-width: 320px;
+}
+
+.lv-search-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ── Selection Banner ────────────────────────────────────────────────────── */
+.lv-selection-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: #e8f4ff;
+    border: 1px solid #a8d4f5;
+    border-top: none;
+    padding: 0.4rem 1rem;
+    font-size: 0.8125rem;
+    color: #014486;
+}
+
+.lv-clear-selection {
+    margin-left: auto;
+    color: #014486;
+}
+
+/* ── Table Card ──────────────────────────────────────────────────────────── */
+.lv-table-card {
+    background: #ffffff;
+    border: 1px solid #dddbda;
+    border-top: none;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.lv-table-scroll {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Checkbox column fixed width */
+.lv-col-checkbox {
+    width: 2.5rem !important;
+    min-width: 2.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    text-align: center;
+}
+
+/* Force identical padding on header and body cells for alignment */
+.slds-table_cell-buffer > thead > tr > th,
+.slds-table_cell-buffer > tbody > tr > td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.slds-table_cell-buffer > thead > tr > th.lv-col-checkbox,
+.slds-table_cell-buffer > tbody > tr > td.lv-col-checkbox {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.lv-col-rownum {
+    width: 2.25rem;
+    min-width: 2.25rem;
+    text-align: right;
+    padding-right: 0.25rem !important;
+}
+
+.lv-row-num {
+    font-size: 0.75rem;
+    color: #706e6b;
+    display: block;
+    text-align: right;
+}
+
+.lv-th-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Non-sortable column – disable pointer */
+.lv-col-unsortable .slds-th__action {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Selected row highlight */
+tr.slds-is-selected > td {
+    background: #ecf5ff !important;
+}
+
+/* ── Case Number Link ─────────────────────────────────────────────────────── */
+.lv-case-link {
+    display: block;
+    color: #003A43;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.1s;
+}
+.lv-case-link:hover {
+    color: #006e7f;
+    text-decoration: underline;
+}
+
+/* ── Status Badges ───────────────────────────────────────────────────────── */
+.lv-badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.lv-status-new {
+    background: #e8f0fe;
+    color: #1a56db;
+}
+.lv-status-working {
+    background: #fff3cd;
+    color: #856404;
+}
+.lv-status-on-hold {
+    background: #f3f2f2;
+    color: #555;
+}
+.lv-status-escalated {
+    background: #fce4e4;
+    color: #8e0000;
+}
+.lv-status-closed {
+    background: #d4f4e2;
+    color: #003A43;
+}
+.lv-status-default {
+    background: #f3f2f2;
+    color: #3e3e3c;
+}
+/* Pending Reply variant */
+.lv-status-pending-customer {
+    background: #e10f25;
+    color: #F8E4E6;
+}
+/* Resolved variant */
+.lv-status-resolved {
+    background: #d4f4e2;
+    color: #003A43;
+}
+
+/* ── Priority Dot + Label ────────────────────────────────────────────────── */
+.lv-priority-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+.lv-priority-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.lv-priority-high   { background: #ba0517; }
+.lv-priority-medium { background: #dd7a01; }
+.lv-priority-low    { background: #4bca81; }
+
+/* Case Type */
+.lv-case-type-integration{background: #0d4b52;color:#fff;}
+.lv-case-type-customer-support{background: #1c7f28;color:#fff;}
+.lv-case-type-enrollment{background: #bd8c64;color: #fff;}
+.lv-case-type-training{background: #006e7f;color: #fff;}
+
+/* ── Empty State ─────────────────────────────────────────────────────────── */
+.lv-empty-cell {
+    background: #ffffff !important;
+}
+
+.lv-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 1.5rem;
+    color: #706e6b;
+    text-align: center;
+}
+
+.lv-empty-state lightning-icon {
+    opacity: 0.35;
+}
+
+/* ── Pagination Footer ───────────────────────────────────────────────────── */
+.lv-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    border-top: 1px solid #dddbda;
+    background: #ffffff;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.lv-pagination-controls {
+    display: flex;
+    align-items: center;
+}
+
+.lv-page-indicator {
+    margin-right: 0.5rem;
+}
+
+
+/* Tebra branded button override */
+.slds-button_neutral {
+    background: #006e7f !important;
+    border-color: #006e7f !important;
+    color: #ffffff !important;
+}
+.slds-button_neutral:hover {
+    background: #ffffff !important;
+    border-color: #003A43 !important;
+    color: #003A43 !important;
+    cursor: pointer;
+}
+.slds-button_neutral:active {
+    background: #f3f2f2 !important;
+    color: #003A43 !important;
+}
+
+.slds-button_destructive-text {
+    color: #c23934 !important;
+    border-color: #c23934 !important;
+}
+/* ── Destructive button text variant ─────────────────────────────────────── */
+.slds-button_destructive-text {
+    color: #c23934 !important;
+    border-color: #c23934 !important;
+}
+
+.lv-btn-delete {
+    color: #c23934;
+    border-color: #c23934;
+}
+.lv-btn-delete:hover {
+    background: #fef1f1;
+    border-color: #8e0000;
+    color: #8e0000;
+}
+
+/* ── SLDS input icon alignment fix for custom inputs ─────────────────────── */
+.slds-input-has-icon .slds-input {
+    padding-left: 2rem;
+}
+.slds-input-has-icon lightning-icon.slds-input__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0.5rem;
+    z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+
+/* Tablet – up to 768px */
+@media (max-width: 768px) {
+    .lv-header {
+        padding: 0.65rem 0.75rem 0;
+    }
+    .lv-case-search {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .lv-filter-wrapper {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+}
+
+/* Mobile – up to 480px */
+@media (max-width: 480px) {
+    /* Title row stacks vertically */
+    .slds-page-header__row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    /* Buttons move to their own row, aligned right */
+    .slds-page-header__col-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    /* Toolbar stacks: filter on top, search below */
+    .lv-filter-row {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    /* Filter button stretches full width */
+    .lv-filter-wrapper {
+        width: 100%;
+    }
+    .lv-filter-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+    /* Search full width */
+    .lv-case-search {
+        flex: 1 1 100%;
+        max-width: 100%;
+        min-width: unset;
+        width: 100%;
+    }
+    /* Hide row number column to gain space */
+    .lv-col-rownum {
+        display: none;
+    }
+    /* Tighter cell padding */
+    .slds-table_cell-buffer > thead > tr > th,
+    .slds-table_cell-buffer > tbody > tr > td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    /* Pagination stacks */
+    .lv-pagination {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    /* Dropdown shouldn't go off screen */
+    .lv-dropdown {
+        max-width: calc(100vw - 2rem);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOW MODAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.lv-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.lv-modal {
+    background: #ffffff;
+    border-radius: 0.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.lv-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid #dddbda;
+    flex-shrink: 0;
+}
+
+.lv-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #080707;
+    margin: 0;
+}
+
+.lv-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #706e6b;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    transition: background 0.1s;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lv-modal-close:hover {
+    background: #f3f2f2;
+    color: #3e3e3c;
+}
+
+.lv-modal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Responsive modal on small screens */
+@media (max-width: 480px) {
+    .lv-modal {
+        max-width: 100%;
+        max-height: 95vh;
+    }
+
+    .lv-modal-body {
+        padding: 0.75rem;
+    }
+}
+
+.slds-table > thead > tr > th[aria-label="Case Number"],
+.slds-table > tbody > tr > td[data-label="Case Number"] {
+    width: 11%;
+}
+
+.slds-table > thead > tr > th[aria-label="Subject"],
+.slds-table > tbody > tr > td[data-label="Subject"] {
+    width: 25%;
+}
+
+.slds-table > thead > tr > th[aria-label="Contact Name"],
+.slds-table > tbody > tr > td[data-label="Contact Name"] {
+    width: 16%;
+}
+
+.slds-table > thead > tr > th[aria-label="Account Name"],
+.slds-table > tbody > tr > td[data-label="Account Name"] {
+    width: 16%;
+}
+
+.slds-table > thead > tr > th[aria-label="Status"],
+.slds-table > tbody > tr > td[data-label="Status"] {
+    width: 16%;
+}
+
+.slds-table > thead > tr > th[aria-label="Case Type"],
+.slds-table > tbody > tr > td[data-label="Case Type"] {
+    width: 16%;
+}
+
+/* Status cell inner content — right breathing room */
+.slds-table > tbody > tr > td[data-label="Status"] .lv-badge {
+    margin-right: 1rem;
+}
+
+.lv-modal-body--flush {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
