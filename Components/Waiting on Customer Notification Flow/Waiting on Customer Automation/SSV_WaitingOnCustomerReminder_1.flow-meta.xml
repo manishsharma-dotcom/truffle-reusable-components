@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>SSV-1411 : Scheduled Flow 1</description>
+    <environments>Default</environments>
+    <interviewLabel>SSV_WaitingOnCustomerReminder-1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SSV_WaitingOnCustomerReminder-1</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Call_SSV_WaitingOnCustomerReminderEmails</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-08-20</startDate>
+            <startTime>01:38:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Call_SSV_WaitingOnCustomerReminderEmails</name>
+        <label>Call SSV_WaitingOnCustomerReminderEmails</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <flowName>SSV_WaitingOnCustomerReminderEmails</flowName>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>
