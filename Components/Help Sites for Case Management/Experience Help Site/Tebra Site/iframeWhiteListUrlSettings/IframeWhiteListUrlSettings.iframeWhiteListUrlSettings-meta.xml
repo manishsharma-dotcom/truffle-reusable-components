@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IframeWhiteListUrlSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <iframeWhiteListUrls>
+        <context>VisualforcePages</context>
+        <url>https://patientpop--scully.sandbox.lightning.force.com</url>
+    </iframeWhiteListUrls>
+    <iframeWhiteListUrls>
+        <context>VisualforcePages</context>
+        <url>https://patientpop--scully.sandbox.my.salesforce.com</url>
+    </iframeWhiteListUrls>
+    <iframeWhiteListUrls>
+        <context>VisualforcePages</context>
+        <url>https://patientpop--scully.sandbox.vf.force.com</url>
+    </iframeWhiteListUrls>
+    <iframeWhiteListUrls>
+        <context>VisualforcePages</context>
+        <url>https://patientpop--scully.sandbox.my.site.com</url>
+    </iframeWhiteListUrls>
+</IframeWhiteListUrlSettings>
