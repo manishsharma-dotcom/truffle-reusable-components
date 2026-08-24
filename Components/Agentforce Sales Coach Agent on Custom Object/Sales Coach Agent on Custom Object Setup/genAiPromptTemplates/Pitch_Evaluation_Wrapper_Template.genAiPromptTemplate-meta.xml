@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_12</activeVersionIdentifier>
+    <developerName>Pitch_Evaluation_Wrapper_Template</developerName>
+    <masterLabel>Pitch Evaluation Wrapper Template</masterLabel>
+    <overridable>false</overridable>
+    <relatedEntity>PitchIQ_Assignment__c</relatedEntity>
+    <templateVersions>
+        <content>Run and use {!$Input:Transcript} and {!$RecordSnapshot:RelatedObject.snapshot} as inputs to {!$Flow:PitchIQ_Prompt_Execution_and_Feedback.Prompt}.
+
+**Output Requirements**
+Return the information in promptResponse output of the flow as feedback. Do not label it as &quot;promptResponse&quot;.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RelatedObject</apiName>
+            <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+            <referenceName>Input:RelatedObject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Transcript</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:Transcript</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <outputLanguageMode>PromptDriven</outputLanguageMode>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:RelatedObject.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:RelatedObject</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://PitchIQ_Prompt_Execution_and_Feedback</definition>
+            <label>PitchIQ Prompt Execution and Feedback</label>
+            <parameters>
+                <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+                <isRequired>false</isRequired>
+                <parameterName>pitchAssignmentRecord</parameterName>
+                <valueExpression>{!$Input:RelatedObject}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>transcript</parameterName>
+                <valueExpression>{!$Input:Transcript}</valueExpression>
+            </parameters>
+            <referenceName>Flow:PitchIQ_Prompt_Execution_and_Feedback</referenceName>
+        </templateDataProviders>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Run and use {!$Input:Transcript} and {!$RecordSnapshot:RelatedObject.snapshot} as inputs to {!$Flow:PitchIQ_Prompt_Execution_and_Feedback.Prompt}.
+
+**Output Requirements**
+Return the information in promptResponse output of the flow as feedback. Do not label it as &quot;promptResponse&quot;.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__zhCnLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>RelatedObject</apiName>
+            <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+            <referenceName>Input:RelatedObject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Transcript</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:Transcript</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <outputLanguageMode>Automatic</outputLanguageMode>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://PitchIQ_Prompt_Execution_and_Feedback</definition>
+            <label>PitchIQ Prompt Execution and Feedback</label>
+            <parameters>
+                <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+                <isRequired>true</isRequired>
+                <parameterName>pitchAssignmentRecord</parameterName>
+                <valueExpression>{!$Input:RelatedObject}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>transcript</parameterName>
+                <valueExpression>{!$Input:Transcript}</valueExpression>
+            </parameters>
+            <referenceName>Flow:PitchIQ_Prompt_Execution_and_Feedback</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:RelatedObject.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:RelatedObject</referenceName>
+        </templateDataProviders>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Run and use {!$Input:Transcript} and {!$RecordSnapshot:RelatedObject.snapshot} as inputs to {!$Flow:PitchIQ_Prompt_Execution_and_Feedback.Prompt}.
+
+**Output Requirements**
+Return the information in promptResponse output of the flow as feedback. Do not label it as &quot;promptResponse&quot;.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__zhCnLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>RelatedObject</apiName>
+            <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+            <referenceName>Input:RelatedObject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Transcript</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:Transcript</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <outputLanguageMode>PromptDriven</outputLanguageMode>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:RelatedObject.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:RelatedObject</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://PitchIQ_Prompt_Execution_and_Feedback</definition>
+            <label>PitchIQ Prompt Execution and Feedback</label>
+            <parameters>
+                <definition>SOBJECT://PitchIQ_Assignment__c</definition>
+                <isRequired>false</isRequired>
+                <parameterName>pitchAssignmentRecord</parameterName>
+                <valueExpression>{!$Input:RelatedObject}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>transcript</parameterName>
+                <valueExpression>{!$Input:Transcript}</valueExpression>
+            </parameters>
+            <referenceName>Flow:PitchIQ_Prompt_Execution_and_Feedback</referenceName>
+        </templateDataProviders>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_12</versionIdentifier>
+    </templateVersions>
+    <type>sales_einstein_coach_copilot__SalesCoachAgent</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

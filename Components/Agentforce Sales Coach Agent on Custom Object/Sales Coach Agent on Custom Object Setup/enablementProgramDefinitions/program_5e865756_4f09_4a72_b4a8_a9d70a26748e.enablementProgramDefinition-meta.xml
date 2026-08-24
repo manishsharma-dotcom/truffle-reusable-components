@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementProgramDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Learn how Rochester Electronics&apos; TLS360™ program provides long-term lifecycle assurance for mission-critical semiconductor product families. Develop the skills to explain TLS360, communicate customer value, and position Rochester&apos;s lifecycle support beyond traditional manufacturer roadmaps. Complete a recorded customer pitch assessment.</description>
+    <developerName>program_5e865756_4f09_4a72_b4a8_a9d70a26748e</developerName>
+    <doesAllowSelfEnrollment>false</doesAllowSelfEnrollment>
+    <masterLabel>TLS360 Foundations: Lifecycle Assurance Without Compromise - Inside Sales</masterLabel>
+    <name>TLS360 Foundations: Lifecycle Assurance Without Compromise - Inside Sales</name>
+    <sections>
+        <developerName>section_ac50fde7_dd47_44ad_88df_a5f1b355f93c</developerName>
+        <name>Understanding TLS360</name>
+        <sequenceNumber>0</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Executive introduction from Colin Strother. Learn why lifecycle assurance matters for customers in long-life industries and how TLS360 helps address lifecycle risk, continuity challenges, and long-term planning requirements.</description>
+            <developerName>task_b572b721_e7c3_4be8_9987_0ce4ccb66291</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Why_TLS_Assurance_Matters_draft_excvideo</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Why Lifecycle Assurance Matters</name>
+            <sequenceNumber>1</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Understand what TLS360 is, why it exists, and how it differs from traditional lifecycle support.</description>
+            <developerName>task_c6cf77aa_4c99_420c_9f58_10a9d3a30207</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/TLS360_Fundamentals</apiName>
+                </cmsContent>
+            </exercise>
+            <name>TLS360 Fundamentals</name>
+            <sequenceNumber>2</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Review the TLS360 brochure for additional details regarding lifecycle governance, lifecycle horizons, and program guidance. Download for future reference and use.</description>
+            <developerName>task_abaa9222_a58c_4624_80f9_280bb797c62f</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/TLS360_Program_Overview_Brochure</apiName>
+                </cmsContent>
+            </exercise>
+            <name>TLS360 Program Overview Brochure</name>
+            <sequenceNumber>3</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_8a25ba50_3f2a_4451_9923_09d1010a70c4</developerName>
+        <name>Lifecycle Planning &amp; Customer Positioning</name>
+        <sequenceNumber>4</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Every TLS360-designated part is assigned a lifecycle horizon to provide planning visibility.</description>
+            <developerName>task_117c3749_54cf_4737_9d14_61b2079caff3</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Lifecycle_Planning_Under_TLS360</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Lifecycle Horizons</name>
+            <sequenceNumber>5</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>TLS360 uses industry-standard JEDEC lifecycle terminology and change notification practices.</description>
+            <developerName>task_a016ae56_4970_4315_84ae_8e23088fe3b2</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Lifecycle_Governance</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Lifecycle Governance</name>
+            <sequenceNumber>6</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_77ff8243_8a04_4c24_a99a_ff8420a22d42</developerName>
+        <name>Recognizing  &amp; Positioning TLS360 Opportunities</name>
+        <sequenceNumber>7</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Learn how to recognize customer statements and business challenges that may indicate a need for TLS360 lifecycle assurance.</description>
+            <developerName>task_da163b36_6597_4dfe_8f4d_17587d239c3c</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Identifying_Customer_Signals</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Identifying Customer Signals</name>
+            <sequenceNumber>8</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Learn how customers participate in TLS360 and the actions they can take to receive lifecycle visibility, analysis, and ongoing program updates.</description>
+            <developerName>task_b6ad6513_78fc_42be_8ff1_6172d9b63307</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Helping_Customers_Engage_in_TLS360</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Helping Customers Get Value from TLS360</name>
+            <sequenceNumber>9</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Watch the following demonstration to learn how customers create and manage product lists, upload BOMs, monitor availability, organize lifecycle planning activities, and prepare products for future purchasing and supply planning.</description>
+            <developerName>task_1efa556d_ead3_4c6e_a300_a99bcb386585</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__videoLesson/Using_the_MyList_Tool_on_the_Website</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Using the My List Tool on RochesterElectronics.com</name>
+            <sequenceNumber>10</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>Video</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_f8db55a9_f6d6_4cac_b00a_4e96780d885d</developerName>
+        <name>TLS360 Customer Conversations</name>
+        <sequenceNumber>11</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Demonstrates an effective customer-facing explanation of TLS360 and serves as a model for communicating the program&apos;s value in customer conversations.</description>
+            <developerName>task_41e49435_61a0_4581_8e5f_4205494b4712</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Why_TLS_Assurance_Matters_draft_excvideo</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Model TLS360 Customer Pitch</name>
+            <sequenceNumber>12</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>15</day>
+            <description>Review the key concepts that will help you confidently discuss TLS360 with customers and communicate the program&apos;s value in a natural, customer-focused conversation.</description>
+            <developerName>task_bf785aab_3092_454d_8eab_6461beb5739a</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Preparing_for_TLS360_convo</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Preparing for Customer Conversations About TLS360</name>
+            <sequenceNumber>13</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+    </sections>
+    <type>Enablement</type>
+</EnablementProgramDefinition>

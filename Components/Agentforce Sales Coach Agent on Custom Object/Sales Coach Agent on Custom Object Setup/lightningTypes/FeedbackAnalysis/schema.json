@@ -1,0 +1,16 @@
+{
+  "description" : "",
+  "lightning:type" : "lightning__objectType",
+  "title" : "FeedbackAnalysis",
+  "properties" : {
+    "Result" : {
+      "title" : "Result",
+      "description" : "",
+      "lightning:type" : "lightning__textType"
+    },
+    "FailureReason" : {
+      "title" : "FailureReason",
+      "lightning:type" : "lightning__textType"
+    }
+  }
+}

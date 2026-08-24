@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_1</activeVersionIdentifier>
+    <developerName>PitchIQ_File_Reader</developerName>
+    <masterLabel>PitchIQ File Reader</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>******
+Role: Work as a Salesforce Sales Executive
+******
+******
+Instructions:
+1. Read the content in the image or file provided.
+2. Read all the content available in the image and file.
+3 The Dates must be convert into the format(YYYY-MM-DD).
+******
+******
+Output:
+1. Display the complete content available in the image or field.
+******
+******
+Mandatory Guidelines:
+1. Do not show the details of the Salesforce field data in the output.
+******
+******
+Data:
+{!$RecordSnapshot:ContentDocument.snapshot}
+******
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocument</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocument</masterLabel>
+            <referenceName>Input:ContentDocument</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:ContentDocument.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:ContentDocument</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

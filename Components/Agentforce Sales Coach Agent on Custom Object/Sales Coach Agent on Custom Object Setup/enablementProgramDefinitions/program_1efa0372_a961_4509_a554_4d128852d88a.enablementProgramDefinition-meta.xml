@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementProgramDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Learn how and when to create a Customer Issue Form. After reviewing the training materials, submit a Customer Issue Form from an Order Summary when a valid customer issue arises.</description>
+    <developerName>program_1efa0372_a961_4509_a554_4d128852d88a</developerName>
+    <doesAllowSelfEnrollment>true</doesAllowSelfEnrollment>
+    <masterLabel>Customer Issue Form: Training &amp; Submission</masterLabel>
+    <name>Customer Issue Form: Training &amp; Submission</name>
+    <sections>
+        <developerName>section_1afc50e4_26f2_425a_bb49_be10d8c6f7ee</developerName>
+        <name>Learn &amp; Prepare</name>
+        <sequenceNumber>1</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>This video walks you through the reason why we have customer issue and how we raise the customer issue form on the customers order so everything is in one place.</description>
+            <developerName>task_a7e5b666_8063_4515_a9bd_e8d242cb2953</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Customer_Issues_Video</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Watch a Video on How to Create a Customer Issue Form in Salesforce</name>
+            <sequenceNumber>3</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>This is a visual aid to assist with entering a customer issue. You can also download this to keep for your records.</description>
+            <developerName>task_4e99e892_e447_43bf_b0ef_773dfe3cfd53</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Customer_Issue_Training_Document</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Review and Download the Training Document</name>
+            <sequenceNumber>2</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>Document</taskSubCategory>
+        </tasks>
+    </sections>
+    <tasks>
+        <day>3</day>
+        <description>From an Order Summary record, create and submit a Customer Issue Form when a valid customer issue exists.
+This step is complete once a qualifying Case has been created in Salesforce.</description>
+        <developerName>task_enablementProgramOutcomeCard</developerName>
+        <milestone>
+            <isMilestoneAnOutcome>true</isMilestoneAnOutcome>
+            <milestoneMeasures>
+                <measureDefinitionDeveloperName>Create_Customer_Issue_Form</measureDefinitionDeveloperName>
+            </milestoneMeasures>
+            <milestoneTarget>1.0</milestoneTarget>
+        </milestone>
+        <name>Submit a Customer Issue Form (when applicable)</name>
+        <sequenceNumber>0</sequenceNumber>
+        <taskCategory>Milestone</taskCategory>
+        <taskSubCategory>Other</taskSubCategory>
+    </tasks>
+    <type>Enablement</type>
+</EnablementProgramDefinition>

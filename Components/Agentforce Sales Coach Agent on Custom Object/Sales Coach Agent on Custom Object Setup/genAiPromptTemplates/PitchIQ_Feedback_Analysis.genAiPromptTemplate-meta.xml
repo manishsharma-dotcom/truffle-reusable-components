@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_3</activeVersionIdentifier>
+    <developerName>PitchIQ_Feedback_Analysis</developerName>
+    <masterLabel>PitchIQ Feedback Analysis</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>Analyze the following customer feedback:
+{!$Input:Feedback}
+
+Task:
+Evaluate the feedback and provide the results in the requested format.
+
+Output Requirements:
+1. Result: Return ONLY &quot;Pass&quot; or &quot;Fail&quot; based on the feedback.
+2. Failure Reason: If the Result is &quot;Fail&quot;, extract a concise reason for the failure. If the Result is &quot;Pass&quot;, return &quot;None&quot;.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Feedback</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Feedback</masterLabel>
+            <referenceName>Input:Feedback</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <versionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Analyze the following customer feedback:
+{!$Input:Feedback}
+
+Task:
+Evaluate the feedback and provide the results in the requested format.
+
+Output Requirements:
+1. Result: Return ONLY &quot;Pass&quot; or &quot;Fail&quot; based on the feedback.
+2. Failure Reason: If the Result is &quot;Fail&quot;, extract a concise reason for the failure. If the Result is &quot;Pass&quot;, return &quot;None&quot;.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Feedback</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Feedback</masterLabel>
+            <referenceName>Input:Feedback</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <outputSchema>FeedbackAnalysis</outputSchema>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Analyze the following customer feedback:
+{!$Input:Feedback}
+
+Task:
+Evaluate the feedback and provide the results in the requested format.
+
+Output Requirements:
+1. Result: Return ONLY &quot;Pass&quot; or &quot;Fail&quot; based on the feedback.
+2. Failure Reason: Only 3 Types of Possible Values based on your analysis &apos;Missing Key Topic&apos;, &apos;Disallowed Claim Made&apos; and &apos;None&apos;. Don&apos;t Pass anything else as these are restricted picklist values. None will only be passed when result is Pass.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Feedback</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Feedback</masterLabel>
+            <referenceName>Input:Feedback</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <outputSchema>FeedbackAnalysis</outputSchema>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>9gX4wh74JcEiCuxovvNRpy7hpEUhOD++4S0OdNC4iXE=_3</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

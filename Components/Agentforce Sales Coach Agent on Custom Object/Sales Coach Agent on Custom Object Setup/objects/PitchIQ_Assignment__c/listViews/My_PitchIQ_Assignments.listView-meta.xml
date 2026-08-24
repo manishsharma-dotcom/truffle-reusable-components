@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_PitchIQ_Assignments</fullName>
+    <columns>NAME</columns>
+    <columns>Enablement_Program__c</columns>
+    <columns>NumberOfAttempts__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Seller_User__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <label>My PitchIQ Assignments</label>
+</ListView>

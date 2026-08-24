@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementMeasureDefinition xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Counts the number of voice calls in which the call owner mentions follow-up, scheduling, or action items. This prebuilt measure is provided to you by Salesforce. Einstein Conversation Insights must be enabled.</description>
+    <developerName>salesforceTemplate_CallsNextStep</developerName>
+    <masterLabel>Number of Calls with Next Steps</masterLabel>
+    <sourceMeasureObject>
+        <aggregateFunction>Count</aggregateFunction>
+        <dateFieldApiName>ActivityDateTime</dateFieldApiName>
+        <displayFieldApiName>Id</displayFieldApiName>
+        <objectApiName xsi:nil="true"/>
+        <relatedMeasureObjects>
+            <filters>
+                <fieldApiName>ParticipantType</fieldApiName>
+                <fieldValue>From</fieldValue>
+                <operator>Equals</operator>
+                <sequenceNumber>1</sequenceNumber>
+            </filters>
+            <filters>
+                <fieldApiName>PersonId</fieldApiName>
+                <fieldValue>$User</fieldValue>
+                <operator>Equals</operator>
+                <sequenceNumber>2</sequenceNumber>
+            </filters>
+            <idFieldApiName>ActivityId</idFieldApiName>
+            <objectApiName xsi:nil="true"/>
+        </relatedMeasureObjects>
+        <relatedMeasureObjects>
+            <filters>
+                <fieldApiName>InsightType</fieldApiName>
+                <fieldValue>Next Steps</fieldValue>
+                <operator>Equals</operator>
+                <sequenceNumber>1</sequenceNumber>
+            </filters>
+            <filters>
+                <fieldApiName>AggregatedKeywordOccurrences</fieldApiName>
+                <fieldValue>1</fieldValue>
+                <operator>GreaterThanOrEqual</operator>
+                <sequenceNumber>2</sequenceNumber>
+            </filters>
+            <idFieldApiName>ActivityId</idFieldApiName>
+            <objectApiName xsi:nil="true"/>
+        </relatedMeasureObjects>
+        <userFieldApiName>Detail.OwnerId</userFieldApiName>
+    </sourceMeasureObject>
+    <status>Published</status>
+</EnablementMeasureDefinition>

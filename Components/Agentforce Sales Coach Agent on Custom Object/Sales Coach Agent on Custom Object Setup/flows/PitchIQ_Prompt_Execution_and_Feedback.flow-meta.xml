@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Run_ADI_RF_Prompt</name>
+        <label>Run ADI RF Prompt</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>PitchIQ_ADI_RF_Pitch_Feedback</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <connector>
+            <targetReference>Update_Pitch_Assignment_Feedback_ADI</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:Transcript</name>
+            <value>
+                <elementReference>transcript</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Input:RelatedObject</name>
+            <value>
+                <elementReference>pitchAssignmentRecord</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>PitchIQ_ADI_RF_Pitch_Feedback</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Run_TLS360_Prompt</name>
+        <label>Run TLS360 Prompt</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>PitchIQ_TLS360_Pitch_Feedback</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <connector>
+            <targetReference>Update_Pitch_Assignment_Feedback_TLS</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:RelatedObject</name>
+            <value>
+                <elementReference>pitchAssignmentRecord</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Input:Transcript</name>
+            <value>
+                <elementReference>transcript</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>PitchIQ_TLS360_Pitch_Feedback</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_ADI_RF_Output</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Add ADI RF Output</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Output only the feedback and overall result in the same format from {!Run_ADI_RF_Prompt} promptResponse. Do not change the language of the feedback.
+</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Add_TLS360_Output</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Add TLS360 Output</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Output only the feedback and overall result in the same format from {!Run_TLS360_Prompt} promptResponse. Do not change the language of the feedback.
+</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Enablement_Program</name>
+        <label>Check Enablement Program</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Run_ADI_RF_Prompt</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>ADF RF</defaultConnectorLabel>
+        <rules>
+            <name>TLS360</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>pitchAssignmentRecord.Enablement_Program__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TLS360</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_TLS360_Prompt</targetReference>
+            </connector>
+            <label>TLS360</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>CleanedADIRFFeedback</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+  SUBSTITUTE(
+    SUBSTITUTE(
+      SUBSTITUTE(
+        SUBSTITUTE({!Run_ADI_RF_Prompt.promptResponse}, &quot;&amp;quot;&quot;, &apos;&quot;&apos;),
+      &quot;&amp;amp;&quot;, &quot;&amp;&quot;),
+    &quot;&amp;#39;&quot;, &quot;&apos;&quot;),
+  &quot;&amp;lt;&quot;, &quot;&lt;&quot;),
+&quot;&amp;gt;&quot;, &quot;&gt;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>CleanedTLS360Feedback</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+  SUBSTITUTE(
+    SUBSTITUTE(
+      SUBSTITUTE(
+        SUBSTITUTE({!Run_TLS360_Prompt.promptResponse}, &quot;&amp;quot;&quot;, &apos;&quot;&apos;),
+      &quot;&amp;amp;&quot;, &quot;&amp;&quot;),
+    &quot;&amp;#39;&quot;, &quot;&apos;&quot;),
+  &quot;&amp;lt;&quot;, &quot;&lt;&quot;),
+&quot;&amp;gt;&quot;, &quot;&gt;&quot;)</expression>
+    </formulas>
+    <interviewLabel>PitchIQ Prompt Execution and Feedback {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PitchIQ Prompt Execution and Feedback</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordUpdates>
+        <name>Update_Pitch_Assignment_Feedback_ADI</name>
+        <label>Update Pitch Assignment Feedback ADI</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Add_ADI_RF_Output</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>pitchAssignmentRecord.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>LatestFeedback__c</field>
+            <value>
+                <elementReference>CleanedADIRFFeedback</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PitchIQ_Assignment__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Pitch_Assignment_Feedback_TLS</name>
+        <label>Update Pitch Assignment Feedback TLS</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Add_TLS360_Output</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>pitchAssignmentRecord.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>LatestFeedback__c</field>
+            <value>
+                <elementReference>CleanedTLS360Feedback</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PitchIQ_Assignment__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Enablement_Program</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>pitchAssignmentRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>PitchIQ_Assignment__c</objectType>
+    </variables>
+    <variables>
+        <name>transcript</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

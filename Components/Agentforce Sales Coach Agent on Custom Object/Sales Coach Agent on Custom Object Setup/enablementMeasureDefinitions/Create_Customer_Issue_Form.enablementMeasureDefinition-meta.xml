@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementMeasureDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Under Order Summaries, select Customer Issue Forms once you have an order Number or Order Summary number. This will measure that you complete 1 customer issue form.</description>
+    <developerName>Create_Customer_Issue_Form</developerName>
+    <masterLabel>Create Customer Issue Form</masterLabel>
+    <sourceMeasureObject>
+        <aggregateFunction>Count</aggregateFunction>
+        <dateFieldApiName>CreatedDate</dateFieldApiName>
+        <displayFieldApiName>Id</displayFieldApiName>
+        <filters>
+            <fieldApiName>RecordType.DeveloperName</fieldApiName>
+            <fieldValue>Customer_Issue_Form</fieldValue>
+            <operator>Equals</operator>
+            <sequenceNumber>1</sequenceNumber>
+        </filters>
+        <filters>
+            <fieldApiName>CreatedDate</fieldApiName>
+            <fieldValue>2026-04-14T13:49:00.000Z</fieldValue>
+            <operator>GreaterThan</operator>
+            <sequenceNumber>2</sequenceNumber>
+        </filters>
+        <objectApiName>Case</objectApiName>
+        <userFieldApiName>CreatedById</userFieldApiName>
+    </sourceMeasureObject>
+    <status>Published</status>
+</EnablementMeasureDefinition>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementMeasureDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Averages the Amount field across an opportunity owner&apos;s won opportunities. To qualify, opportunities must have the Stage field set to Closed Won and the Amount field must be populated. This prebuilt measure is provided to you by Salesforce.</description>
+    <developerName>salesforceTemplate_AverageDealSize</developerName>
+    <masterLabel>Average Deal Size</masterLabel>
+    <sourceMeasureObject>
+        <aggregateFieldApiName>Amount</aggregateFieldApiName>
+        <aggregateFunction>Average</aggregateFunction>
+        <dateFieldApiName>CloseDate</dateFieldApiName>
+        <displayFieldApiName>Name</displayFieldApiName>
+        <filters>
+            <fieldApiName>StageName</fieldApiName>
+            <fieldValue>Closed Won</fieldValue>
+            <operator>Equals</operator>
+            <sequenceNumber>1</sequenceNumber>
+        </filters>
+        <objectApiName>Opportunity</objectApiName>
+        <userFieldApiName>OwnerId</userFieldApiName>
+    </sourceMeasureObject>
+    <status>Published</status>
+</EnablementMeasureDefinition>

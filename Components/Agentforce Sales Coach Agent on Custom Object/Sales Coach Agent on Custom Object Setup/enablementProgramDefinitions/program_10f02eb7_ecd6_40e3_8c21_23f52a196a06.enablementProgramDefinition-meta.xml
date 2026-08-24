@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementProgramDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Who/What  is Rochester</description>
+    <developerName>program_10f02eb7_ecd6_40e3_8c21_23f52a196a06</developerName>
+    <doesAllowSelfEnrollment>false</doesAllowSelfEnrollment>
+    <masterLabel>Onboarding - Company Overview</masterLabel>
+    <name>Onboarding - Company Overview</name>
+    <tasks>
+        <day>2</day>
+        <description>Rochester Electronics Mission Statement</description>
+        <developerName>task_df18f9ae_2e82_433e_a5c0_fc2506701bce</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Rochester_Electronics_Mission_Statement</apiName>
+            </cmsContent>
+        </exercise>
+        <name>Our Mission Statement</name>
+        <sequenceNumber>1</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>Document</taskSubCategory>
+    </tasks>
+    <tasks>
+        <day>3</day>
+        <description>This document talks about our main Newburyport Office, shows us the different buildings for Manufacturing and Distribution</description>
+        <developerName>task_23ab5dbe_2343_494b_8890_b1ab24a83ed9</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Rochester_Electronics_about_Us</apiName>
+            </cmsContent>
+        </exercise>
+        <name>More about Us</name>
+        <sequenceNumber>2</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>Document</taskSubCategory>
+    </tasks>
+    <tasks>
+        <day>1</day>
+        <description>The video is Chris Gerrish introducing you to Rochester Electronics</description>
+        <developerName>task_07c33273_a4d0_483f_92fc_511c9313195b</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Introduction_from_Chris_Gerrish</apiName>
+            </cmsContent>
+        </exercise>
+        <name>Introduction From Chris Gerrish</name>
+        <sequenceNumber>0</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>OtherExercise</taskSubCategory>
+    </tasks>
+    <tasks>
+        <day>4</day>
+        <description>This video talks about our Marketing Strategy</description>
+        <developerName>task_17b824e6_81ac_41b2_b293_c62ee75eb9c4</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/The_Marketing_Introduction_Video</apiName>
+            </cmsContent>
+        </exercise>
+        <name>Introduction to Marketing</name>
+        <sequenceNumber>3</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>OtherExercise</taskSubCategory>
+    </tasks>
+    <tasks>
+        <day>5</day>
+        <description>Our Warehouse Video</description>
+        <developerName>task_f9003389_cb39_40ba_966d_6455d055406d</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Supply_Chain_Operations</apiName>
+            </cmsContent>
+        </exercise>
+        <name>Introduction To Distribution</name>
+        <sequenceNumber>4</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>OtherExercise</taskSubCategory>
+    </tasks>
+    <tasks>
+        <day>5</day>
+        <description>This Test is linked to your LMS Training and a record of completion.</description>
+        <developerName>task_4f662e20_0d1f_4380_a480_2f6444dfd1f2</developerName>
+        <exercise>
+            <cmsContent>
+                <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/Knowledge_Test</apiName>
+            </cmsContent>
+        </exercise>
+        <name>Test for Completion of this program</name>
+        <sequenceNumber>5</sequenceNumber>
+        <taskCategory>Exercise</taskCategory>
+        <taskSubCategory>OtherExercise</taskSubCategory>
+    </tasks>
+    <type>Enablement</type>
+</EnablementProgramDefinition>

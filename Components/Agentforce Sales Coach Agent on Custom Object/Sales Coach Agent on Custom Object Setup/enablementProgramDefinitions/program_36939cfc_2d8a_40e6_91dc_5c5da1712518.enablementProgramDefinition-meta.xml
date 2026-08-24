@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementProgramDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Learn how Rochester Electronics supports Analog Devices RF and Microwave products through the TLS360™ lifecycle assurance program. Develop the knowledge needed to understand the ADI RF portfolio, articulate customer value, recognize lifecycle challenges, and confidently communicate Rochester&apos;s authorized lifecycle support solutions.</description>
+    <developerName>program_36939cfc_2d8a_40e6_91dc_5c5da1712518</developerName>
+    <doesAllowSelfEnrollment>false</doesAllowSelfEnrollment>
+    <masterLabel>ADI RF Lifecycle Solutions</masterLabel>
+    <name>ADI RF Lifecycle Solutions</name>
+    <sections>
+        <developerName>section_2c5179f2_9d26_41de_b76c_1bc072c2bb4b</developerName>
+        <name>ADI RF Fundamentals</name>
+        <sequenceNumber>0</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Learn what the ADI RF product family is, where it originated, and why these products are important in mission-critical systems.</description>
+            <developerName>task_d384d50d_6709_488d_aee8_fb6723f2fe73</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Understanding_ADI_RF_Products</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Understanding ADI RF Products</name>
+            <sequenceNumber>1</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Review the ADI RF brochure for additional details regarding supported products, lifecycle challenges, and Rochester&apos;s authorized solution.</description>
+            <developerName>task_162cb848_0025_427a_bfe6_ad24772350cf</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/ADI_RF_Program_Overview_Brochure</apiName>
+                </cmsContent>
+            </exercise>
+            <name>ADI RF Program Overview Brochure</name>
+            <sequenceNumber>2</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Review the ADI RF deal sheet for key positioning points, customer value, and sales discussion guidance.</description>
+            <developerName>task_bda68184_1221_4bf0_b973_664aca96a378</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/ADI_RF_Deal_Sheet</apiName>
+                </cmsContent>
+            </exercise>
+            <name>ADI RF Deal Sheet</name>
+            <sequenceNumber>3</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_a767f5da_65a2_4ea3_bf14_c3208b8c0455</developerName>
+        <name>Positioning ADI RF</name>
+        <sequenceNumber>4</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Learn how to identify potential ADI RF opportunities and communicate Rochester&apos;s value to customers.</description>
+            <developerName>task_93ae17a1_0273_4eda_b1e7_bc5240ce776f</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Common_Customer_Indicators</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Recognizing ADI RF Opportunities</name>
+            <sequenceNumber>5</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Learn how to communicate Rochester&apos;s value and connect ADI RF lifecycle solutions to customer business challenges.</description>
+            <developerName>task_d5ddb993_8bd0_47a4_b61b_e35086ecbaf0</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Communicating_Customer_Value</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Positioning the Value</name>
+            <sequenceNumber>6</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>1</day>
+            <description>Review an example of an effective ADI RF customer conversation</description>
+            <developerName>task_c3738e62_4039_4851_a966_beff01a95b01</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/Example_Customer_Conversation</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Model Customer Pitch</name>
+            <sequenceNumber>7</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_438c0a01_8de5_4b29_aa45_604ba06fd689</developerName>
+        <name>Certification</name>
+        <sequenceNumber>8</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Demonstrate your understanding of ADI RF lifecycle solutions by completing a customer-facing pitch assessment.</description>
+            <developerName>task_e22b83d6_9738_4916_9920_b8bc000e6186</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__textLesson/ADI_RF_Pitch_Assessment</apiName>
+                </cmsContent>
+            </exercise>
+            <name>ADI RF Pitch Assessment</name>
+            <sequenceNumber>9</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>TextLesson</taskSubCategory>
+        </tasks>
+    </sections>
+    <sections>
+        <developerName>section_d08523bd_94d3_4c73_a57c_7d5944093c67</developerName>
+        <name>PitchIQ Sales Coach</name>
+        <sequenceNumber>10</sequenceNumber>
+        <tasks>
+            <day>1</day>
+            <description>Click to open your PitchIQ assignment. Complete your pitch in the Sales Coach component to pass this milestone.</description>
+            <developerName>task_9daf1861_83cf_4a28_af1d_f607e05162d3</developerName>
+            <exercise>
+                <cmsContent>
+                    <apiName>enablement/sfdcEnablement_EnablementWorkspace.sfdc_enablement__link/LaunchYourPitchPractice</apiName>
+                </cmsContent>
+            </exercise>
+            <name>Launch Your Pitch Practice</name>
+            <sequenceNumber>11</sequenceNumber>
+            <taskCategory>Exercise</taskCategory>
+            <taskSubCategory>OtherExercise</taskSubCategory>
+        </tasks>
+        <tasks>
+            <day>5</day>
+            <description>Test Your Pitch for ADI RF Program, You have to pass this in order to complete the Milestone.</description>
+            <developerName>task_ef5ba664_f97c_4aa9_a5ad_e68e6206ca1a</developerName>
+            <milestone>
+                <isMilestoneAnOutcome>false</isMilestoneAnOutcome>
+                <milestoneMeasures>
+                    <measureDefinitionDeveloperName>PitchIQ_ADI_RF_Program</measureDefinitionDeveloperName>
+                </milestoneMeasures>
+                <milestoneTarget>1.0</milestoneTarget>
+            </milestone>
+            <name>Test Pitch for ADI RF</name>
+            <sequenceNumber>12</sequenceNumber>
+            <taskCategory>Milestone</taskCategory>
+            <taskSubCategory>Other</taskSubCategory>
+        </tasks>
+    </sections>
+    <type>Enablement</type>
+</EnablementProgramDefinition>

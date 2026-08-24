@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementMeasureDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Counts the number of cases that a case owner has closed. To qualify, cases must have the Status field set to Closed. This prebuilt measure is provided to you by Salesforce.</description>
+    <developerName>salesforceTemplate_ResolvedCases</developerName>
+    <masterLabel>Number of Closed Cases</masterLabel>
+    <sourceMeasureObject>
+        <aggregateFunction>Count</aggregateFunction>
+        <dateFieldApiName>ClosedDate</dateFieldApiName>
+        <displayFieldApiName>SuppliedName</displayFieldApiName>
+        <filters>
+            <fieldApiName>Status</fieldApiName>
+            <fieldValue>Closed</fieldValue>
+            <operator>Equals</operator>
+            <sequenceNumber>1</sequenceNumber>
+        </filters>
+        <objectApiName>Case</objectApiName>
+        <userFieldApiName>OwnerId</userFieldApiName>
+    </sourceMeasureObject>
+    <status>Published</status>
+</EnablementMeasureDefinition>

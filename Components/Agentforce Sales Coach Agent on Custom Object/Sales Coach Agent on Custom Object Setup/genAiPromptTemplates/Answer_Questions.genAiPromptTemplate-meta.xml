@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_1</activeVersionIdentifier>
+    <description>Used for AgentForce Captain Rochester</description>
+    <developerName>Answer_Questions</developerName>
+    <masterLabel>Answer Questions from Knowledge Articles</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>###
+INSTRUCTIONS
+
+ 1. Analyze the query: Carefully read and understand the user&apos;s question or issue from the QUESTION section.
+ 2. Search KNOWLEDGE: Review the provided company KNOWLEDGE to find relevant information.
+ 3. Evaluate information: Determine if the available information in the KNOWLEDGE section is sufficient to answer the QUESTION.
+ 4. Language Instructions: You must respond in {language}
+ 5. Formulate response: To generate a reply &lt;generated_response&gt; to the user, you must follow these rules
+ a. Find the article-chunk(s) that is most relevant to answer the user query and VERBATIM extract the ID of the article to set &lt;source_id&gt; field in the response JSON. If you are unable to find the relevant article, set &lt;source_id&gt; to NONE.
+ b. Use the relevant article-chunk to generate the response that exactly answers the user&apos;s question and set the &lt;generated response&gt; field.
+ c. If the user request cannot by answered knowledge provided, set the &lt;source_id&gt; to NONE and &lt;generated_response&gt; to &quot;Sorry, I can&apos;t find an answer based on the available articles.&quot;
+ 6. Refine and deliver: Ensure your response is polite, professional, concise and in {language} only.
+ 7. Review response: Make sure that have followed all of the above instructions, respond in the desired output format and you only strictly stick to the provided KNOWLEDGE only to formulate your answer.
+
+ ###
+KNOWLEDGE:
+###
+INSTRUCTIONS
+
+ 1. Analyze the query: Carefully read and understand the user&apos;s question or issue from the QUESTION section.
+ 2. Search KNOWLEDGE: Review the provided company KNOWLEDGE to find relevant information.
+ 3. Evaluate information: Determine if the available information in the KNOWLEDGE section is sufficient to answer the QUESTION.
+ 4. Language Instructions: You must respond in {language}
+ 5. Formulate response: To generate a reply &lt;generated_response&gt; to the user, you must follow these rules
+ a. Find the article-chunk(s) that is most relevant to answer the user query and VERBATIM extract the ID of the article to set &lt;source_id&gt; field in the response JSON. If you are unable to find the relevant article, set &lt;source_id&gt; to NONE.
+ b. Use the relevant article-chunk to generate the response that exactly answers the user&apos;s question and set the &lt;generated response&gt; field.
+ c. If the user request cannot by answered knowledge provided, set the &lt;source_id&gt; to NONE and &lt;generated_response&gt; to &quot;Sorry, I can&apos;t find an answer based on the available articles.&quot;
+ 6. Refine and deliver: Ensure your response is polite, professional, concise and in {language} only.
+ 7. Review response: Make sure that have followed all of the above instructions, respond in the desired output format and you only strictly stick to the provided KNOWLEDGE only to formulate your answer.
+
+ ###
+KNOWLEDGE:
+{!$EinsteinSearch:KA_Knowledge_Articles_Retriever_1Cx_J8jf7cd1d1a.results}
+
+ ###
+QUESTION:
+{!$Input:Query}
+
+ ###
+Response:
+Return response as Answer_c__c
+Add Site_URL_Text__c value in the end of response
+
+ ###
+QUESTION:
+{!$Input:Query}
+
+ ###
+Response:
+Return response as Answer_c__c
+Add Site_URL_Text__c value in the end of response
+</content>
+        <inputs>
+            <apiName>Query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:Query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetrieverIdOrName</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:RetrieverIdOrName</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/KA_Knowledge_Articles_Retriever_1Cx_J8jf7cd1d1a</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:KA_Knowledge_Articles_Retriever_1Cx_J8jf7cd1d1a</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>qAiYNrorXkszVjWjXmf9HlQxTiOYAMhxOxwsFTw2X7Q=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__knowledgeAnswers</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

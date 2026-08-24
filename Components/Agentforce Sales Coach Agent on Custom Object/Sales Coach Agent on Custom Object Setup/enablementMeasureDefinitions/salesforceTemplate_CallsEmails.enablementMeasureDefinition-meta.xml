@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnablementMeasureDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Counts completed tasks tracked as calls or emails. To qualify, call tasks must have the Call Subtype or &quot;Call&quot; in the Subject, and the Status set to Complete. Email tasks must have the Email Subtype with Status set to Complete. This prebuilt measure is provided to you by Salesforce.</description>
+    <developerName>salesforceTemplate_CallsEmails</developerName>
+    <masterLabel>Number of Logged Calls and Emails</masterLabel>
+    <sourceMeasureObject>
+        <aggregateFunction>Count</aggregateFunction>
+        <dateFieldApiName>CompletedDateTime</dateFieldApiName>
+        <displayFieldApiName>TaskSubtype</displayFieldApiName>
+        <filterLogic>(1 OR 2) and 3</filterLogic>
+        <filters>
+            <fieldApiName>TaskSubtype</fieldApiName>
+            <fieldValue>&apos;Email&apos;,&apos;Call&apos;</fieldValue>
+            <operator>In</operator>
+            <sequenceNumber>1</sequenceNumber>
+        </filters>
+        <filters>
+            <fieldApiName>Subject</fieldApiName>
+            <fieldValue>Call</fieldValue>
+            <operator>Equals</operator>
+            <sequenceNumber>2</sequenceNumber>
+        </filters>
+        <filters>
+            <fieldApiName>Status</fieldApiName>
+            <fieldValue>Completed</fieldValue>
+            <operator>Equals</operator>
+            <sequenceNumber>3</sequenceNumber>
+        </filters>
+        <objectApiName>Task</objectApiName>
+        <userFieldApiName>OwnerId</userFieldApiName>
+    </sourceMeasureObject>
+    <status>Published</status>
+</EnablementMeasureDefinition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Edit_Without_Admin_Permission</fullName>
+    <active>true</active>
+    <description>Prevents any user without the PitchIQAdminAccess custom permission from editing any field on a PitchIQ Attempt record after it has been created.</description>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    NOT($Permission.PitchIQAdminAccess)
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to edit PitchIQ Attempt records. Contact your Manager if changes are required.</errorMessage>
+</ValidationRule>

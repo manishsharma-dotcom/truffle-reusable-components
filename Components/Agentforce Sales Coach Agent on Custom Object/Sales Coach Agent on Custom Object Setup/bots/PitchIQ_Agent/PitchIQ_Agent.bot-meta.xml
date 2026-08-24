@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentTemplate>sales_einstein_coach_copilot__Sales_Coach_Agent</agentTemplate>
+    <agentType>SalesEinsteinCoach</agentType>
+    <botMlDomain>
+        <label>PitchIQ Agent</label>
+        <name>PitchIQ_Agent</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <botUser>pitchiq_agent@00dnq00000ld6mf98016951.ext</botUser>
+    <description>Empower reps to build their skills with AI-powered targeted coaching. Agentforce Sales Coach delivers personalized, actionable, and contextual feedback on presentations and role-play sessions.</description>
+    <label>PitchIQ Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>ExternalCopilot</type>
+</Bot>
