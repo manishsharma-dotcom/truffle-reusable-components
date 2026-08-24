@@ -1,0 +1,248 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Home",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"81eccf94-5534-4890-bc67-71a4f6ad9a58\",\"columns\":[{\"UUID\":\"e5f2e263-0754-4a3d-b545-539a1fd903d4\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "fewTopicsLabel" : "View Fewer Topics",
+                "isUrlNames" : false,
+                "isViewCount" : true,
+                "moreTopicsLabel" : "View More Topics",
+                "searchTitle" : "Hello, how can we help you?",
+                "topArticlesTitle" : "Popular Articles",
+                "topicsTitle" : "Or select a Topic for instant help"
+              },
+              "definition" : "c:ssvHomePageTopSection",
+              "id" : "98288d5f-7457-466a-8a05-47eba8abf5a7",
+              "type" : "component"
+            } ],
+            "id" : "e5f2e263-0754-4a3d-b545-539a1fd903d4",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "81eccf94-5534-4890-bc67-71a4f6ad9a58",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"68ae1f78-ed23-4bae-a861-edd24feca792\",\"columns\":[{\"UUID\":\"08035ba5-461b-4903-a82e-55b305ba872d\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "children" : [ {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "imgURL" : "/weavehelp/webruntime/org-asset/39f1cd3d64/resource/081WH0000001k5l/Weave_Training_Img.png"
+                  },
+                  "definition" : "c:ssvWeaveTrainingWidgetImage",
+                  "id" : "6c34d4ce-2578-4cac-a670-c8c0c1533d66",
+                  "type" : "component"
+                } ],
+                "id" : "eaeb0861-2f79-4c35-bb8a-01d3e7fb26e6",
+                "name" : "Image-Region",
+                "title" : "Image-Region",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "richTextValue" : "<div class=\"two-thirds order-2\">\n            <h3>Learn Weave\n                <!-- <img src={underlineImg} alt=\"underline\" class=\"squiggle\"> -->\n            </h3>\n            <div class=\"d-m-b learn-weave\">\n                <div class=\"one-third\">\n                    <img src=\"/weavehelp/webruntime/org-asset/39f1cd3d64/resource/081WH0000001k5l/Weave_Training_Camp_Icon.png\" alt=\"training camp\" class=\"\" height=\"60\" width=\"auto\">\n                    <h5><a href=\"https://trainingcamp.weavehelp.com/\" target=\"_self\" rel=\"noopener\" class=\"\">Weave Training Camp</a></h5>\n                    <p>From basic Weave setup to pro-tips—get hands-on Weave training for everyone.</p>\n                </div>\n                <div class=\"one-third\">\n                    <img src=\"/weavehelp/webruntime/org-asset/39f1cd3d64/resource/081WH0000001k5l/Monthly_Training_Workshop_Icon.png\" alt=\"weave labs\" class=\"\" height=\"60\" width=\"auto\">\n                    <h5><a href=\"https://trainingcamp.weavehelp.com/page/live-sessions\"  target=\"_self\" rel=\"noopener\" class=\"\">Monthly Training Workshop</a></h5>\n                    <p>45 minute live and pre-recorded webinars to expand your Weave knowledge.</p>\n                </div>\n                <div class=\"one-third last-element\">\n                    <img src=\"/weavehelp/webruntime/org-asset/39f1cd3d64/resource/081WH0000001k5l/Weave_Live_Training_Icon.png\" alt=\"live training\" class=\"\" height=\"60\" width=\"auto\">\n                    <h5><a href=\"/article/sign-up-for-a-live-training-session\"  target=\"_self\" rel=\"noopener\" class=\"\">Weave Live Training</a></h5>\n                    <p>Register for live, one-on-one Weave training sessions with our training team.</p>\n                </div>\n            </div>\n</div>"
+                  },
+                  "definition" : "community_builder:htmlEditor",
+                  "id" : "5504f763-676e-4e86-b68a-f5f626d501cc",
+                  "type" : "component"
+                } ],
+                "id" : "db01099e-d969-4562-b593-b9668311451a",
+                "name" : "Content-Region",
+                "title" : "Content-Region",
+                "type" : "region"
+              } ],
+              "definition" : "c:ssvWeaveTrainingWidgetLayout",
+              "id" : "ee9048bb-c866-4733-8f74-b06023aae0ff",
+              "type" : "component"
+            } ],
+            "id" : "08035ba5-461b-4903-a82e-55b305ba872d",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "68ae1f78-ed23-4bae-a861-edd24feca792",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"ebbdff46-a7f3-47e3-8e5a-ca62ca482042\",\"columns\":[{\"UUID\":\"21bda1a8-8e8c-4b70-8aba-f6e5a60ba50a\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "faqMetadataInfo" : "The FAQ are fetched from the knowledge articles from the record type 'Frequently Asked Questions'.",
+                "title" : "Frequently Asked Questions"
+              },
+              "definition" : "c:ssvFaqWidget",
+              "id" : "3ce93514-a4da-4fc5-b6f3-871b805c022e",
+              "type" : "component"
+            } ],
+            "id" : "21bda1a8-8e8c-4b70-8aba-f6e5a60ba50a",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "ebbdff46-a7f3-47e3-8e5a-ca62ca482042",
+          "scopedBrandingSetId" : "FAQ_Section",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"6ac0dfcf-0f58-43f4-897f-75b68d73277c\",\"columns\":[{\"UUID\":\"39bdf4b4-cf80-4867-9e1f-3119051fef81\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "buttonLabel" : "View All Updates",
+                "description" : "We’re always rolling out new features and updates to improve your Weave experience. Read all about them here",
+                "dxpStyle" : { },
+                "firstLinkName" : "",
+                "firstLinkURL" : "",
+                "imgURL" : "/weavehelp/webruntime/org-asset/39f1cd3d64/resource/081WH0000001k5l/New_Features_Img.png",
+                "secondLinkName" : "",
+                "secondLinkURL" : "",
+                "title" : "What's New"
+              },
+              "definition" : "c:ssvNewFeaturesWidget",
+              "id" : "a415e401-4d05-4cfc-8272-0cee17d6fb8b",
+              "type" : "component"
+            } ],
+            "id" : "39bdf4b4-cf80-4867-9e1f-3119051fef81",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "6ac0dfcf-0f58-43f4-897f-75b68d73277c",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"dbd0870a-b944-43a3-a60c-ec09cee4a1ab\",\"columns\":[{\"UUID\":\"db973f13-81e3-4464-8d73-554ec62628ba\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "metadataInfo" : "The cards are fetched from the custom metadata type called 'Additional Features Card'.",
+                "title" : "Get even more out of Weave"
+              },
+              "definition" : "c:ssvGetMoreFeatureWidget",
+              "id" : "9047de65-a5c1-433f-bddc-1075b0032234",
+              "type" : "component"
+            } ],
+            "id" : "db973f13-81e3-4464-8d73-554ec62628ba",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "dbd0870a-b944-43a3-a60c-ec09cee4a1ab",
+          "type" : "component"
+        } ],
+        "id" : "4115070a-0304-4bb5-9ba5-a04b8fa1d8fd",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "<meta name=\"keywords\" content=\"Weave | Home\">",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Home",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "103a8250-2259-4f7e-adfa-a18d5c17a083",
+          "type" : "component"
+        } ],
+        "id" : "d36836c0-43c0-4e9f-aa9e-661ab649fb4c",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "27bbed06-030f-4771-9fd0-7385e1f66d53",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "home"
+  },
+  "urlName" : "home"
+}

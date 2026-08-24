@@ -1,0 +1,5 @@
+{
+  "apiName" : "Marketing",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

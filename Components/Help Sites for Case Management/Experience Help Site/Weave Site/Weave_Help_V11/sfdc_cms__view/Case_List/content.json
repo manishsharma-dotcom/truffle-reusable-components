@@ -1,0 +1,130 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Case List",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"3d926471-0ec8-4589-b0b3-bcd4dd3472d9\",\"columns\":[{\"UUID\":\"31038e69-e9c2-4dde-858f-997c9f08d041\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "richTextValue" : "<div>\n    <p style=\" text-align:center;   transform: scale(1, 1.1);\n    color: #23343d;\n    font-family: Georgia, sans-serif;\n    font-weight: 700;\n    font-size: 52px;\n    line-height: 82px;\">Support Cases</p>\n    \n</div>"
+              },
+              "definition" : "community_builder:htmlEditor",
+              "id" : "f6d32fa7-d271-4b3a-b0a4-d29af1d934b6",
+              "type" : "component"
+            } ],
+            "id" : "31038e69-e9c2-4dde-858f-997c9f08d041",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "3d926471-0ec8-4589-b0b3-bcd4dd3472d9",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"3ec82c84-5726-4e0a-88a2-839ad8f61825\",\"columns\":[{\"UUID\":\"c21aaca2-6878-4044-a103-5938d153b4e5\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "richTextValue" : "<div>\n    <p style=\" text-align:center;   transform: scale(1, 1.1);\n    color: #23343d;\n    font-family: Georgia, sans-serif;\n    font-weight: 700;\n    font-size: 24px;\n              line-height: 82px;\"><a target=\"_self\" href=\"https://weavehelp.com/weavehelp/login\">Login</a> to view cases</p>\n    \n</div>\n\n<div style=\"text-align:center; font-size:13px;\" class=\"login-message\">\n        <p>\n            If you did not create a <strong><a target=\"_self\" href=\"https://weavehelp.com\">Weave Help</a></strong> account before 9/16, the ability to manage your cases here is coming soon. \n            Continue browsing by searching the site or using the menu items above.\n            Or <strong><a target=\"_self\" href=\"https://weavehelp.com/weavehelp/contact-us\">contact support</a></strong> with additional questions about your tickets.\n        </p>\n    </div>"
+              },
+              "definition" : "community_builder:htmlEditor",
+              "id" : "7f95f53a-b4d3-4bd3-9138-cf277780cdb1",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "communityPath" : "/weavehelp/case",
+                "dxpStyle" : { },
+                "pagesize" : 25,
+                "submitACaseURL" : "/weavehelp/submitarequest"
+              },
+              "definition" : "c:sSV_caselist",
+              "id" : "377db9ef-31a8-4607-b32a-c3194c7c1e40",
+              "type" : "component"
+            } ],
+            "id" : "c21aaca2-6878-4044-a103-5938d153b4e5",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "3ec82c84-5726-4e0a-88a2-839ad8f61825",
+          "type" : "component"
+        } ],
+        "id" : "f5c082d6-f5c3-4e32-9b0d-4328d9cf9927",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "edc9c3e5-c3e8-4dc2-8794-1489bc6dcb6b",
+          "type" : "component"
+        } ],
+        "id" : "9543d223-ade5-4b82-a46a-2ce76226e6b6",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "5c6fb4f3-ae9d-4750-919b-d5b0fb16b1d7",
+      "type" : "component"
+    },
+    "contentOperations" : {
+      "operations" : [ {
+        "targetId" : "7f95f53a-b4d3-4bd3-9138-cf277780cdb1",
+        "isHiddenOnOperationSuccess" : false,
+        "isActive" : true,
+        "rule" : {
+          "name" : "c62a9684-e007-4963-b812-fe4b04dc0c50",
+          "description" : "",
+          "criteriaType" : "AllCriteriaMatch",
+          "expressionCriteria" : [ {
+            "resource" : "User.isGuest",
+            "operator" : "Equal",
+            "value" : true,
+            "criterionNumber" : 1
+          } ]
+        }
+      } ]
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "list-500"
+  },
+  "urlName" : "case-list"
+}

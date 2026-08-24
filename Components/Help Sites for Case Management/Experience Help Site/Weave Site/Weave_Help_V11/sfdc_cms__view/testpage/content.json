@@ -1,0 +1,76 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "testpage",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"cbe2d24f-524e-4b3f-89b3-8e2dbaf5393b\",\"columns\":[{\"UUID\":\"e6b51032-282f-4c3f-9c71-1ef9df0f0867\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "casesURL" : "/weavehelp/case/Case/Default",
+                "contactPhoneNumber" : "+ 1-888-579-5668",
+                "dxpStyle" : { },
+                "emailURL" : "/weavehelp/submitarequest",
+                "fridayTimings" : "6am - 5pm MST",
+                "monToThursTimings" : "6am - 6pm MST"
+              },
+              "definition" : "c:ssvContactUsPage",
+              "id" : "8403610f-1fc8-45b0-8b43-c1b9955aace6",
+              "type" : "component"
+            } ],
+            "id" : "e6b51032-282f-4c3f-9c71-1ef9df0f0867",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "cbe2d24f-524e-4b3f-89b3-8e2dbaf5393b",
+          "type" : "component"
+        } ],
+        "id" : "a491a6b8-38ff-476c-8107-f038b6d3bec2",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "testpage",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "675b6c63-19fa-4027-a42a-b126052b0804",
+          "type" : "component"
+        } ],
+        "id" : "1adbb633-96f3-40b1-9171-b43d0b5372ba",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "9352cf37-bf50-4d87-96a1-009f8fa80be2",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-testpage"
+  },
+  "urlName" : "testpage"
+}

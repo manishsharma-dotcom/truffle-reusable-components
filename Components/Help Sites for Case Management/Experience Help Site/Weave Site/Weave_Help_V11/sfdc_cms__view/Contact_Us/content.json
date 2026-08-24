@@ -1,0 +1,138 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Contact Us",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"764448e1-e874-4dcb-9902-991a8f1b1bdc\",\"columns\":[{\"UUID\":\"5d349311-e867-4093-997e-498a175b23ac\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:ssvPageInfo",
+              "id" : "49642a41-8429-4c16-9f12-856fd6725091",
+              "type" : "component"
+            } ],
+            "id" : "5d349311-e867-4093-997e-498a175b23ac",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "764448e1-e874-4dcb-9902-991a8f1b1bdc",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"2c477f5a-3ebe-4abb-b49e-62bd0c9330cf\",\"columns\":[{\"UUID\":\"2b6f9071-1039-4b05-963e-4e77a4f278fb\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:ssvContactUsNotification",
+              "id" : "b5ed5b3d-b9e5-48c1-92b9-30ba3cc49d5d",
+              "type" : "component"
+            } ],
+            "id" : "2b6f9071-1039-4b05-963e-4e77a4f278fb",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "2c477f5a-3ebe-4abb-b49e-62bd0c9330cf",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"cca3acb2-c812-491a-8720-a868dfd2120f\",\"columns\":[{\"UUID\":\"e6d70ffd-6ecf-456f-bb9f-188e02b207c6\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "casesURL" : "/weavehelp/case/Case/Default",
+                "contactDescription" : "Call 1-888-579-5668 to reach Weave Customer Support. We are available Monday thru Thursday, 6am - 6pm MST and Friday 6am - 5pm MST.",
+                "contactPhoneNumber" : "+ 1-888-579-5668",
+                "dxpStyle" : { },
+                "emailURL" : "/weavehelp/submitarequest",
+                "fridayTimings" : "6am - 5pm MST",
+                "monToThursTimings" : "6am - 6pm MST"
+              },
+              "definition" : "c:ssvContactUsPage",
+              "id" : "ca0177b3-9a6c-4e5b-95ae-c0f0738ecbe1",
+              "type" : "component"
+            } ],
+            "id" : "e6d70ffd-6ecf-456f-bb9f-188e02b207c6",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "cca3acb2-c812-491a-8720-a868dfd2120f",
+          "type" : "component"
+        } ],
+        "id" : "f1c4c1f9-ef2a-4356-9948-d43a1208eb38",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "<meta name=\"description\" content=\"Contact Weave Communications customer support by phone, chat, or email support ticket. Call 1-888-579-5668. Hours are Mon - Thurs 6am - 6pm MST, Fri 6am - 5pm MST.\">\n<meta property=\"og:title\" content=\"Weave Customer Service - Call 1-888-579-5668\">\n<meta property=\"og:description\" content=\"Contact Weave Communications customer support by phone, chat, or email support ticket. Call 1-888-579-5668.\">\n\n<script type='application/ld+json'>\n        { \n        \t\"@context\": \"https://schema.org\", \n            \"@type\": \"LocalBusiness\", \n            \"name\": \"Weave Communications (WEAV)\", \n            \"description\": \"Contact Weave Communications customer support by phone, chat, or support ticket.\",\n        \t\"openingHours\": \"Mo,Tu,We,Th 06:00-18:00, Fr 06:00-17:00\", \n            \"telephone\": \"888-579-5668\" \n         }\n</script>",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Contact Us",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "6e332ea0-ca88-4ddd-8154-e832e568b4b4",
+          "type" : "component"
+        } ],
+        "id" : "373626db-9652-4b21-a48d-9fb33fa79cb9",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "7a1d82d1-7057-45ed-9bde-f362a4a877d0",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "custom-contact-us"
+  },
+  "urlName" : "contact-us"
+}

@@ -1,0 +1,103 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "Weave Theme Layout",
+  "contentBody" : {
+    "component" : {
+      "attributes" : { },
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/sfsites/c/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY?height=144&width=192\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"cms_image\",\"bgPosition\":\"bottom center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"2e177f6f-fd89-471e-a672-e1d71420eb83\",\"columns\":[{\"UUID\":\"617ee7b4-f26e-41aa-8277-effa4e2af70f\",\"columnName\":\"Column 1\",\"columnKey\":\"headerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "contactUsLink" : "/weavehelp/contact-us",
+                "dxpStyle" : { },
+                "loginLink" : "https://weave--dev02.sandbox.my.site.com/weavehelp/login",
+                "logoutLink" : "https://weave--dev02.sandbox.my.site.com/weavehelp/secur/logout.jsp",
+                "menuName" : "Weave_Navigation_Menu",
+                "showContactUs" : true
+              },
+              "definition" : "c:ssvWeaveNavigationMenu",
+              "id" : "c3459a67-0244-4986-bb12-3bb40884cc97",
+              "type" : "component"
+            } ],
+            "id" : "617ee7b4-f26e-41aa-8277-effa4e2af70f",
+            "name" : "headerSection",
+            "title" : "Theme Header",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "2e177f6f-fd89-471e-a672-e1d71420eb83",
+          "type" : "component"
+        } ],
+        "id" : "37dfabeb-d4d2-4ef2-a0ee-991177080a78",
+        "name" : "header",
+        "title" : "Theme Header",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"fda043c1-ba36-47f6-ae22-53d973ead13a\",\"columns\":[{\"UUID\":\"8122e393-4253-4272-b655-08e9420a9b8c\",\"columnName\":\"Column 1\",\"columnKey\":\"footerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "footerDescription" : "Every day is made of a mass of customer interactions. Weave is a refreshingly easy way to make each one count. <br><br> If you need our support team, click the chat bubble or call 1-888-579-5668 for assistance.",
+                "helpPhone" : "1-888-579-5668",
+                "referAFriendLink" : "https://www.getweave.com/refer/",
+                "showReferAFriend" : true
+              },
+              "definition" : "c:ssvFooter",
+              "id" : "a71313e3-e4fc-48d3-8341-d98af73d7050",
+              "type" : "component"
+            } ],
+            "id" : "8122e393-4253-4272-b655-08e9420a9b8c",
+            "name" : "footerSection",
+            "title" : "Theme Footer",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "fda043c1-ba36-47f6-ae22-53d973ead13a",
+          "type" : "component"
+        } ],
+        "id" : "05a39f61-d47e-4bbf-a362-16e2f4fdf436",
+        "name" : "footer",
+        "title" : "Theme Footer",
+        "type" : "region"
+      }, {
+        "id" : "4a4d12f8-bfed-4912-98d0-30b048792f9d",
+        "name" : "default",
+        "type" : "region"
+      } ],
+      "definition" : "c:ssvWeaveThemeLayout",
+      "id" : "83d78ddd-8e76-4829-9c9b-695672a455a6",
+      "type" : "component"
+    }
+  },
+  "urlName" : "weave-theme-layout"
+}

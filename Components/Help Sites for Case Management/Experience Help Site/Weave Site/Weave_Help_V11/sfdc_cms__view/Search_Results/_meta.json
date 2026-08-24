@@ -1,0 +1,5 @@
+{
+  "apiName" : "Search_Results",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

@@ -1,0 +1,177 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Login",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"4f0aef31-c2d0-4ecb-8605-a53e5e0f61d5\",\"columns\":[{\"UUID\":\"7cf42c92-4329-43d4-a4b9-5aef2a987a04\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:ssv_HandleSiteRedirect",
+              "id" : "e73aa948-6b2c-40a7-8c56-88c856c05736",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "alignment" : "center",
+                "dxpStyle" : {
+                  "padding" : {
+                    "bottom" : "20px",
+                    "left" : "20px",
+                    "right" : "20px",
+                    "top" : "20px"
+                  }
+                },
+                "imageInfo" : "",
+                "imageInfoMobile" : "",
+                "logoWidth" : 250
+              },
+              "definition" : "dxp_content_layout:siteLogo",
+              "id" : "5bfbb32d-1422-42d7-946a-7aaca431cbd6",
+              "type" : "component"
+            } ],
+            "id" : "7cf42c92-4329-43d4-a4b9-5aef2a987a04",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "4f0aef31-c2d0-4ecb-8605-a53e5e0f61d5",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"f70a6b50-c98d-40dd-9bc4-fecd862cc2dd\",\"columns\":[{\"UUID\":\"383301bd-bb14-46bd-8d53-ae704fb4c368\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"6\",\"seedComponents\":null},{\"UUID\":\"9566af9d-45fe-434c-8a6b-597947e6ff54\",\"columnName\":\"Column 2\",\"columnKey\":\"a0127\",\"columnWidth\":\"6\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : {
+                  "padding" : {
+                    "bottom" : "",
+                    "left" : "",
+                    "right" : "",
+                    "top" : ""
+                  }
+                },
+                "imageInfos" : "",
+                "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 20px;\">If you are a Weave user, please click </strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\">below to use your Weave app username</strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\"> and password to see your case details</strong><span style=\"background-color: rgb(187, 187, 187);\">﻿</span></p>"
+              },
+              "definition" : "community_builder:richTextEditor",
+              "id" : "d609bd9d-772c-40a2-8dfb-e5cbfb2ff023",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "showHeader" : false,
+                "socialLoginHeader" : "Or log in using:",
+                "useCommunityDomainSso" : true
+              },
+              "definition" : "community_login:socialLogin",
+              "id" : "b6a3ef83-9e17-49ac-8d8c-effdab59de84",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "imageInfos" : "",
+                "richTextValue" : "<p><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><span style=\"font-size: 20px;\">﻿</span></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>"
+              },
+              "definition" : "community_builder:richTextEditor",
+              "id" : "3a2d5526-08ab-4099-aa28-9687f25cea70",
+              "type" : "component"
+            } ],
+            "id" : "383301bd-bb14-46bd-8d53-ae704fb4c368",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          }, {
+            "children" : [ {
+              "attributes" : {
+                "imageInfos" : "",
+                "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 20px;\">If you are a Weave Partner or have been</strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\"> given a username and password from</strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\"> Weave to access case information, please</strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\"> enter your credentials below﻿﻿</strong><strong style=\"font-size: 20px; background-color: rgb(187, 187, 187);\">﻿</strong></p><p style=\"text-align: center;\"><strong style=\"font-size: 20px;\">﻿</strong></p>"
+              },
+              "definition" : "community_builder:richTextEditor",
+              "id" : "989fd47a-5d02-4880-925e-7ba4a5522116",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "forgotPasswordLabel" : "Forgot your password?",
+                "forgotPasswordUrl" : "/ForgotPassword",
+                "loginButtonLabel" : "Log In",
+                "passwordLabel" : "Password",
+                "selfRegisterLabel" : "Not a member?",
+                "selfRegisterUrl" : "/SelfRegister",
+                "startUrl" : "",
+                "usernameLabel" : "Username"
+              },
+              "definition" : "community_login:loginForm",
+              "id" : "24550086-8e97-43dc-92cb-f8fb40faa768",
+              "type" : "component"
+            }, {
+              "attributes" : { },
+              "definition" : "c:handleSiteRedirect",
+              "id" : "75e50d4f-e72c-48e5-b436-ff0ff6567a68",
+              "type" : "component"
+            } ],
+            "id" : "9566af9d-45fe-434c-8a6b-597947e6ff54",
+            "name" : "a0127",
+            "title" : "Column 2",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "f70a6b50-c98d-40dd-9bc4-fecd862cc2dd",
+          "type" : "component"
+        } ],
+        "id" : "72e3b326-5349-4855-9a85-81d0ef4ee864",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Login",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "5f762a51-bfc8-4ee5-acb8-5763695e0a07",
+          "type" : "component"
+        } ],
+        "id" : "8d14f0fb-c26b-4b81-9d14-bc5b947735ef",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "b4228bfa-4d81-4790-9988-27dd078bd3f4",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "SLG81p4cjVUWSBi0lbmmL6JqHxsPgb",
+    "viewType" : "login-main"
+  },
+  "urlName" : "login"
+}

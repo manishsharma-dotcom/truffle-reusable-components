@@ -1,0 +1,124 @@
+{
+  "type" : "sfdc_cms__trustedSites",
+  "title" : "trustedSites",
+  "contentBody" : {
+    "trustedSites" : [ {
+      "isActive" : true,
+      "source" : "https://www.gstatic.com",
+      "sourceName" : "gstatic"
+    }, {
+      "isActive" : true,
+      "source" : "https://www.google.com",
+      "sourceName" : "google"
+    }, {
+      "isActive" : true,
+      "source" : "https://weave--dev02.sandbox.my.site.com/ESWChatBotDeployment1722338748935/assets/js/bootstrap.min.js",
+      "sourceName" : "chatbot"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.weave--dev02.sandbox.my.site.com/ESWChatBotDeployment1722338748935/assets/js/bootstrap.min.js",
+      "sourceName" : "chat"
+    }, {
+      "isActive" : true,
+      "source" : "https://service.force.com/embeddedservice/5.0/esw.min.js",
+      "sourceName" : "chat1"
+    }, {
+      "isActive" : true,
+      "source" : "https://weave--dev02.sandbox.live-preview.salesforce-experience.com",
+      "sourceName" : "chaturl"
+    }, {
+      "isActive" : true,
+      "source" : "https://www.googletagmanager.com",
+      "sourceName" : "googletagmanager"
+    }, {
+      "isActive" : true,
+      "source" : "https://cdn.jsdelivr.net",
+      "sourceName" : "jsdelivr"
+    }, {
+      "isActive" : true,
+      "source" : "https://weave--dev02.sandbox.my.salesforce-scrt.com",
+      "sourceName" : "scrt"
+    }, {
+      "isActive" : true,
+      "source" : "https://weave-gen.ada.support",
+      "sourceName" : "gen-ada"
+    }, {
+      "isActive" : true,
+      "source" : "https://forms.getweave.com",
+      "sourceName" : "weave forms"
+    }, {
+      "isActive" : true,
+      "source" : "https://app.getweave.com",
+      "sourceName" : "weave app"
+    }, {
+      "isActive" : true,
+      "source" : "https://www.weavehelp.com/",
+      "sourceName" : "weave help"
+    }, {
+      "isActive" : true,
+      "source" : "https://www.getweave.com",
+      "sourceName" : "weave url"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.static.ada.support/embed-manifest.json",
+      "sourceName" : "Ada Support"
+    }, {
+      "isActive" : true,
+      "source" : "https://static.ada.support/embed2.js",
+      "sourceName" : "Static Ada"
+    }, {
+      "isActive" : true,
+      "source" : "https://static.ada.support/embed-manifest.json",
+      "sourceName" : "Static_ADA_1"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.static.ada.support",
+      "sourceName" : "Static_Ada_2"
+    }, {
+      "isActive" : true,
+      "source" : "https://static.ada.support/embed2.69d2a1d.js",
+      "sourceName" : "Static_Ada3"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.sandbox-weave-gen.ada.support",
+      "sourceName" : "Ada Sandbox"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.rollout.ada.support",
+      "sourceName" : "Ada_Rollout"
+    }, {
+      "isActive" : true,
+      "source" : "https://*.static.ada.support/embed2.js",
+      "sourceName" : "Static_Ada_3"
+    }, {
+      "isActive" : true,
+      "source" : "https://static.ada.support/embed2.89bdf9e.js",
+      "sourceName" : "Embed_Static_Ada"
+    }, {
+      "isActive" : true,
+      "source" : "https://cdn.jsdelivr.net/npm/search-insights@2.5.1/dist/search-insights.min.js",
+      "sourceName" : "Algolia Insights"
+    }, {
+      "isActive" : true,
+      "source" : "https://cdn.pendo.io",
+      "sourceName" : "Pendo"
+    }, {
+      "isActive" : true,
+      "source" : "https://www.clarity.ms",
+      "sourceName" : "Clarity"
+    }, {
+      "isActive" : true,
+      "source" : "https://scripts.clarity.ms/0.8.23/clarity.js",
+      "sourceName" : "MS Clarity"
+    }, {
+      "isActive" : true,
+      "source" : "https://scripts.clarity.ms/0.8.24/clarity.js",
+      "sourceName" : "MS Clarity Script New"
+    }, {
+      "isActive" : true,
+      "source" : "https://static.ada.support/embed2.a21b3af.js",
+      "sourceName" : "New ADA Script"
+    } ]
+  },
+  "urlName" : "trustedsites"
+}

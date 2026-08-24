@@ -1,0 +1,92 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "Scoped Header and Footer",
+  "contentBody" : {
+    "component" : {
+      "attributes" : { },
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "{\"url\":\"/cms/delivery/media/MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"contentKey\":\"MC37YHU46BTNGLHCFGE7VGVVVYPY\",\"altText\":\"\",\"contentType\":\"\",\"bgPosition\":\"center center\",\"bgSizeOrRepeat\":\"/cover\"}",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"9bc714a5-496d-4be9-ba8b-10908fd8fd10\",\"columns\":[{\"UUID\":\"ef050111-9c69-4c35-b3f5-d310530fcd8f\",\"columnName\":\"Column 1\",\"columnKey\":\"headerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "menuName" : "Weave_Navigation_Menu"
+              },
+              "definition" : "c:ssvWeaveNavigationMenu",
+              "id" : "4bb31879-26a1-4c52-9329-bde104b60908",
+              "type" : "component"
+            } ],
+            "id" : "ef050111-9c69-4c35-b3f5-d310530fcd8f",
+            "name" : "headerSection",
+            "title" : "Theme Header",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "9bc714a5-496d-4be9-ba8b-10908fd8fd10",
+          "type" : "component"
+        } ],
+        "id" : "ae4c9a38-3ead-4252-96b2-f1302dfd2616",
+        "name" : "header",
+        "title" : "Theme Header",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"4a069f49-3640-40b7-bf8e-70941105506e\",\"columns\":[{\"UUID\":\"68af1316-7e21-41fb-9b81-0ed25d991000\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "footerDescription" : "Every day is made of a mass of customer interactions. Weave is a refreshingly easy way to make each one count. <br><br> If you need our support team, click the chat bubble or call 1-888-579-5668 for assistance.",
+                "helpPhone" : "1-888-579-5668",
+                "referAFriendLink" : "https://www.getweave.com/refer/",
+                "showReferAFriend" : true
+              },
+              "definition" : "c:ssvFooter",
+              "id" : "9310c79b-e4bc-4724-b171-896c43c6f7b4",
+              "type" : "component"
+            } ],
+            "id" : "68af1316-7e21-41fb-9b81-0ed25d991000",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "4a069f49-3640-40b7-bf8e-70941105506e",
+          "type" : "component"
+        } ],
+        "id" : "0b368e81-bbab-459a-ae3d-fa17c43cdba3",
+        "name" : "footer",
+        "title" : "Theme Footer",
+        "type" : "region"
+      } ],
+      "definition" : "community_byo:scopedHeaderAndFooter",
+      "id" : "30120e8e-b0c4-4e30-8744-a21a0ab8cc0c",
+      "type" : "component"
+    }
+  },
+  "urlName" : "scoped-header-and-footer"
+}
