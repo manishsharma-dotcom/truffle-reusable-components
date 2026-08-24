@@ -1,0 +1,7 @@
+<apex:page showHeader="false" showChat="false" sidebar="false">
+    
+    <iframe width="560" height="315"
+        src="https://kareocustomertraining.s3.amazonaws.com/{!$CurrentPage.parameters.path}"
+        frameborder="0" allowfullscreen="true">
+    </iframe>
+</apex:page>
