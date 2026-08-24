@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventSWATSubjectChanage</fullName>
+    <active>true</active>
+    <description>SFM-11198 - prevents users from updating the subject of SWAT cases</description>
+    <errorConditionFormula>AND(
+         NOT($Permission.skipValidation),
+         ISCHANGED(Subject),
+         RecordType.DeveloperName = &quot;SWAT&quot;
+        )</errorConditionFormula>
+    <errorDisplayField>Subject</errorDisplayField>
+    <errorMessage>You are not allowed to change the subject of a SWAT Case</errorMessage>
+</ValidationRule>

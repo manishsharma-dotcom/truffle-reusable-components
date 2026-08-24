@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reasons_Required</fullName>
+    <active>false</active>
+    <description>requires onboarding to have closed won reasons when closing a case</description>
+    <errorConditionFormula>AND(
+ RecordType.DeveloperName = &apos;Onboarding&apos;,
+ ISBLANK(TEXT( Closed_Won_Reason__c )),
+ CONTAINS( $UserRole.Name, &apos;Onboarding&apos;),
+ ISCHANGED( Status ),
+ ISPICKVAL(Status, &apos;Closed&apos;)
+)</errorConditionFormula>
+    <errorDisplayField>Closed_Won_Reason__c</errorDisplayField>
+    <errorMessage>Closed Won Reason is required upon closing the case</errorMessage>
+</ValidationRule>

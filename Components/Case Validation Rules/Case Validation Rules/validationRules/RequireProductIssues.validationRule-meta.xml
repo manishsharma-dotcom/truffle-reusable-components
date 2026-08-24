@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireProductIssues</fullName>
+    <active>true</active>
+    <description>SFM-13543: requires product issues when ‘Product Functionality Issues’ is selected as the Cancellation Subreason</description>
+    <errorConditionFormula>AND(
+ NOT($Permission.skipValidation),
+ RecordType.DeveloperName = &quot;SWAT&quot;,
+ ISCHANGED(Cancellation_Subreason__c),
+ ISPICKVAL(Cancellation_Subreason__c , &quot;Product Functionality Issues&quot;),
+ ISBLANK(ProductIssues__c)
+)</errorConditionFormula>
+    <errorDisplayField>ProductIssues__c</errorDisplayField>
+    <errorMessage>Please select a Product Issue when ‘Product Functionality Issues’ is selected as the Cancellation Subreason.</errorMessage>
+</ValidationRule>

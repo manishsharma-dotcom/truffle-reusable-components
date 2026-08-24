@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swat_Case_Disc_Percent_and_Payments</fullName>
+    <active>true</active>
+    <description>If you choose yes for discount given, please give the percentage of discount and indicate if payments was upsold.</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+RecordType.DeveloperName = &quot;SWAT&quot;,
+ISPICKVAL( Discount_Given__c, &quot;Yes&quot;),
+ISCHANGED(Discount_Given__c),
+ISBLANK (  text ( Payments_Upsold__c ))
+)</errorConditionFormula>
+    <errorMessage>When &apos;yes&apos; is chosen for discount given please indicate percentage of discount and/or if payments was upsold.</errorMessage>
+</ValidationRule>

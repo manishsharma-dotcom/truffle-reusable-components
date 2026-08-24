@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContactNameRequiredForOnboarding</fullName>
+    <active>false</active>
+    <description>SFM-5169 Make &quot;Onboarding Contact&quot; Required at Onboarding Handoff for CSAT - 12.19.2022</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+RecordType.DeveloperName = &quot;Onboarding&quot;,
+ISCHANGED(Status),
+ISPICKVAL( Status , &quot;Closed&quot;),
+ISBLANK( ContactId )    
+)</errorConditionFormula>
+    <errorDisplayField>ContactId</errorDisplayField>
+    <errorMessage>You are not allowed to close an onboarding case with a blank Contact. Please update the Contact Name to the correct contact.</errorMessage>
+</ValidationRule>

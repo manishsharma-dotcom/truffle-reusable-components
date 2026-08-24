@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Onboarding_Reason_Required</fullName>
+    <active>true</active>
+    <description>SFM-12912: Required field when subreason is &apos;Onboarding Experience&apos; on picklist values in the fields: ‘Cancellation Subreason’ or ‘Secondary Cancellation Subreason’</description>
+    <errorConditionFormula>AND(
+ NOT($Permission.skipValidation),
+ RecordType.DeveloperName = &quot;SWAT&quot;,
+  OR(
+   AND(
+    ISCHANGED(Cancellation_Subreason__c),
+    ISPICKVAL(Cancellation_Subreason__c , &quot;Onboarding&quot;)
+    ),
+   AND(
+    ISCHANGED(Secondary_Cancellation_Subreason__c),
+    ISPICKVAL(Secondary_Cancellation_Subreason__c, &quot;Onboarding&quot;)
+    )
+  ),
+ ISBLANK(OnboardingExperience__c)
+)</errorConditionFormula>
+    <errorDisplayField>OnboardingExperience__c</errorDisplayField>
+    <errorMessage>You cannot leave the Onboarding Experience field blank</errorMessage>
+</ValidationRule>

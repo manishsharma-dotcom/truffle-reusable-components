@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireWhatFunctionality</fullName>
+    <active>true</active>
+    <description>SFM-12992: What Functionality? is required when selecting 1 or more ‘More Functionality&apos; values in the Desired Features field</description>
+    <errorConditionFormula>AND(
+    NOT($Permission.skipValidation)
+    ,RecordType.DeveloperName = &apos;SWAT&apos;
+    ,ISBLANK(What_functionality__c)
+    ,ISCHANGED(Desired_Features__c)
+    ,OR(
+        INCLUDES(Desired_Features__c, &apos;More WIV Functionality&apos;)
+        ,INCLUDES(Desired_Features__c, &apos;More Online Scheduling Functionality&apos;)
+        ,INCLUDES(Desired_Features__c, &apos;More Forms Functionality&apos;)
+        ,INCLUDES(Desired_Features__c, &apos;More Analytics Functionality&apos;)
+    )
+)</errorConditionFormula>
+    <errorDisplayField>What_functionality__c</errorDisplayField>
+    <errorMessage>You cannot leave the What Functionality? field blank</errorMessage>
+</ValidationRule>

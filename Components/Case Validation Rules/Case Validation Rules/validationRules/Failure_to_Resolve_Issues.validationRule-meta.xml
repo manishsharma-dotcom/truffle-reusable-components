@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Failure_to_Resolve_Issues</fullName>
+    <active>false</active>
+    <description>Failure to Resolve Issues is selected and What were the unresolved issues? is blank.</description>
+    <errorConditionFormula>AND( 
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL(Cancellation_Subreason__c, &quot;Failure to Resolve Issues&quot;),
+ISCHANGED(Cancellation_Subreason__c), 
+ISBLANK( What_were_the_unresolved_issues__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>What_were_the_unresolved_issues__c</errorDisplayField>
+    <errorMessage>Please list what the unresolved issues were.</errorMessage>
+</ValidationRule>

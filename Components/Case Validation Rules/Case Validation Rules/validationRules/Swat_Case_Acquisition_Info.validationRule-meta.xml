@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swat_Case_Acquisition_Info</fullName>
+    <active>false</active>
+    <description>If you choose acquired as the subreason, please fill in acquisition info</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+RecordType.DeveloperName = &quot;SWAT&quot;,
+ISPICKVAL(Cancellation_Subreason__c , &quot;Acquired&quot;),
+ISCHANGED(Cancellation_Subreason__c),
+ISBLANK ( Acquisition_Info__c )
+)</errorConditionFormula>
+    <errorMessage>Please enter the acquisition information</errorMessage>
+</ValidationRule>

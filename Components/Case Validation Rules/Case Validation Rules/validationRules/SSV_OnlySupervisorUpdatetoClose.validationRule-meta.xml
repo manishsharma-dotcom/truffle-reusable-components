@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSV_OnlySupervisorUpdatetoClose</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &quot;SSV_CustomerSupportEmergencyAfterHours&quot;,
+RecordType.DeveloperName = &quot;SSV_CustomerSupport&quot;,
+RecordType.DeveloperName = &quot;SSV_OwnershipTransfer&quot;
+),
+$Permission.SSV_PersonaServiceSupervisor = FALSE,
+TEXT(Status) = &quot;Closed&quot;)</errorConditionFormula>
+    <errorMessage>Only a Supervisor can update a Case to closed.</errorMessage>
+</ValidationRule>

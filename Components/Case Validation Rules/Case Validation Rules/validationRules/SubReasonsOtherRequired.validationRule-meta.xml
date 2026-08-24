@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubReasonsOtherRequired</fullName>
+    <active>true</active>
+    <description>https://getweave.atlassian.net/browse/SFM-7037</description>
+    <errorConditionFormula>AND(
+  NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+  NOT($Permission.skipValidation),
+  RecordType.DeveloperName = &quot;SWAT&quot;, 
+  ISBLANK( SubreasonsAdditionalDetails__c ), 
+ OR(
+  ISPICKVAL(Cancellation_Subreason__c, &quot;Other&quot;),
+  ISPICKVAL(Cancellation_Subreason__c, &quot;Non-Compatible Integration (PMS/External Side)&quot;),
+  INCLUDES(CancellationSubreasonDetails__c , &quot;Unfulfilled Sales Promise&quot;),
+  INCLUDES( CancellationSubreasonDetails__c , &quot;Buying Group/New Practice&quot;),
+  INCLUDES( CancellationSubreasonDetails__c , &quot;Port Day Issue Details&quot;),
+  INCLUDES( CancellationSubreasonDetails__c , &quot;Other Desired Features&quot;),
+  INCLUDES( CancellationSubreasonDetails__c , &quot;Other Product Issues&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>SubreasonsAdditionalDetails__c</errorDisplayField>
+    <errorMessage>Please fill in the Subreasons Additional Details field</errorMessage>
+</ValidationRule>

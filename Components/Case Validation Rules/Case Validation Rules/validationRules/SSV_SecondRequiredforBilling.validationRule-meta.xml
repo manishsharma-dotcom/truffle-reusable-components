@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSV_SecondRequiredforBilling</fullName>
+    <active>true</active>
+    <description>Requires a Secondary value if the Primary = Billing</description>
+    <errorConditionFormula>AND(
+NOT($Permission.SSV_PersonaServiceSupervisor),
+OR( 
+RecordType.DeveloperName  = &quot;SSV_CustomerSupportEmergencyAfterHours&quot;,
+RecordType.DeveloperName  = &quot;SSV_CustomerSupport&quot;),
+ISPICKVAL(SSV_Primary__c, &quot;NP_Billing&quot;),
+ISBLANK(TEXT(SSV_Secondary__c)))</errorConditionFormula>
+    <errorDisplayField>SSV_Secondary__c</errorDisplayField>
+    <errorMessage>If Primary is Billing then you MUST provide a Secondary field value.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnfulfilledSalesPromiseDetailsRequired</fullName>
+    <active>false</active>
+    <description>https://getweave.atlassian.net/browse/SFM-6302</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL( SalesExperience__c , &quot;Credits/Discounts&quot;),
+ISBLANK( Unfulfilledsalespromisedetails__c )
+)</errorConditionFormula>
+    <errorDisplayField>Unfulfilledsalespromisedetails__c</errorDisplayField>
+    <errorMessage>Please Enter Unfulfilled Sales Promise Details.</errorMessage>
+</ValidationRule>

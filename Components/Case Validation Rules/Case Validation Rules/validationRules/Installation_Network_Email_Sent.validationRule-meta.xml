@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Installation_Network_Email_Sent</fullName>
+    <active>true</active>
+    <description>SFM-2074</description>
+    <errorConditionFormula>AND( $Profile.Name = &apos;Installation&apos;,    PRIORVALUE(Network_Recommendation_Email_Sent__c) = TRUE, ISCHANGED(Network_Recommendation_Email_Sent__c) )</errorConditionFormula>
+    <errorMessage>You do not have permissions to make changes to Network Recommendation Email Sent.</errorMessage>
+</ValidationRule>

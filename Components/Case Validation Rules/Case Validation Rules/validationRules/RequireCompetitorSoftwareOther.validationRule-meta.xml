@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireCompetitorSoftwareOther</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL(Competitor_Software__c , &apos;Other&apos;),
+ISCHANGED(Competitor_Software__c),
+ISBLANK(CompetitorSoftwareOther__c)
+)</errorConditionFormula>
+    <errorDisplayField>CompetitorSoftwareOther__c</errorDisplayField>
+    <errorMessage>Please fill in other competitor details before closing the case.</errorMessage>
+</ValidationRule>

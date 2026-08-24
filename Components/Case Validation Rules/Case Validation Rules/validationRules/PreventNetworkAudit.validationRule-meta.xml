@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventNetworkAudit</fullName>
+    <active>true</active>
+    <description>SFM-4399</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISCHANGED(NetworkAudit__c),
+NetworkAudit__c =TRUE,
+RecordType.DeveloperName = &quot;NationwideInstall&quot;,
+OR(
+ISBLANK(Download_Speed__c),
+ISBLANK(Upload_Speed__c),
+ISPICKVAL(NAT__c,&quot;&quot;),
+ISBLANK(Latency_Packet_Loss__c ),
+ISBLANK(Latency_Highest_Spike__c ),
+ISBLANK(Jitter__c )
+)
+)</errorConditionFormula>
+    <errorDisplayField>Download_Speed__c</errorDisplayField>
+    <errorMessage>Download Speeds, Upload Speeds, NAT, Packet Loss, Latency, and Jitter must be populated before checking Network Audit</errorMessage>
+</ValidationRule>

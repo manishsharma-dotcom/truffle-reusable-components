@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Call_Quality_Issue</fullName>
+    <active>false</active>
+    <description>Other Call Quality Issue should not be blank if &apos;Other&apos; is selected in Call Quality issue</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+IF(INCLUDES(Call_Quality_Issues__c, &quot;Other&quot;),True,False),
+ISCHANGED(Call_Quality_Issues__c),
+ISBLANK(OtherCallQualityIssues__c)
+)</errorConditionFormula>
+    <errorDisplayField>OtherCallQualityIssues__c</errorDisplayField>
+    <errorMessage>Please provide further details on the Call Quality Issue</errorMessage>
+</ValidationRule>

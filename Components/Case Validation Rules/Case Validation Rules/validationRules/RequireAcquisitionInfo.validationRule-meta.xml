@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireAcquisitionInfo</fullName>
+    <active>true</active>
+    <description>SFM-12912: Acquisition Info field is required when selecting Acquired in fields: ‘Cancellation Subreason’ or ‘Secondary Cancellation Subreason’</description>
+    <errorConditionFormula>AND(
+ NOT($Permission.skipValidation),
+ RecordType.DeveloperName = &quot;SWAT&quot;,
+  OR(
+   AND(
+    ISCHANGED(Cancellation_Subreason__c),
+    ISPICKVAL(Cancellation_Subreason__c , &quot;Acquired&quot;)
+    ),
+   AND(
+    ISCHANGED(Secondary_Cancellation_Subreason__c),
+    ISPICKVAL(Secondary_Cancellation_Subreason__c, &quot;Acquired&quot;)
+    )
+  ),
+ ISBLANK(Acquisition_Info__c )
+)</errorConditionFormula>
+    <errorDisplayField>Acquisition_Info__c</errorDisplayField>
+    <errorMessage>You cannot leave the Acquisition Info field blank</errorMessage>
+</ValidationRule>

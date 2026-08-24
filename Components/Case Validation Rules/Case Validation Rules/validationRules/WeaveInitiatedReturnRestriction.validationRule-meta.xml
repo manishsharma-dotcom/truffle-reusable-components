@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WeaveInitiatedReturnRestriction</fullName>
+    <active>true</active>
+    <description>SFM-8621 : Weave Return Initiated Return Type Restriction</description>
+    <errorConditionFormula>AND(
+				NOT($Permission.skipValidationWeaveInitiatedReturn),
+				ISPICKVAL(ReturnType__c, &apos;Weave Initiated Return&apos;),
+				RecordType.DeveloperName=&apos;RMA&apos;
+)</errorConditionFormula>
+    <errorDisplayField>ReturnType__c</errorDisplayField>
+    <errorMessage>Only members of the Supply Chain Team can access &apos;Weave Initiated Return&apos; Return Type.</errorMessage>
+</ValidationRule>

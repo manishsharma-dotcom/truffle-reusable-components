@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swat_Case_Non_Compatible_Integration</fullName>
+    <active>false</active>
+    <description>If you choose non-compatible integration for subreason, please list the PMS.</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+RecordType.DeveloperName = &quot;SWAT&quot;,
+OR(
+	AND(
+		ISPICKVAL(Cancellation_Subreason__c , &quot;Non-Compatible Integration&quot;),
+		ISCHANGED(Cancellation_Subreason__c)
+	),
+	AND(
+		ISPICKVAL( Secondary_Cancellation_Subreason__c , &quot;Non-Compatible Integration&quot;),
+		ISCHANGED(Secondary_Cancellation_Subreason__c)
+	)
+	),
+ISBLANK (Non_Integrated_PMS__c)
+)</errorConditionFormula>
+    <errorDisplayField>of_Phones_Returned__c</errorDisplayField>
+    <errorMessage>Please enter the non compatible practice management software</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unclear_on_Billing</fullName>
+    <active>false</active>
+    <description>Unclear on Billing cancellation reason selected but What was unclear? is blank.</description>
+    <errorConditionFormula>AND( 
+ISPICKVAL( Cancellation_Subreason__c , &quot;Unclear on Billing&quot;), 
+ISBLANK(  What_was_unclear__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>What_was_unclear__c</errorDisplayField>
+    <errorMessage>You need to fill out what was unclear to the customer.</errorMessage>
+</ValidationRule>

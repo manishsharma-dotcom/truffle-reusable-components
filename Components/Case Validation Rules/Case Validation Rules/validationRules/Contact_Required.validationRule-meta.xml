@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Required</fullName>
+    <active>true</active>
+    <description>Contact is Required for both the Installation and Network Audit Cases</description>
+    <errorConditionFormula>AND(ContactId = &quot;&quot; ,
+Software_Only__c = FALSE,
+OR( RecordTypeId = &quot;012o0000000uDlf&quot;,
+RecordTypeId = &quot;012o0000000uCZa&quot;),
+$Profile.Name = &quot;Onboarding&quot;)</errorConditionFormula>
+    <errorMessage>A Contact is Required</errorMessage>
+</ValidationRule>

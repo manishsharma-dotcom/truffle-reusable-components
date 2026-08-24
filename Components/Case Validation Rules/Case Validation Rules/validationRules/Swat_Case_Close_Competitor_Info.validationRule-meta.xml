@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swat_Case_Close_Competitor_Info</fullName>
+    <active>true</active>
+    <description>Must enter Competitor Phone, Competitor Software, and Cancellation Reason information before closing case</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+NOT($Permission.skipValidation),
+RecordType.DeveloperName = &quot;SWAT&quot;,
+ISCHANGED(Status),
+OR (
+	ISPICKVAL ( Status, &quot;Closed Saved&quot;),
+	ISPICKVAL ( Status, &quot;Closed Cancelled&quot;)
+   ),
+OR(
+	ISBLANK ( TEXT(Competitor_Phones__c)),
+	ISBLANK ( TEXT(Competitor_Software__c)),
+        ISBLANK ( TEXT(Cancellation_Reason__c))
+  )
+)</errorConditionFormula>
+    <errorMessage>Kindly make sure that there are values in the following fields Competitor Phones, Competitor Software and Cancellation Reason before closing the case.</errorMessage>
+</ValidationRule>

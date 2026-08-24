@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSV_ResolutionRequiredFields</fullName>
+    <active>true</active>
+    <description>Status = Resolution required Platform, Need, and Outcome to be populated
+Record Type = Customer Service &amp; Emergency After Hours</description>
+    <errorConditionFormula>AND(
+				$Permission.SSV_PersonaServiceSupervisor = FALSE,
+OR(
+    RecordType.DeveloperName = &quot;SSV_CustomerSupportEmergencyAfterHours&quot;,
+    RecordType.DeveloperName = &quot;SSV_CustomerSupport&quot;,
+RecordType.DeveloperName = &quot;SSV_OwnershipTransfer&quot;
+),
+OR(
+TEXT(Status) = &quot;Solved&quot;,
+TEXT(Status) = &quot;Closed&quot;),
+OR(				
+ISBLANK(TEXT(SSV_Platform__c)),
+ISBLANK(TEXT(SSV_Primary__c)),
+ISBLANK(TEXT(SSV_Need__c)),
+ISBLANK(TEXT(SSV_Outcome__c)))
+				)</errorConditionFormula>
+    <errorMessage>Can&apos;t update the Status to Resolved until there are values populated for Platform, Primary, Need and Outcome.</errorMessage>
+</ValidationRule>

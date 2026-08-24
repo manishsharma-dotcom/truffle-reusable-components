@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherDesiredFeaturesRequired</fullName>
+    <active>true</active>
+    <description>SFM-12992: Other Desired Features is required when selecting ‘Other’ in the Desired Features field</description>
+    <errorConditionFormula>AND(
+    NOT($Permission.skipValidation)
+    ,RecordType.DeveloperName = &quot;SWAT&quot;
+    ,INCLUDES(Desired_Features__c, &apos;Other&apos;)
+    ,ISBLANK(OtherDesiredFeatures__c)
+    ,ISCHANGED(Desired_Features__c)
+)</errorConditionFormula>
+    <errorDisplayField>OtherDesiredFeatures__c</errorDisplayField>
+    <errorMessage>You cannot leave the Other Desired Features field blank</errorMessage>
+</ValidationRule>

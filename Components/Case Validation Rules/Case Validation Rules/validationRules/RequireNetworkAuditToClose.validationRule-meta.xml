@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireNetworkAuditToClose</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISCHANGED(Status),
+ISPICKVAL(Status, &quot;Closed&quot;),
+NetworkAudit__c = FALSE,
+RecordType.DeveloperName = &quot;NationwideInstall&quot;,
+NOT(CONTAINS(TEXT(Account.Product_Bundle__c), &quot;Software Only&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>NetworkAudit__c</errorDisplayField>
+    <errorMessage>Network Audit must be completed before marking a case as closed</errorMessage>
+</ValidationRule>

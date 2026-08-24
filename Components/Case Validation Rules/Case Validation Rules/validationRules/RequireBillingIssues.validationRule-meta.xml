@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireBillingIssues</fullName>
+    <active>true</active>
+    <description>SFM-12912: Required field when subreason is &apos;Billing Issues&apos; on picklist values in the fields: ‘Cancellation Subreason’ or ‘Secondary Cancellation Subreason’</description>
+    <errorConditionFormula>AND(
+ NOT($Permission.skipValidation),
+ RecordType.DeveloperName = &quot;SWAT&quot;,
+  OR(
+   AND(
+    ISCHANGED(Cancellation_Subreason__c),
+    ISPICKVAL(Cancellation_Subreason__c , &quot;Billing Issues&quot;)
+    ),
+   AND(
+    ISCHANGED(Secondary_Cancellation_Subreason__c),
+    ISPICKVAL(Secondary_Cancellation_Subreason__c, &quot;Billing Issues&quot;)
+    )
+  ),
+ ISBLANK(BillingIssues__c)
+)</errorConditionFormula>
+    <errorDisplayField>BillingIssues__c</errorDisplayField>
+    <errorMessage>You cannot leave the Billing Issues field blank</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSV_CannotMoveCaseToResolvedOrClosed</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( $Permission.SSV_PersonaServiceSupervisor = False, 
+OR( ISPICKVAL(Status, &quot;Closed&quot;), ISPICKVAL(Status, &quot;Solved&quot;) ), SSV_Linear_Ticket_Status__c &lt;&gt; &quot;Done&quot;, 
+OR( RecordType.DeveloperName = &quot;SSV_CustomerSupport&quot;, RecordType.DeveloperName = &quot;SSV_CustomerSupportEmergencyAfterHours&quot;,
+RecordType.DeveloperName = &quot;SSV_OwnershipTransfer&quot;) )</errorConditionFormula>
+    <errorMessage>Case Status Cannot be moved to Closed or Solved until Related Linear Ticket is still Open</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Analytics_Case_Needs_Training_Sent</fullName>
+    <active>false</active>
+    <description>The &quot;send training video&quot; checkbox in the analytics case is required in order to close the case</description>
+    <errorConditionFormula>AND( RecordTypeId =&apos;0123l000001haI0&apos; ,  TEXT(Status )=&apos;Closed&apos;)</errorConditionFormula>
+    <errorMessage>You must Send Training video before closing this case</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swat_Case_Multi_Specific_Desired_Feature</fullName>
+    <active>false</active>
+    <description>Multi Specific Desired Features is selected but the Multi Specific Desired Features picklist is blank.</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL(Cancellation_Subreason__c, &quot;Multi Specific Desired Features&quot;),
+ISCHANGED(Cancellation_Subreason__c),
+ISBLANK(Multi_Specific_Desired_Features__c)
+)</errorConditionFormula>
+    <errorDisplayField>Multi_Specific_Desired_Features__c</errorDisplayField>
+    <errorMessage>What multi specific features does the office want?</errorMessage>
+</ValidationRule>

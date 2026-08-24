@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_case_3rd_Party_Software_only</fullName>
+    <active>false</active>
+    <description>Weave Plus/ Weave Core Software Only</description>
+    <errorConditionFormula>AND(Ispickval(Account.Installation_Type__c, &apos;3rd Party Install (Onsite)&apos;),
+OR($Profile.Name = &quot;Onboarding&quot;,
+$Profile.Name = &quot;Onboarding Manager&quot;,
+$Profile.Name = &quot;Installation&quot;
+),
+RecordTypeId =&apos;0123l000001M8tq&apos;,
+OR(Product_Bundle__c =&apos;WeaveCore (Software Only)&apos;,
+Product_Bundle__c =&apos;WeavePlus (Software Only)&apos;),
+$Permission.skipValidation = false,
+Ispickval(Status, &apos;Closed&apos;),
+Ischanged(Status)
+)</errorConditionFormula>
+    <errorMessage>The following fields are required to close 3rd Party Install Cases (Software Only): Initial Software Install Complete</errorMessage>
+</ValidationRule>

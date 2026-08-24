@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enter_URL_for_Linear_Record</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+   OR(
+      ISBLANK(SSV_RelatedLinearRecord__c), 
+      REGEX(SSV_RelatedLinearRecord__c, &quot;^(https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}(:[0-9]+)?(/.*)?$)&quot;)
+   )
+)</errorConditionFormula>
+    <errorMessage>Only URLs are allowed in the Related Linear Record field.</errorMessage>
+</ValidationRule>

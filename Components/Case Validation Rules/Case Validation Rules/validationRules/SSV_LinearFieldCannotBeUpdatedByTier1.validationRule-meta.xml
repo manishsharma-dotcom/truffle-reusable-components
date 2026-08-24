@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSV_LinearFieldCannotBeUpdatedByTier1</fullName>
+    <active>false</active>
+    <description>Tier 1 agent cannot update the &quot;Related Linear Record&quot; field.</description>
+    <errorConditionFormula>$Permission.SSV_PersonaTier1 
+	 &amp;&amp; 
+ISCHANGED(	 SSV_RelatedLinearRecord__c )</errorConditionFormula>
+    <errorMessage>Tier 1 Agents are not allowed to update the Related Linear Record field.</errorMessage>
+</ValidationRule>

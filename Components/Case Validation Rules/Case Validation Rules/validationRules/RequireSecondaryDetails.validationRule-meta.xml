@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireSecondaryDetails</fullName>
+    <active>false</active>
+    <description>SFM-7905</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+NOT($Permission.skipValidation),
+RecordType.DeveloperName = &quot;SWAT&quot;,
+ISBLANK( SecondaryCancellationSubreasonDetails__c ),
+OR(
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Onboarding&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Sales&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Support&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Call Quality Issues&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Network Compatibility&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Commitment Issues&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Acquired/Change of Ownership (Different Provider)&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Port Day Issue&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Desired Features&quot;),
+ISPICKVAL( Secondary_Cancellation_Subreason__c, &quot;Software Issues&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>SecondaryCancellationSubreasonDetails__c</errorDisplayField>
+    <errorMessage>Secondary Cancellation Subreason Details is required</errorMessage>
+</ValidationRule>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventStatusUpdateIfCaseCompleted</fullName>
+    <active>true</active>
+    <description>Case Status should not revoke to previous values after Case Status is updated to “Completed“. Network Value team should be blocked from updated the Network Value Status field when Case Status = Completed</description>
+    <errorConditionFormula>AND(
+    OR(
+        AND(
+            TEXT(PRIORVALUE(Status)) = &apos;Complete&apos;,
+            OR(
+                $Profile.Name = &apos;System Administrator&apos;,
+                $Profile.Name  = &apos;API Only&apos;
+            )
+        ),
+        AND(
+            NOT(
+                AND(
+                    TEXT(PRIORVALUE(Status)) &lt;&gt; &apos;Complete&apos;,
+                    OR(
+                        TEXT(Status) = &apos;Pending RMA Number&apos;,
+                        TEXT(Status) =&apos;Complete&apos;,
+                        TEXT(Status) = &apos;Cancelled&apos;
+                    ),
+                    OR(	
+                        $User.LastName = &apos;Dwiggins&apos;,
+                        $User.LastName = &apos;Marcelo&apos;,
+                        $User.LastName = &apos;Rasmussen&apos;,
+                        $User.LastName = &apos;Jackson&apos;
+                    )    
+                )
+            ),
+            NOT(
+                OR(
+                    $Profile.Name = &apos;System Administrator&apos;,
+                    $Profile.Name  = &apos;API Only&apos;
+                )
+            )
+        )
+    ),
+				TEXT(PRIORVALUE(Status)) = &apos;Complete&apos;,
+    RecordType.DeveloperName = &apos;RMA&apos;,
+    ISCHANGED(Status)
+)</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Cannot change case status.Please check if the case status is complete or you have the right access.</errorMessage>
+</ValidationRule>

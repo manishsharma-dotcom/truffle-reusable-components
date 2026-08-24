@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Software_Issues</fullName>
+    <active>false</active>
+    <description>Product issue is selected but the Software issues picklist is blank</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL(Cancellation_Subreason__c, &quot;Software Issues&quot;), 
+ISCHANGED(Cancellation_Subreason__c),
+ISBLANK( ProductIssues__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>ProductIssues__c</errorDisplayField>
+    <errorMessage>What were the software issues that they had?</errorMessage>
+</ValidationRule>

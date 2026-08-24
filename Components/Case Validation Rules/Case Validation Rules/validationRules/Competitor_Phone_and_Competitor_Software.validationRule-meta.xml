@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Phone_and_Competitor_Software</fullName>
+    <active>true</active>
+    <description>Competitor Phones is selected as Other and there&apos;s nothing in Cancel Summary.</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+OR(
+	AND(
+		ISPICKVAL(Competitor_Phones__c, &quot;Other&quot; ),
+		ISCHANGED(Competitor_Phones__c)
+	),
+	AND (
+		ISPICKVAL(Competitor_Software__c , &quot;Other&quot; ),
+		ISCHANGED(Competitor_Software__c)
+	)
+	
+	),
+ISBLANK( Cancel_Summary__c ))</errorConditionFormula>
+    <errorMessage>You need to specify what the Competitor is using in the Cancel Summary!</errorMessage>
+</ValidationRule>

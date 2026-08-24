@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desired_Features</fullName>
+    <active>true</active>
+    <description>SFM-12912: Desired Features or Elevated Functionality is selected but the Desired Features picklist is blank</description>
+    <errorConditionFormula>AND(
+ NOT($Permission.skipValidation),
+ RecordType.DeveloperName = &quot;SWAT&quot;,
+  OR(
+   AND(
+    ISCHANGED(Cancellation_Subreason__c),
+    OR(
+     ISPICKVAL(Cancellation_Subreason__c , &quot;Desired Features&quot;),
+     ISPICKVAL(Cancellation_Subreason__c , &quot;Elevated Functionality&quot;)
+     )
+    ),
+   AND(
+    ISCHANGED(Secondary_Cancellation_Subreason__c),
+    OR(
+     ISPICKVAL(Secondary_Cancellation_Subreason__c, &quot;Desired Features&quot;),
+     ISPICKVAL(Secondary_Cancellation_Subreason__c, &quot;Elevated Functionality&quot;)
+     )
+    )
+  ),
+ ISBLANK(Desired_Features__c)
+)</errorConditionFormula>
+    <errorDisplayField>Desired_Features__c</errorDisplayField>
+    <errorMessage>What features does the office want?</errorMessage>
+</ValidationRule>

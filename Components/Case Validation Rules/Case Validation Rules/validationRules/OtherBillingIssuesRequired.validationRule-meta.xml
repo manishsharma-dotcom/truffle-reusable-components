@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherBillingIssuesRequired</fullName>
+    <active>true</active>
+    <description>SFM-12992: Other Billing Issues is required when selecting ‘Other’ in the Billing Issues field</description>
+    <errorConditionFormula>AND(
+    NOT($Permission.skipValidation)
+    ,RecordType.DeveloperName = &quot;SWAT&quot;
+    ,ISBLANK(OtherBillingIssues__c)
+    ,INCLUDES(BillingIssues__c, &apos;Other&apos;)
+)</errorConditionFormula>
+    <errorDisplayField>OtherBillingIssues__c</errorDisplayField>
+    <errorMessage>You cannot leave the Other Billing Issues field blank</errorMessage>
+</ValidationRule>

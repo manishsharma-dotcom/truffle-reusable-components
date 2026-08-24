@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Quality_Issues</fullName>
+    <active>false</active>
+    <description>Network Compatibility/Call Quality was selected but the Call quality issues picklist is blank</description>
+    <errorConditionFormula>AND(
+NOT($Setup.ValidationSetting__c.ByPassAllValidationRules__c),
+ISPICKVAL(Cancellation_Subreason__c, &quot;Network Compatibility/Call Quality&quot;), 
+ISCHANGED(Cancellation_Subreason__c),
+ISBLANK( Call_Quality_Issues__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>Call_Quality_Issues__c</errorDisplayField>
+    <errorMessage>Please selected what their issues were.</errorMessage>
+</ValidationRule>

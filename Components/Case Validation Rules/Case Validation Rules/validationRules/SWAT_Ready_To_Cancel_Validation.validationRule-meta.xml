@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SWAT_Ready_To_Cancel_Validation</fullName>
+    <active>true</active>
+    <description>SFM-16080 : PMS Guardrail in order to check &apos;Ready to Cancel&apos;</description>
+    <errorConditionFormula>AND(
+    NOT($Permission.skipValidation),
+    RecordType.DeveloperName = &quot;SWAT&quot;,
+    ReadyToCancel__c = TRUE,
+    OR(
+        ISBLANK(Account.Software__c),
+        CONTAINS(Account.Software__r.Name, &quot;Other&quot;), 
+        CONTAINS(Account.Software__r.Name, &quot;Unknown&quot;),
+        ISBLANK(TEXT(Competitor_Software__c)),
+        ISBLANK(TEXT(Competitor_Phones__c))
+    )
+)</errorConditionFormula>
+    <errorDisplayField>ReadyToCancel__c</errorDisplayField>
+    <errorMessage>Please add a valid Account PMS and fill in both Competitor Software and Competitor Phones to proceed.</errorMessage>
+</ValidationRule>

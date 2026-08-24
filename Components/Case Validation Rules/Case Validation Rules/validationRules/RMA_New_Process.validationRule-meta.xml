@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_New_Process</fullName>
+    <active>false</active>
+    <description>RMA cases created will no longer be able to be changed to the Cases Shipping Queue</description>
+    <errorConditionFormula>AND(Case_Owner_ID__c = &quot;00Go0000001vvGt&quot;,
+$User.Id &lt;&gt; &quot;005o0000000kHHF&quot;,
+$User.Id &lt;&gt; &quot;0051N000007GAMn&quot;,
+$Profile.Id &lt;&gt; &quot;00eo0000000pezo&quot;)</errorConditionFormula>
+    <errorMessage>Returns are no longer processed through cases, please go to the account page and create a return order</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cases_Bugs</fullName>
+    <active>true</active>
+    <description>Must be tech support to label as &apos;Bug&apos;</description>
+    <errorConditionFormula>AND(OR(TEXT(Status) = &quot;Bug - Pending&quot;,TEXT(Status) = &quot;Bug Resolved&quot;),   $User.ProfileId   = &quot;00eo0000000ds7S&quot;)</errorConditionFormula>
+    <errorMessage>Case must be confirmed as a bug by your manager or Tech Support</errorMessage>
+</ValidationRule>
